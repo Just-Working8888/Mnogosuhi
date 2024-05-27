@@ -1,0 +1,54 @@
+@import "../../scss/variables/colors.module.scss";
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+.main {
+    max-width: $maxWidth;
+    padding: 0 1rem;
+    margin: 0 auto;
+    width: 100%;
+
+    &_numbers {
+        padding: 150px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &_item {
+            display: flex;
+            gap: 1rem;
+
+            h1 {
+                font-family: "Monoton" !important;
+                color: $primary50;
+
+            }
+
+            h3 {
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            p {
+                color: #6F6F87;
+                font-size: 15px;
+
+            }
+        }
+    }
+}
+@media(max-width:1200px) {
+    .main {
+        max-width: 960px;
+    }
+}
+@media(max-width:970px) {
+    .main {
+        max-width: 720px;
+    }
+}
+@media(max-width:768px) {
+    .main {
+        max-width: 540px;
+    }
+}

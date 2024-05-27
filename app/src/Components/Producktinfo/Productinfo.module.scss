@@ -1,0 +1,138 @@
+@import '../../scss/variables/colors.module.scss';
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+
+    p {
+        margin: 0;
+        color: #6F6F87;
+        margin: 0;
+        font-size: 15px;
+    }
+
+    &_left {
+        width: 100%;
+    }
+
+    &_right {
+        padding: 0 15px;
+        width: 100%;
+
+        &_item {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+
+
+            h1 {
+
+
+                font-family: 'Monoton', cursive;
+                color: $primary50;
+                margin-right: 15px;
+                font-size: 22px;
+                line-height: 22px;
+            }
+
+
+            h2 {
+                line-height: 120%;
+                font-size: 16px;
+                letter-spacing: 0;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            h3 {
+                font-size: 14px;
+                color: #6F6F87;
+                margin: 0;
+                line-height: 1;
+                font-size: 15px;
+            }
+        }
+
+        &_count {
+            margin: 0 5px;
+            text-align: center;
+            height: 50px;
+            width: 60px;
+            background-color: #F9FAFC;
+            display: flex;
+            justify-content: center;
+            border: none;
+            align-items: center;
+        }
+
+        button {
+            height: 50px;
+            font-weight: 500;
+        }
+
+        &_toggle {
+            color: white;
+            border-radius: 50%;
+            background-color: $primary50;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        &_title {
+            width: 100%;
+            display: flex;
+
+            h1 {
+                line-height: 120%;
+                font-size: 22px;
+                letter-spacing: -1px;
+                font-weight: 600;
+            }
+
+            height: 70px;
+
+            &_price {
+                height: 70px;
+                background-color: $primary50;
+                padding: 0 20px;
+                color: white;
+                font-weight: 500;
+                font-size: 32px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:970px) {
+    .main {
+        flex-direction: column;
+    }
+
+}
+
+
+@media(max-width:500px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .main_right_item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

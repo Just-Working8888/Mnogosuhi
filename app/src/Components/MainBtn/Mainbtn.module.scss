@@ -1,0 +1,35 @@
+@import '../../scss/variables/colors.module.scss';
+
+.button {
+
+    opacity: 1;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transform: scale(1);
+    height: 55px;
+    letter-spacing: 0;
+    gap: 1rem;
+    padding: 0 10px;
+    font-size: 14px;
+
+    background-color: $primary50;
+    color: white;
+    transition: 0.3s ease-in-out;
+    white-space: nowrap;
+ 
+
+    font-weight: 500;
+
+
+    span {
+        font-size: 20px;
+    }
+
+    &:hover {
+        background-color: $primary100;
+    }
+
+}

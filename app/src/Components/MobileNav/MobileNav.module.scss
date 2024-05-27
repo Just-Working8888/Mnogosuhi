@@ -1,0 +1,22 @@
+@import '../../scss/variables/colors.module.scss';
+
+.main {
+    background-color: rgba(240, 248, 255, 0.168);
+
+    &_container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, 0.05);
+        height: 100vh;
+        padding: 1rem;
+
+        ol {
+            li {
+                text-align: center;
+                padding: 1rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

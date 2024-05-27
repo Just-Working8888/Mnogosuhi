@@ -1,0 +1,110 @@
+@import '../../scss/variables/colors.module.scss';
+
+.main {
+    width: 100%;
+
+    &_head {
+        h1 {
+            line-height: 110%;
+            font-size: 40px;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #6F6F87;
+            margin: 0;
+            font-size: 15px;
+        }
+    }
+
+    &_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+
+        &_item {
+            padding: 20px;
+
+            &:hover {
+
+
+
+                img {
+                    top: 20%;
+                }
+
+                .main_container_item_image_cerkle {
+                    width: 50px;
+                    height: 50px;
+                }
+
+
+
+            }
+
+            h1 {
+                line-height: 120%;
+                font-size: 22px;
+                letter-spacing: -1px;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            p {
+                color: #6F6F87;
+                margin: 0;
+                font-size: 15px;
+            }
+
+
+
+            &_image {
+                position: relative;
+                width: 80px;
+                transition: 0.3s;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                    position: absolute;
+                    z-index: 11;
+                    left: 50%;
+                    top: 40%;
+                    transform: translate(-50%, -50%);
+                    transition: 0.3s;
+                }
+
+                &_cerkle {
+                    transition: 0.3s;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: "";
+                    background-color: $primary50;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    bottom: -40px;
+                    opacity: 0.8;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+
+        }
+    }
+}
+
+
+
+@media(max-width:970px) {
+    .main_container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}

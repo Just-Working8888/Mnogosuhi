@@ -1,0 +1,21 @@
+.card_start {
+    h4 {
+        line-height: 120%;
+        font-size: 16px;
+        letter-spacing: 0;
+    }
+
+    p {
+        color: #6F6F87;
+        margin: 0;
+        font-size: 14px;
+    }
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.custom-table .ant-table-cell {
+    border-top: none !important;
+}

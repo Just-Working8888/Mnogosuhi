@@ -1,0 +1,41 @@
+{
+    "id": 1,
+    "user_id": 101,
+    "total_cost": 150.75,
+    "cart_items": [
+        {
+            "id": 1,
+            "cart": 1,
+            "product": {
+                "id": 201,
+                "name": "Product A",
+                "price": 50.25,
+                "description": "Description of Product A",
+                "category": "Category A",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
+                "old_price": 123,
+                "product_code": 12342524,
+                "title": "Product A"
+            },
+            "quantity": 2,
+            "is_selected": true
+        },
+        {
+            "id": 2,
+            "cart": 1,
+            "product": {
+                "id": 202,
+                "name": "Product B",
+                "price": 25.75,
+                "description": "Description of Product B",
+                "category": "Category B",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
+                "old_price": 123,
+                "product_code": 12342524,
+                "title": "Product A"
+            },
+            "quantity": 1,
+            "is_selected": false
+        }
+    ]
+}

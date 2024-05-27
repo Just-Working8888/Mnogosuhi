@@ -1,0 +1,592 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Geography",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-75qSBNjrnHdEIXWBlf68q5XJp0apsxKktHhqbB_g_A&s",
+      "questions": [
+        {
+          "question": "What is the capital of France?",
+          "options": [
+            "Paris",
+            "London",
+            "Berlin",
+            "Rome"
+          ],
+          "correctAnswer": "Paris"
+        },
+        {
+          "question": "Which planet is known as the Red Planet?",
+          "options": [
+            "Mars",
+            "Venus",
+            "Jupiter",
+            "Saturn"
+          ],
+          "correctAnswer": "Mars"
+        },
+        {
+          "question": "What is the world's largest ocean?",
+          "options": [
+            "Pacific",
+            "Atlantic",
+            "Indian",
+            "Arctic"
+          ],
+          "correctAnswer": "Pacific"
+        },
+        {
+          "question": "Which is the longest river in the world?",
+          "options": [
+            "Nile",
+            "Amazon",
+            "Yangtze",
+            "Mississippi"
+          ],
+          "correctAnswer": "Nile"
+        },
+        {
+          "question": "What is the tallest mountain in the world?",
+          "options": [
+            "Mount Everest",
+            "K2",
+            "Kangchenjunga",
+            "Lhotse"
+          ],
+          "correctAnswer": "Mount Everest"
+        },
+        {
+          "question": "What is the largest desert in the world?",
+          "options": [
+            "Sahara",
+            "Arabian",
+            "Gobi",
+            "Kalahari"
+          ],
+          "correctAnswer": "Sahara"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "History",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfl0ztIxMEHq8KgaAB-Cd6O3wka8y_jO-jt3c1B0UJlw&s",
+      "questions": [
+        {
+          "question": "Who was the first president of the United States?",
+          "options": [
+            "George Washington",
+            "Thomas Jefferson",
+            "John Adams",
+            "Abraham Lincoln"
+          ],
+          "correctAnswer": "George Washington"
+        },
+        {
+          "question": "When did World War II end?",
+          "options": [
+            "1945",
+            "1939",
+            "1941",
+            "1943"
+          ],
+          "correctAnswer": "1945"
+        },
+        {
+          "question": "What year did Christopher Columbus discover America?",
+          "options": [
+            "1492",
+            "1507",
+            "1532",
+            "1565"
+          ],
+          "correctAnswer": "1492"
+        },
+        {
+          "question": "Who wrote 'Romeo and Juliet'?",
+          "options": [
+            "William Shakespeare",
+            "Charles Dickens",
+            "Jane Austen",
+            "Mark Twain"
+          ],
+          "correctAnswer": "William Shakespeare"
+        },
+        {
+          "question": "Which civilization built the Machu Picchu?",
+          "options": [
+            "Inca",
+            "Maya",
+            "Aztec",
+            "Egyptian"
+          ],
+          "correctAnswer": "Inca"
+        },
+        {
+          "question": "Which year did the Berlin Wall fall?",
+          "options": [
+            "1989",
+            "1991",
+            "1987",
+            "1990"
+          ],
+          "correctAnswer": "1989"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Science",
+      "image": "https://img.freepik.com/free-vector/colorful-science-objects-icons-vector-set_1308-131708.jpg",
+      "questions": [
+        {
+          "question": "What is the chemical symbol for water?",
+          "options": [
+            "H2O",
+            "CO2",
+            "N2",
+            "O2"
+          ],
+          "correctAnswer": "H2O"
+        },
+        {
+          "question": "What is the largest organ in the human body?",
+          "options": [
+            "Skin",
+            "Heart",
+            "Liver",
+            "Brain"
+          ],
+          "correctAnswer": "Skin"
+        },
+        {
+          "question": "What is the closest planet to the Sun?",
+          "options": [
+            "Mercury",
+            "Venus",
+            "Earth",
+            "Mars"
+          ],
+          "correctAnswer": "Mercury"
+        },
+        {
+          "question": "What is the process by which plants make their own food called?",
+          "options": [
+            "Photosynthesis",
+            "Respiration",
+            "Transpiration",
+            "Digestion"
+          ],
+          "correctAnswer": "Photosynthesis"
+        },
+        {
+          "question": "What is the unit of measurement for force?",
+          "options": [
+            "Newton",
+            "Watt",
+            "Volt",
+            "Ampere"
+          ],
+          "correctAnswer": "Newton"
+        },
+        {
+          "question": "What is the study of earthquakes called?",
+          "options": [
+            "Seismology",
+            "Meteorology",
+            "Geology",
+            "Botany"
+          ],
+          "correctAnswer": "Seismology"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Literature",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKZzHSn7n8xN1IcJuAZXxQFAGm2cJKwFML88QrPnmr2w&s",
+      "questions": [
+        {
+          "question": "Who wrote 'To Kill a Mockingbird'?",
+          "options": [
+            "Harper Lee",
+            "F. Scott Fitzgerald",
+            "John Steinbeck",
+            "Ernest Hemingway"
+          ],
+          "correctAnswer": "Harper Lee"
+        },
+        {
+          "question": "What is the name of the hobbit in 'The Lord of the Rings'?",
+          "options": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Bilbo Baggins",
+            "Gandalf"
+          ],
+          "correctAnswer": "Frodo Baggins"
+        },
+        {
+          "question": "Who wrote 'Pride and Prejudice'?",
+          "options": [
+            "Jane Austen",
+            "Emily Bronte",
+            "Charlotte Bronte",
+            "Thomas Hardy"
+          ],
+          "correctAnswer": "Jane Austen"
+        },
+        {
+          "question": "What is the name of Sherlock Holmes' companion?",
+          "options": [
+            "Dr. John Watson",
+            "Inspector Lestrade",
+            "Mycroft Holmes",
+            "Irene Adler"
+          ],
+          "correctAnswer": "Dr. John Watson"
+        },
+        {
+          "question": "What is the famous line from Shakespeare's 'Hamlet'?",
+          "options": [
+            "To be or not to be, that is the question",
+            "All the world's a stage",
+            "Romeo, Romeo! Wherefore art thou Romeo?",
+            "To thine own self be true"
+          ],
+          "correctAnswer": "To be or not to be, that is the question"
+        },
+        {
+          "question": "What is the name of the monster in 'Frankenstein'?",
+          "options": [
+            "Frankenstein",
+            "Victor",
+            "The Creature",
+            "Igor"
+          ],
+          "correctAnswer": "The Creature"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Sports",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlXOS58E8_ytGrW5_3Cu1QTxF7Tx3cVqxhweEQROwu-Q&s",
+      "questions": [
+        {
+          "question": "Which sport is played at Wimbledon?",
+          "options": [
+            "Tennis",
+            "Soccer",
+            "Golf",
+            "Cricket"
+          ],
+          "correctAnswer": "Tennis"
+        },
+        {
+          "question": "Who is known as 'The Greatest' in boxing?",
+          "options": [
+            "Muhammad Ali",
+            "Mike Tyson",
+            "Floyd Mayweather",
+            "Manny Pacquiao"
+          ],
+          "correctAnswer": "Muhammad Ali"
+        },
+        {
+          "question": "In which country did the sport of judo originate?",
+          "options": [
+            "Japan",
+            "China",
+            "Korea",
+            "Brazil"
+          ],
+          "correctAnswer": "Japan"
+        },
+        {
+          "question": "What is the term for a perfect score in bowling?",
+          "options": [
+            "300",
+            "100",
+            "200",
+            "400"
+          ],
+          "correctAnswer": "300"
+        },
+        {
+          "question": "Which country has won the most FIFA World Cup titles?",
+          "options": [
+            "Brazil",
+            "Germany",
+            "Italy",
+            "Argentina"
+          ],
+          "correctAnswer": "Brazil"
+        },
+        {
+          "question": "What is the distance of a marathon race in kilometers?",
+          "options": [
+            "42.195",
+            "21.0975",
+            "50",
+            "100"
+          ],
+          "correctAnswer": "42.195"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Technology",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2MDVUS4AIbxiPx1aALU6RdmhDStHxDDz4b7K1SlK6vg&s",
+      "questions": [
+        {
+          "question": "Who is the CEO of Tesla Motors?",
+          "options": [
+            "Elon Musk",
+            "Jeff Bezos",
+            "Mark Zuckerberg",
+            "Tim Cook"
+          ],
+          "correctAnswer": "Elon Musk"
+        },
+        {
+          "question": "What does CPU stand for?",
+          "options": [
+            "Central Processing Unit",
+            "Computer Processing Unit",
+            "Central Program Unit",
+            "Computer Program Unit"
+          ],
+          "correctAnswer": "Central Processing Unit"
+        },
+        {
+          "question": "Which company developed the Android operating system?",
+          "options": [
+            "Google",
+            "Apple",
+            "Microsoft",
+            "Samsung"
+          ],
+          "correctAnswer": "Google"
+        },
+        {
+          "question": "What is the programming language used to build Android apps?",
+          "options": [
+            "Java",
+            "Python",
+            "C++",
+            "Swift"
+          ],
+          "correctAnswer": "Java"
+        },
+        {
+          "question": "What is the name of the first web browser?",
+          "options": [
+            "Nexus",
+            "Internet Explorer",
+            "Mosaic",
+            "Firefox"
+          ],
+          "correctAnswer": "Mosaic"
+        },
+        {
+          "question": "What does URL stand for?",
+          "options": [
+            "Uniform Resource Locator",
+            "Unified Resource Locator",
+            "Universal Resource Locator",
+            "Unit Resource Locator"
+          ],
+          "correctAnswer": "Uniform Resource Locator"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "id": "1",
+      "href": "https://ant.design",
+      "title": "ant design part 0",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=0",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "2",
+      "href": "https://ant.design",
+      "title": "ant design part 1",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=1",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "3",
+      "href": "https://ant.design",
+      "title": "ant design part 2",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=2",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "4",
+      "href": "https://ant.design",
+      "title": "ant design part 3",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=3",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "5",
+      "href": "https://ant.design",
+      "title": "ant design part 4",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=4",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "6",
+      "href": "https://ant.design",
+      "title": "ant design part 5",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=5",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "7",
+      "href": "https://ant.design",
+      "title": "ant design part 6",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=6",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "8",
+      "href": "https://ant.design",
+      "title": "ant design part 7",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=7",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "9",
+      "href": "https://ant.design",
+      "title": "ant design part 8",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=8",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "10",
+      "href": "https://ant.design",
+      "title": "ant design part 9",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=9",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "11",
+      "href": "https://ant.design",
+      "title": "ant design part 10",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=10",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "12",
+      "href": "https://ant.design",
+      "title": "ant design part 11",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=11",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "13",
+      "href": "https://ant.design",
+      "title": "ant design part 12",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=12",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "14",
+      "href": "https://ant.design",
+      "title": "ant design part 13",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=13",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "15",
+      "href": "https://ant.design",
+      "title": "ant design part 14",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=14",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "16",
+      "href": "https://ant.design",
+      "title": "ant design part 15",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=15",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "17",
+      "href": "https://ant.design",
+      "title": "ant design part 16",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=16",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "18",
+      "href": "https://ant.design",
+      "title": "ant design part 17",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=17",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "19",
+      "href": "https://ant.design",
+      "title": "ant design part 18",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=18",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "20",
+      "href": "https://ant.design",
+      "title": "ant design part 19",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=19",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "21",
+      "href": "https://ant.design",
+      "title": "ant design part 20",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=20",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "22",
+      "href": "https://ant.design",
+      "title": "ant design part 21",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=21",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    },
+    {
+      "id": "23",
+      "href": "https://ant.design",
+      "title": "ant design part 22",
+      "avatar": "https://api.dicebear.com/7.x/miniavs/svg?seed=22",
+      "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+      "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
+    }
+  ]
+}

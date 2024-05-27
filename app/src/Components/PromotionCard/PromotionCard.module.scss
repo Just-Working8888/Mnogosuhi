@@ -1,0 +1,82 @@
+@import '../../scss/variables/colors.module.scss';
+
+.PromotionCard {
+    width: 100%;
+    position: relative;
+    background-color: #F9FAFC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 30px 0 30px 30px;
+    box-shadow: 0 0 0 2px #FFFFFF;
+
+    img {
+        width: 100%;
+        height: 200px;
+    }
+
+    &_left {
+        h1 {
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            letter-spacing: -1px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #6F6F87;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        button {
+            color: white;
+            background-color: $primary50;
+            border: none;
+            height: 55px;
+            transition: 0.3s;
+            padding: 0 30px;
+
+            &:hover {
+                background-color: $primary100
+            }
+        }
+    }
+
+}
+
+.circle {
+    position: absolute;
+    right: 19px;
+    height: 60px;
+    bottom: 10px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 15px #FFFFFF;
+    box-shadow: inset 0 3px 6px 0 rgba(0, 0, 0, 0.09), 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+.cerckle2 {
+    top: 0;
+    position: absolute;
+    left: 12%;
+    width: 15px;
+    height: 15px;
+    background-color: #F5C332;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+
+@media(max-width:540px) {
+    .PromotionCard{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,65 @@
+@import '../../scss/variables/colors.module.scss';
+
+.main {
+    background-color: #F9FAFC;
+    border-left: solid 30px #FFFFFF;
+    border-right: solid 30px #FFFFFF;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    padding: 20px 0;
+
+    &_container {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        max-width: $maxWidth;
+        padding: 0 1rem;
+        width: 100%;
+        align-items: center;
+        margin: 0 auto;
+
+
+        h1 {
+            line-height: 100%;
+            font-size: 72px;
+            font-weight: 600;
+            letter-spacing: -3px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #6F6F87;
+            margin: 0;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        &_btn {
+            width: fit-content;
+            background-color: $primary50;
+            color: #F9FAFC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            height: 55px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+}
+
+
+@media(max-width:868px) {
+    .main_container {
+        flex-direction: column-reverse;
+
+        h1 {
+            font-size: 52px
+        }
+    }
+}

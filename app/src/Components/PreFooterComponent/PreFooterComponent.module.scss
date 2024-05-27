@@ -1,0 +1,137 @@
+@import '../../scss/variables/colors.module.scss';
+
+.main {
+    position: relative;
+
+
+
+    &_content {
+        position: relative;
+        z-index: 2;
+        max-width: $maxWidth;
+        padding: 0 1rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        &_left {
+            width: 100%;
+
+            h1 {
+                color: #231E41;
+                line-height: 100%;
+                font-size: 72px;
+                letter-spacing: -3px;
+                font-weight: 600;
+            }
+
+            h2 {
+                color: #6F6F87;
+                margin: 0;
+                font-size: 15px;
+            }
+        }
+
+        &_right {
+            position: relative;
+            width: 100%;
+
+            &_image {
+                img {
+
+                    object-fit: contain;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &_bg {
+        z-index: 1;
+        background-color: #F9FAFC;
+        width: 63%;
+        height: 100%;
+        position: absolute;
+        border-left: solid 30px #FFFFFF;
+        top: 0;
+        left: 0;
+    }
+}
+
+
+
+
+.circle {
+    position: absolute;
+    left: 59%;
+    z-index: 11;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 15px #FFFFFF;
+    box-shadow: inset 0 3px 6px 0 rgba(0, 0, 0, 0.09), 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+    top: -7rem;
+}
+
+.circleBig {
+    position: absolute;
+    left: 13%;
+    z-index: 11;
+    height: 80px;
+    bottom: 10px;
+    width: 80px;
+    border-radius: 50%;
+    border: solid 25px #FFFFFF;
+    box-shadow: inset 0 3px 6px 0 rgba(0, 0, 0, 0.09), 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+.cerckle2 {
+    z-index: 11;
+    top: 10rem;
+    position: absolute;
+    left: 32%;
+    width: 15px;
+    height: 15px;
+    background-color: $primary50;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+.cerckle3 {
+    z-index: 11;
+    top: -100%;
+    position: absolute;
+    right: 2%;
+    width: 15px;
+    height: 15px;
+    background-color: $primary50;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+}
+
+@media(max-width:1200px) {
+    .main_content {
+        max-width: 960px;
+    }
+}
+
+@media(max-width:970px) {
+    .main_content {
+        max-width: 720px;
+        flex-direction: column;
+    }
+}
+
+@media(max-width:768px) {
+    .main_content {
+        max-width: 540px;
+
+        &_left {
+
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+    }
+}

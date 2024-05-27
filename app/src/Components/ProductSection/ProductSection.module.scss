@@ -1,0 +1,22 @@
+.main {
+    h1 {
+        font-size: 28px;
+        letter-spacing: -1px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    p {
+        color: #6F6F87;
+        margin: 0;
+        font-size: 15px;
+    }
+
+    &_row {
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}

@@ -1,0 +1,54 @@
+@import '../../../scss/variables/colors.module.scss';
+
+.card {
+    width: 100%;
+    padding: 10px;
+
+    p {
+        color: #6F6F87;
+        font-size: 15px
+    }
+
+    &_block {
+
+
+        &_image {
+            width: 100%;
+
+        }
+
+        &_title {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            background-color: #F2F3F5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h1 {
+                line-height: 120%;
+                font-size: 16px !important;
+                letter-spacing: 0;
+                font-weight: 600;
+            }
+
+
+
+            &_price {
+                width: 60px;
+                height: 60px;
+                font-weight: 500;
+                background-color: $primary50;
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #ffff;
+
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
