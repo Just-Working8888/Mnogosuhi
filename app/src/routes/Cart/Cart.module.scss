@@ -7,6 +7,10 @@
     flex-direction: column;
     gap: 40px;
 
+    &_mob {
+        display: none;
+    }
+
     &_baner {
         padding: $mainPadding;
         position: absolute;
@@ -62,6 +66,14 @@
 @media(max-width:970px) {
     .main {
         max-width: 720px;
+
+        &_mob {
+            display: block;
+        }
+
+        &_desk {
+            display: none;
+        }
     }
 }
 

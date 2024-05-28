@@ -71,8 +71,14 @@ const HeaderComponent: React.FC = () => {
                 open={open}
                 footer={
                     <Flex className={classes.headFooter} gap={16}>
-                        <Button type='primary'>View order</Button>
-                        <Button>Checkout</Button>
+                        <Button onClick={() => {
+                            setOpen(false)
+                            navigate('/cart')
+                        }} type='primary'>View order</Button>
+                        <Button onClick={() => {
+                            setOpen(false)
+                            navigate('/orders')
+                        }} >Checkout</Button>
                     </Flex>
                 }
                 extra={
