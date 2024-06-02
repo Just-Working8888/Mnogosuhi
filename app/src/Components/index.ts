@@ -24,6 +24,7 @@ import ShoppingSlider from "./ShoppingSlider/ShoppingSlider"
 import SmailCartItem from "./SmallCartItem/SmailCartItem"
 import CartTable from "./CartTable/CartTable"
 import MobileNav from "./MobileNav/MobileNav"
+import ProductMenu from "./ProductSection/ProductMenu"
 export {
     HeaderComponent,
     Login,
@@ -50,6 +51,7 @@ export {
     ShoppingSlider,
     SmailCartItem,
     CartTable,
-    MobileNav
+    MobileNav,
+    ProductMenu
 }
 

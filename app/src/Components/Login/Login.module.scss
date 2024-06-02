@@ -17,7 +17,7 @@
         border-radius: 50%;
     }
 
-    .title{
+    .title {
         text-align: center;
         margin-top: 25px;
         margin-bottom: 45px;
@@ -25,12 +25,11 @@
 
     .form {
         width: 500px;
-        height: 550px;
-        padding: 50px 30px;
-        border-radius: 10px;
+        height: fit-content;
+        padding: 50px 30px 10px;
         background-color: white;
 
-        .formBlock{
+        .formBlock {
             display: flex;
             justify-content: space-between;
         }

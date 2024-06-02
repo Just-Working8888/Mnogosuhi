@@ -2,10 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input, message } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
 import classes from './SignUp.module.scss';
 import { useAppDispatch } from 'store/hook';
-import { registerAsync } from 'store/reducers/authRedusers';
+import { loginAsync, registerAsync } from 'store/reducers/authRedusers';
+import { setCookie } from 'helpers/cookies';
+import { Link } from 'react-router-dom';
 
 
 const SignUp: React.FC = () => {
@@ -14,15 +16,18 @@ const SignUp: React.FC = () => {
     const navigate = useNavigate()
 
     const onFinish = async (values: any) => {
-        console.log('Received values of form: ', values);
+        // dispatch(loginAsync({ username: values.username, password: values.password, password2: values.password2 }));
         try {
             setLoading(true);
-            const response = await dispatch(registerAsync({ username: values.username, password: values.password, confirm_password: values.confirm_password }));
-            message.success('Registration successful. You can now log in.');
-      
-            navigate('/login');
+            const response = await dispatch(registerAsync({ username: values.username, password: values.password, password2: values.password2 }));
+            message.success('Login successful');
+
+            console.log(response);
+
+            // setCookie('user_id', response.payload.user_id, 30)
+            // setCookie('access_token', response.payload.access, 30);
         } catch (error) {
-            message.error('Registration failed. Please try again.');
+            message.error('Login failed. Please check your credentials.');
         } finally {
             setLoading(false);
         }
@@ -33,9 +38,13 @@ const SignUp: React.FC = () => {
         <section className={classes.auth_reg}>
             <div className={classes.form}>
 
+                <div className={classes.icon}>
+                    <UserOutlined style={{ fontSize: '50px', color: "white" }} />
+                </div>
+
                 <div className={classes.title}>
-                    <h2>Сreate an account!</h2>
-                    <p>Please fill in this form to create an account.</p>
+                    <h2>Welcome back!</h2>
+                    <p>Sign in to your account to continue</p>
                 </div>
 
                 <Form
@@ -52,50 +61,45 @@ const SignUp: React.FC = () => {
                     </Form.Item>
                     <Form.Item
                         name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                        hasFeedback
+                        rules={[{ required: true, message: 'Please input your Password!' }]}
                     >
-                        <Input.Password
+                        <Input
+                            prefix={<LockOutlined className="site-form-item-icon" />}
+                            type="password"
                             placeholder="Password"
-                            prefix={<LockOutlined className="site-form-item-icon"
-                            />} />
+                        />
                     </Form.Item>
-
                     <Form.Item
-                        name="confirm_password"
-                        dependencies={['password']}
-                        hasFeedback
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please confirm your password!',
-                            },
-                            ({ getFieldValue }) => ({
-                                validator(_, value) {
-                                    if (!value || getFieldValue('password') === value) {
-                                        return Promise.resolve();
-                                    }
-                                    return Promise.reject(new Error('The new password that you entered do not match!'));
-                                },
-                            }),
-                        ]}
+                        name="password2"
+                        rules={[{ required: true, message: 'Please input your password confirm!' }]}
                     >
-                        <Input.Password
-                            placeholder="Confirm Password"
-                            prefix={<LockOutlined className="site-form-item-icon"
-                            />} />
+                        <Input
+                            prefix={<LockOutlined className="site-form-item-icon" />}
+                            type="password"
+                            placeholder="password confirm"
+                        />
                     </Form.Item>
+                    <Form.Item>
+                        <div className={classes.formBlock}>
+                            <div>
+                                <Form.Item name="remember" valuePropName="checked" noStyle>
+                                    <Checkbox>Remember me</Checkbox>
+                                </Form.Item>
+                            </div>
 
+                            <div>
+                                <a className="login-form-forgot" href="#/">
+                                    Forgot password
+                                </a>
+                            </div>
+                        </div>
+                    </Form.Item>
 
                     <Form.Item>
                         <Button loading={loading} type="primary" htmlType="submit" className="login-form-button" block>
-                            SignUp
+                            Log in
                         </Button>
+                        Or <a href="#/"> <Link to={'/signUp'}>register now!</Link></a>
                     </Form.Item>
                 </Form>
             </div>

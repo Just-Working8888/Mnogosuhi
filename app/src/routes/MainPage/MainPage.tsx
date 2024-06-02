@@ -1,33 +1,14 @@
-
-import { useAppDispatch, useAppSelector } from "store/hook";
 import classes from "./MainPage.module.scss";
 import { FC, useEffect } from "react";
-import { fetchQuetions } from "store/reducers/producRedusers";
-import { Button, Card, Col, Flex, Row, Statistic, StatisticProps, Typography } from "antd";
-import { fetchNews } from "store/reducers/newsReduser";
-
-import CountUp from "react-countup";
-import { MainBaner, MainCategoriesSection, MiniInfoSection, PreFooterComponent, ProductSection } from "Components";
-import { foods } from "data/test/testData";
+import { Flex } from "antd";
+import { MainBaner, MainCategoriesSection, MiniInfoSection, PreFooterComponent } from "Components";
 import ProductSlider from "Components/ProductSlider/ProductSlider";
 import SectionHead from "Components/SectionHead/SectionHead";
 import CookerCard from "Components/CookerCard/CookerCard";
-import { useNavigate } from "react-router-dom";
+import { setSessionKey } from "helpers/session_key";
 
-
-const formatter: StatisticProps['formatter'] = (value) => (
-  <CountUp end={value as number} separator="," />
-);
-const { Title, Paragraph, Text, Link } = Typography;
 const MainPage: FC = () => {
-  const { data } = useAppSelector((state) => state.quetions)
-  const news = useAppSelector((state) => state.news.data)
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    dispatch(fetchQuetions({}))
-    dispatch(fetchNews({}))
-  }, [])
+
   return (
     <div style={{
       backgroundColor: "rgb(255, 255, 255)!important",

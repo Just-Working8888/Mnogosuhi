@@ -6,7 +6,18 @@
     align-items: center;
     justify-content: center;
 
-    .title{
+    .icon {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(181, 180, 180);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .title {
         text-align: center;
         margin-top: 25px;
         margin-bottom: 45px;
@@ -14,12 +25,11 @@
 
     .form {
         width: 500px;
-        height: 500px;
-        padding: 50px 30px;
-        border-radius: 10px;
+        height: fit-content;
+        padding: 50px 30px 10px;
         background-color: white;
 
-        .formBlock{
+        .formBlock {
             display: flex;
             justify-content: space-between;
         }

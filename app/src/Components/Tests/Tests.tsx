@@ -3,9 +3,6 @@ import { Table, Divider, Button, Avatar, Card, Progress, Flex, List } from 'antd
 import classes from './Test.module.scss'
 
 import { AntDesignOutlined, FullscreenExitOutlined } from '@ant-design/icons';
-import { useAppDispatch, useAppSelector } from 'store/hook';
-import { fetchQuetions } from 'store/reducers/producRedusers';
-import TestCard from 'Components/Card/Card';
 
 
 interface Question {

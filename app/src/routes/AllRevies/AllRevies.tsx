@@ -1,11 +1,14 @@
 import { BreadCrumps, PreFooterComponent } from 'Components'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import classes from './AllRevies.module.scss'
 import { Avatar, List, Pagination, Space } from 'antd'
 import revies from '../../data/test/revies.json'
 import IconContext from '@ant-design/icons/lib/components/Context'
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons'
 import RewievCard from 'Components/RewievCard/RewievCard'
+import { useAppDispatch, useAppSelector } from 'store/hook'
+import { fetchReviews } from 'store/reducers/reviewsReduser'
+import { IReviews } from 'store/models/IReviews'
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
     <Space>
         {React.createElement(icon)}
@@ -13,6 +16,13 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
     </Space>
 );
 const AllRevies: FC = () => {
+    const { data } = useAppSelector((state) => state.reviews)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(fetchReviews({}))
+    }, [])
+    console.log(data);
+
     return (
         <div>
             <BreadCrumps title='Feedback from our guests' hrefs={[{ label: 'Home', href: '/' }, { label: 'reviews', href: '/revies' },]} />
@@ -20,13 +30,13 @@ const AllRevies: FC = () => {
                 <br />
                 <div>
                     <div className={classes.main_container}>
-                        {revies.slice(0, 8).map((item) =>
+                        {data.map((item) =>
                             <RewievCard
-                                title={item.title}
-                                desprition={item.despretion}
-                                avatar={item.avatar}
-                                rate={item.rate}
-                                user={item.name}
+                                title={item.text}
+                                desprition={item.text}
+                                avatar={item.user_img}
+                                rate={item.stars}
+                                user={item.user_username}
                             />)}
                     </div>
                     <br />

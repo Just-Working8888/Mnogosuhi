@@ -7,7 +7,8 @@ import classes from './Login.module.scss';
 import { useAppDispatch } from 'store/hook';
 import { loginAsync } from 'store/reducers/authRedusers';
 import { setCookie } from 'helpers/cookies';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Login: React.FC = () => {
@@ -16,18 +17,24 @@ const Login: React.FC = () => {
     const navigate = useNavigate()
 
     const onFinish = async (values: any) => {
-        console.log('Received values of form: ', values);
-        dispatch(loginAsync({ username: values.username, password: values.password }));
         try {
             setLoading(true);
             const response = await dispatch(loginAsync({ username: values.username, password: values.password }));
-            message.success('Login successful');
-            navigate('/');
-            setCookie('user_id', response.payload.user_id, 30)
+            if (response.payload.access) {
+                message.success('Login successful');
+                navigate('/')
+            }
+            console.log(response);
+
             setCookie('access_token', response.payload.access, 30);
-        } catch (error) {
+        } catch (err: any) {
+            if (axios.isAxiosError(err) && err.response) {
+                console.log(err.response.data.message || 'Ошибка авторизации.');
+            } else {
+                console.log('Ошибка соединения с сервером.');
+            }
             message.error('Login failed. Please check your credentials.');
-        }finally{
+        } finally {
             setLoading(false);
         }
     };

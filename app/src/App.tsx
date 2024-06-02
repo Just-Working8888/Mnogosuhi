@@ -3,7 +3,6 @@ import './scss/app.scss';
 
 import { Login, SignUp } from 'Components';
 import MainPage from 'routes/MainPage/MainPage';
-import TestPage from 'routes/Test/Test';
 import Main from 'layout/Main/Main';
 import FullScreen from 'layout/FullScreen/FullScreen';
 import Catalog from 'routes/Catalog/Catalog';
@@ -14,6 +13,7 @@ import Contact from 'routes/Contact/Contact';
 import AboutUs from 'routes/AboutUs/AboutUs';
 import AllRevies from 'routes/AllRevies/AllRevies';
 import Shop from 'routes/Shop/Shop';
+import Menu from 'routes/Menu/Menu';
 
 function App() {
 
@@ -21,10 +21,6 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login />} />
       <Route path='/signUp' element={<SignUp />} />
-      <Route path='/full' element={<FullScreen />}>
-        <Route path='test/:id' element={<TestPage />} />
-
-      </Route>
       <Route path='/' element={<Main />}>
         <Route path='/' element={<MainPage />} />
         <Route path='/catalog' element={<Catalog />} />
@@ -35,6 +31,7 @@ function App() {
         <Route path='about' element={<AboutUs />} />
         <Route path='revies' element={<AllRevies />} />
         <Route path='shop' element={<Shop />} />
+        <Route path='menu' element={<Menu />} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />
     </Routes>

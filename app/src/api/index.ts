@@ -1,11 +1,24 @@
 import axios from 'axios';
 import auth from './auth';
-import quetions from './quetions'
-import news from './news'
+import cart from './cart'
+import cart_item from './cart_item'
+import city from './city'
+import contact from './contact'
+import faq from './faq'
+import products from './product'
+import promotions from './promotions'
+import reviews from './reviews'
+import settings from './settings'
+import tables from './table'
+import table_order from './table_order'
+import table_order_item from './table_order_item'
+import users from './users'
+import categories from './categories'
+
 
 const instance = axios.create({
   // @ts-ignore
-  baseURL: window.REACT_APP_SERVER_API !== 'REPLACE_REACT_APP_SERVER_API' ? window.REACT_APP_SERVER_API : process.env.REACT_APP_SERVER_API || 'http://localhost:7002',
+  baseURL: window.REACT_APP_SERVER_API !== 'REPLACE_REACT_APP_SERVER_API' ? window.REACT_APP_SERVER_API : process.env.REACT_APP_SERVER_API || 'https://backend.mnogosushi.kg/api/v1',
   // headers: {
   //   Authorization: `Bearer ${getCookie('access_token')}`
   // }
@@ -28,8 +41,20 @@ console.log(process.env.REACT_APP_SERVER_API, window.REACT_APP_SERVER_API);
 
 const api = {
   ...auth,
-  ...quetions,
-  ...news
+  ...cart,
+  ...cart_item,
+  ...city,
+  ...contact,
+  ...faq,
+  ...products,
+  ...promotions,
+  ...reviews,
+  ...settings,
+  ...tables,
+  ...table_order,
+  ...table_order_item,
+  ...users,
+  ...categories
 }
 
 export { instance, api };

@@ -16,8 +16,8 @@ export const loginAsync = createAsyncThunk(
 
 export const registerAsync = createAsyncThunk(
     'auth/register',
-    async ({ username, password, confirm_password }: { username: string; password: string, confirm_password: string }) => {
-        const response = await api.register(username, password, confirm_password);
+    async ({ username, password, password2 }: { username: string; password: string, password2: string }) => {
+        const response = await api.register(username, password, password2);
 
         return response.data;
     }

@@ -135,195 +135,1040 @@ export const shops = [
 
 ]
 
-export const foods = [
-  {
-    "title": "bear",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "1"
-  },
-  {
-    "title": "horse",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "2"
-  },
-  {
-    "title": "crocodilia",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "3"
-  },
-  {
-    "title": "snake",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "4"
-  },
-  {
-    "title": "insect",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "5"
-  },
-  {
-    "title": "bird",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "6"
-  },
-  {
-    "title": "insect",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "7"
-  },
-  {
-    "title": "bird",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "8"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "9"
-  },
-  {
-    "title": "insect",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "10"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "11"
-  },
-  {
-    "title": "horse",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "12"
-  },
-  {
-    "title": "horse",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "13"
-  },
-  {
-    "title": "bird",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "14"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "15"
-  },
-  {
-    "title": "bear",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "16"
-  },
-  {
-    "title": "cat",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "17"
-  },
-  {
-    "title": "dog",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "18"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "19"
-  },
-  {
-    "title": "cetacean",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "20"
-  },
-  {
-    "title": "bird",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "21"
-  },
-  {
-    "title": "dog",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "22"
-  },
-  {
-    "title": "bird",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "23"
-  },
-  {
-    "title": "bear",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "24"
-  },
-  {
-    "title": "horse",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "25"
-  },
-  {
-    "title": "cat",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "26"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "27"
-  },
-  {
-    "title": "lion",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "28"
-  },
-  {
-    "title": "cow",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "29"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "30"
-  },
-  {
-    "title": "cat",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "31"
-  },
-  {
-    "title": "cat",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "32"
-  },
-  {
-    "title": "cow",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "33"
-  },
-  {
-    "title": "rabbit",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "34"
-  },
-  {
-    "title": "dog",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "35"
-  },
-  {
-    "title": "crocodilia",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "36"
-  },
-  {
-    "title": "bear",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "37"
-  },
-  {
-    "title": "crocodilia",
-    "image": "https://loremflickr.com/640/480/food",
-    "id": "38"
-  }
-]
+export const foods =
+  [
+    {
+      "id": 1,
+      "title": "Сет \"Офисный\"",
+      "description": "- сет \"80\"\n- 2 пиццы на выбор\n",
+      "price": "2255",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/706506a9a279b00a3739601b41889144.PNG",
+      "sku": "00048",
+      "created": "2024-05-28T22:27:16.365655+06:00",
+      "category": 1
+    },
+    {
+      "id": 3,
+      "title": "Сет \"Я\"",
+      "description": "44 шт , 5 видов ",
+      "price": "2530",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4060e9401fb318bca2a1395875a1d8fc.PNG",
+      "sku": "00083",
+      "created": "2024-05-28T22:27:16.379098+06:00",
+      "category": 1
+    },
+    {
+      "id": 4,
+      "title": "Сет \"Мажор\"",
+      "description": "136 шт, 7 вида",
+      "price": "3810",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c7e8538d98366a762d4c5d01e738ffaf.PNG",
+      "sku": "00014",
+      "created": "2024-05-28T22:27:16.382520+06:00",
+      "category": 1
+    },
+    {
+      "id": 5,
+      "title": "Сет \"Большой той\"",
+      "description": "- сет\"100\"- пицца пепперони ",
+      "price": "2630",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/beb4c711e40b1279ef7abd27186d5694.PNG",
+      "sku": "00046",
+      "created": "2024-05-28T22:27:16.385660+06:00",
+      "category": 1
+    },
+    {
+      "id": 7,
+      "title": "сет \"70\"",
+      "description": "",
+      "price": "1340",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/47da4a9955d68affe097ffcc00c28cc2.PNG",
+      "sku": "00739",
+      "created": "2024-05-28T22:27:16.392366+06:00",
+      "category": 1
+    },
+    {
+      "id": 8,
+      "title": "Сет \"Малый той\"",
+      "description": "- сет \"50\"\n- пицца 1( на выбор) ",
+      "price": "1380",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/7edc05043b495ee17225bbe9ed3c5f3e.PNG",
+      "sku": "00047",
+      "created": "2024-05-28T22:27:16.395628+06:00",
+      "category": 1
+    },
+    {
+      "id": 9,
+      "title": "Сет \"Пошлая фила\"",
+      "description": "40шт, 5 видов",
+      "price": "2730",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/acc4b0b988eef1c672f43dab0218f3b9.PNG",
+      "sku": "00082",
+      "created": "2024-05-28T22:27:16.399343+06:00",
+      "category": 1
+    },
+    {
+      "id": 10,
+      "title": "сет 20",
+      "description": "20щт, 8 видов",
+      "price": "890",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/0b5a2dc806cd155156a2474d4fd5f443.PNG",
+      "sku": "00737",
+      "created": "2024-05-28T22:27:16.402167+06:00",
+      "category": 1
+    },
+    {
+      "id": 11,
+      "title": "Сет \"Комбо-бус\"",
+      "description": "- Сет \"80\"\n- 3 пиццы на выбор \n- 5 крылышек",
+      "price": "2530",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/b5306489dced318be22bba9f46bffabf.PNG",
+      "sku": "00023",
+      "created": "2024-05-28T22:27:16.405406+06:00",
+      "category": 1
+    },
+    {
+      "id": 12,
+      "title": "Сет \"Комбо-машина\"",
+      "description": "- Сет \"50\"\n- 2 пиццы на выбор \n- 3 крылышка",
+      "price": "1540",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/34a6cbbbd91a2d685615fe3c1c6ce195.PNG",
+      "sku": "00022",
+      "created": "2024-05-28T22:27:16.408410+06:00",
+      "category": 1
+    },
+    {
+      "id": 14,
+      "title": "Фирменный сет \"Доёби\"",
+      "description": "",
+      "price": "1299",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c40e6a46991c5dcece5be604a1fd4e65.PNG",
+      "sku": "00165",
+      "created": "2024-05-28T22:27:16.414616+06:00",
+      "category": 1
+    },
+    {
+      "id": 15,
+      "title": "сет Классика",
+      "description": "64 шт, 8 видов",
+      "price": "1630",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/6e8c90b9d23b8a7eac6aa6c9bbad26b4.PNG",
+      "sku": "00765",
+      "created": "2024-05-28T22:27:16.417852+06:00",
+      "category": 1
+    },
+    {
+      "id": 17,
+      "title": "Сет\"50\"",
+      "description": "50 шт, 10 видов",
+      "price": "1080",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/2850c31a7d7f1bce7207985d2fa9d20e.PNG",
+      "sku": "00019",
+      "created": "2024-05-28T22:27:16.424183+06:00",
+      "category": 1
+    },
+    {
+      "id": 18,
+      "title": "Сет \"30\"",
+      "description": "",
+      "price": "895",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/5903fcc73f325d6a69f2739de73644aa.PNG",
+      "sku": "00021",
+      "created": "2024-05-28T22:27:16.427314+06:00",
+      "category": 1
+    },
+    {
+      "id": 20,
+      "title": "Сет \"Мясной пир\"",
+      "description": "- пицца Мясная\n- пицца Мексиканская-Чили\n- 18 крылышек\n- картофель фри\n- картофель по-деревенски\n- 3 соуса",
+      "price": "1580",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c0d701a2f19d51689c0990840c432e63.PNG",
+      "sku": "00025",
+      "created": "2024-05-28T22:27:16.433389+06:00",
+      "category": 1
+    },
+    {
+      "id": 21,
+      "title": "Сет \"80\"",
+      "description": "80шт, 10 видов",
+      "price": "1480",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/a98704b0d8dfb3501615a768ae37d78f.PNG",
+      "sku": "00017",
+      "created": "2024-05-28T22:27:16.436309+06:00",
+      "category": 1
+    },
+    {
+      "id": 22,
+      "title": "сет Кисеки",
+      "description": "52 шт, 10 видов",
+      "price": "1190",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/a5e6fd7c153ce856089c95766cfa2291.PNG",
+      "sku": "00735",
+      "created": "2024-05-28T22:27:16.438955+06:00",
+      "category": 1
+    },
+    {
+      "id": 23,
+      "title": "Сет \"Комбо-БТР\"",
+      "description": "- Сет \"100\"\n- 4 пиццы на выбор\n- 8 крылышек",
+      "price": "3190",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/115f0234f8a8bb53d449140527d4217e.PNG",
+      "sku": "00024",
+      "created": "2024-05-28T22:27:16.442548+06:00",
+      "category": 1
+    },
+    {
+      "id": 24,
+      "title": "сет эби",
+      "description": "34 шт, 4 вида",
+      "price": "1190",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/02382da843f69287a03ecbef56770572.PNG",
+      "sku": "00764",
+      "created": "2024-05-28T22:27:16.445768+06:00",
+      "category": 1
+    },
+    {
+      "id": 25,
+      "title": "Сет \"Холостяк\"",
+      "description": "50 шт, 5 видов",
+      "price": "1920",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/ade57c0a27a8bdc80994335f01b92ff6.PNG",
+      "sku": "00011",
+      "created": "2024-05-28T22:27:16.449903+06:00",
+      "category": 1
+    },
+    {
+      "id": 26,
+      "title": "Сет \"60\"",
+      "description": "60 шт, 11 видов",
+      "price": "1230",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/76d62fec4698b4064754cfd8b92dfd98.PNG",
+      "sku": "00018",
+      "created": "2024-05-28T22:27:16.453056+06:00",
+      "category": 1
+    },
+    {
+      "id": 27,
+      "title": "Сет \"Горячая штучка\"",
+      "description": "50шт, 5 видов",
+      "price": "1860",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/e5fbb7d21b5150b5e1b4d0194b35d151.PNG",
+      "sku": "00005",
+      "created": "2024-05-28T22:27:16.456230+06:00",
+      "category": 1
+    },
+    {
+      "id": 29,
+      "title": "Сет \"Чикен & Ролл\"",
+      "description": "15 крыльев,фила - 8шт, запеченные с лососем - 10шт, калифорния - 8шт",
+      "price": "1540",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/1ec057b78ea6fd3426777e1ea06fb291.PNG",
+      "sku": "00012",
+      "created": "2024-05-28T22:27:16.462283+06:00",
+      "category": 1
+    },
+    {
+      "id": 30,
+      "title": "сет Хиросима",
+      "description": "100 шт, 12 видов",
+      "price": "2190",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/8f2532e85c4d5016f4aa3de32ebf1da9.PNG",
+      "sku": "00777",
+      "created": "2024-05-28T22:27:16.465691+06:00",
+      "category": 1
+    },
+    {
+      "id": 31,
+      "title": "сет Namber one",
+      "description": "80 шт, 8 видов",
+      "price": "1615",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/e6cc3c68cb114c654576f0af3258a413.PNG",
+      "sku": "00736",
+      "created": "2024-05-28T22:27:16.469207+06:00",
+      "category": 1
+    },
+    {
+      "id": 32,
+      "title": "Американский (18кр.фри,кар.дер.) ",
+      "description": "",
+      "price": "1070",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/3eb7e06672ba5893350df47c5d0cdf6b.PNG",
+      "sku": "01129",
+      "created": "2024-05-28T22:27:16.472856+06:00",
+      "category": 1
+    },
+    {
+      "id": 33,
+      "title": "Сет \"100\"",
+      "description": "100 шт, 11 видов",
+      "price": "1740",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c4d80fd3716aa5149edda1dfdf6511db.PNG",
+      "sku": "00016",
+      "created": "2024-05-28T22:27:16.476666+06:00",
+      "category": 1
+    },
+    {
+      "id": 34,
+      "title": "Сет Сакана",
+      "description": "80 шт, 4 вида",
+      "price": "2040",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/ac4f00d5c29ed7f6d8b38a5c6c80cb67.PNG",
+      "sku": "01300",
+      "created": "2024-05-28T22:27:16.480117+06:00",
+      "category": 1
+    },
+    {
+      "id": 35,
+      "title": "сет 90",
+      "description": "90 шт, 9 видов",
+      "price": "1590",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/750945edeab859de65e212e81251272e.PNG",
+      "sku": "00738",
+      "created": "2024-05-28T22:27:16.483554+06:00",
+      "category": 1
+    },
+    {
+      "id": 36,
+      "title": "Сет \"40\"",
+      "description": "40шт, 4 вида",
+      "price": "990",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/3286567b14ccbd0bcf217c5026d51a2c.PNG",
+      "sku": "00020",
+      "created": "2024-05-28T22:27:16.487070+06:00",
+      "category": 1
+    },
+    {
+      "id": 37,
+      "title": "сет Хит (сет40, пицца)",
+      "description": "40шт, 4 вида, ",
+      "price": "1330",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/634fc655b36f78a34ac077d8d75869ca.PNG",
+      "sku": "01060",
+      "created": "2024-05-28T22:27:16.490593+06:00",
+      "category": 1
+    },
+    {
+      "id": 39,
+      "title": "токпокки с морепродуктами ",
+      "description": "",
+      "price": "1420",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/76641baeb6779c28130b37922a65c1c8.PNG",
+      "sku": "00644",
+      "created": "2024-05-28T22:27:16.499091+06:00",
+      "category": 2
+    },
+    {
+      "id": 41,
+      "title": "суп фо-бо 1л",
+      "description": "",
+      "price": "650",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/7e48d50dd5bfc0e1170ef46c4b543b33.PNG",
+      "sku": "00642",
+      "created": "2024-05-28T22:27:16.505851+06:00",
+      "category": 2
+    },
+    {
+      "id": 43,
+      "title": "Морское плато (2-3чел.)",
+      "description": "",
+      "price": "2850",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/6949444ace70a554dea273567f8f0139.PNG",
+      "sku": "01168",
+      "created": "2024-05-28T22:27:16.511547+06:00",
+      "category": 2
+    },
+    {
+      "id": 45,
+      "title": "Мидии в сливочном соусе",
+      "description": "",
+      "price": "550",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f287fb04e7d8fd949ac95ee71b57948d.PNG",
+      "sku": "01352",
+      "created": "2024-05-28T22:27:16.520634+06:00",
+      "category": 3
+    },
+    {
+      "id": 46,
+      "title": "пельмешки шпинат ( 6шт)",
+      "description": "",
+      "price": "290",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c5c6071eb686ab11cc3e03ac1bf07077.PNG",
+      "sku": "00646",
+      "created": "2024-05-28T22:27:16.523520+06:00",
+      "category": 3
+    },
+    {
+      "id": 47,
+      "title": "биф кацу",
+      "description": "",
+      "price": "600",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/9f9f30e18ce7915c026b189c634fbc12.PNG",
+      "sku": "00650",
+      "created": "2024-05-28T22:27:16.526303+06:00",
+      "category": 3
+    },
+    {
+      "id": 48,
+      "title": "пельмешки семга ",
+      "description": "",
+      "price": "290",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c4644c7bd4b712cddc87283e21a59686.PNG",
+      "sku": "00648",
+      "created": "2024-05-28T22:27:16.529446+06:00",
+      "category": 3
+    },
+    {
+      "id": 51,
+      "title": "пельмешки говядина ",
+      "description": "",
+      "price": "290",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/14b532a377f7b4446f155d1f116929d3.PNG",
+      "sku": "00647",
+      "created": "2024-05-28T22:27:16.539150+06:00",
+      "category": 3
+    },
+    {
+      "id": 78,
+      "title": "кукси холодный / горячий",
+      "description": "",
+      "price": "350",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/ba711068ac5ed15ebfabb78e9cd0aa5a.PNG",
+      "sku": "00635",
+      "created": "2024-05-28T22:27:16.634111+06:00",
+      "category": 5
+    },
+    {
+      "id": 81,
+      "title": "Рамен с курицей",
+      "description": "",
+      "price": "420",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/95ff3453b0d58e131d54db2ba4a5750c.PNG",
+      "sku": "00184",
+      "created": "2024-05-28T22:27:16.647193+06:00",
+      "category": 5
+    },
+    {
+      "id": 82,
+      "title": "острый рамен",
+      "description": "",
+      "price": "600",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/7f8fb76b0624baaf6e0a9b56a77ea0d4.PNG",
+      "sku": "00633",
+      "created": "2024-05-28T22:27:16.650078+06:00",
+      "category": 5
+    },
+    {
+      "id": 83,
+      "title": "Том Ям ",
+      "description": "",
+      "price": "400",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c9f6a1d8d446c483896bdb6c6e2a7d15.PNG",
+      "sku": "00182",
+      "created": "2024-05-28T22:27:16.653907+06:00",
+      "category": 5
+    },
+    {
+      "id": 86,
+      "title": "Мисо суп",
+      "description": "",
+      "price": "350",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f5d1f79662583a9da429c5affcddf4b9.PNG",
+      "sku": "00183",
+      "created": "2024-05-28T22:27:16.668208+06:00",
+      "category": 5
+    },
+    {
+      "id": 183,
+      "title": "Крылышки (3 шт)",
+      "description": "",
+      "price": "165",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/db413fc7444dd385cae82f976ee61439.PNG",
+      "sku": "00076",
+      "created": "2024-05-28T22:27:16.996990+06:00",
+      "category": 7
+    },
+    {
+      "id": 184,
+      "title": "Крылышки (12 шт)",
+      "description": "",
+      "price": "430",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/7496b93f368e8893dd0eb8627d088996.PNG",
+      "sku": "00079",
+      "created": "2024-05-28T22:27:17.000189+06:00",
+      "category": 7
+    },
+    {
+      "id": 185,
+      "title": "Крылышки (8 шт)",
+      "description": "",
+      "price": "300",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f8be0ee9cfe524e11d6c34d10eb2c152.PNG",
+      "sku": "00078",
+      "created": "2024-05-28T22:27:17.004326+06:00",
+      "category": 7
+    },
+    {
+      "id": 186,
+      "title": "Онигири",
+      "description": "Ониги́ри — блюдо японской кухни из пресного риса, слепленного в виде треугольника или шара. Обычно в онигири кладут начинку и заворачивают в лист сушёных водорослей нори.",
+      "price": "330",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/93a9145c57e850d73622dc71f2924a5f.PNG",
+      "sku": "00162",
+      "created": "2024-05-28T22:27:17.007335+06:00",
+      "category": 7
+    },
+    {
+      "id": 187,
+      "title": "Хрустящий спринг ролл с креветками",
+      "description": "Креветки и микс овощей, завернутые в рисовую бумагу.",
+      "price": "390",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/8e2de8d234ee81a85506bf1aac8b5ea2.PNG",
+      "sku": "00160",
+      "created": "2024-05-28T22:27:17.010016+06:00",
+      "category": 7
+    },
+    {
+      "id": 189,
+      "title": "королевские мидии",
+      "description": "Мидии запеченные с сыром. Очень ароматное и необычное блюдо.",
+      "price": "350",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/e41bbf8db9be02d945f2cc4af3bb6414.PNG",
+      "sku": "00632",
+      "created": "2024-05-28T22:27:17.015940+06:00",
+      "category": 7
+    },
+    {
+      "id": 190,
+      "title": "Крылышки (5 шт)",
+      "description": "",
+      "price": "230",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f8011ed1b11ac2be2ac463037b8f4bfe.PNG",
+      "sku": "00077",
+      "created": "2024-05-28T22:27:17.018725+06:00",
+      "category": 7
+    },
+    {
+      "id": 191,
+      "title": "Брускетта с лососем ",
+      "description": "Малосольный лосось, омлет, творожный сыр, руккола и ломтики багета.",
+      "price": "390",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/6310bcbe64decb99491c094391330ec2.PNG",
+      "sku": "00157",
+      "created": "2024-05-28T22:27:17.021892+06:00",
+      "category": 7
+    },
+    {
+      "id": 192,
+      "title": "Брускетта с куринным рулетом",
+      "description": "Творожный сыр, куриный рулет, шпинат, яйцо пашот и ломтики багета.",
+      "price": "300",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/9d202fc3375079498e149fc54114872a.PNG",
+      "sku": "00158",
+      "created": "2024-05-28T22:27:17.025016+06:00",
+      "category": 7
+    },
+    {
+      "id": 193,
+      "title": "салат крабовый",
+      "description": "",
+      "price": "320",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c1a4d68048fe9a0e892951cefbbb99d3.PNG",
+      "sku": "00639",
+      "created": "2024-05-28T22:27:17.031129+06:00",
+      "category": 8
+    },
+    {
+      "id": 194,
+      "title": "Салат греческий ",
+      "description": "",
+      "price": "360",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/6ec80286ca65479723ea82cc85861982.PNG",
+      "sku": "00176",
+      "created": "2024-05-28T22:27:17.034369+06:00",
+      "category": 8
+    },
+    {
+      "id": 195,
+      "title": "Баклажаны с тофу в сладко-остром соусе",
+      "description": "",
+      "price": "250",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4b4d0076cbb0c231508d18e056e0afd4.PNG",
+      "sku": "00169",
+      "created": "2024-05-28T22:27:17.044096+06:00",
+      "category": 8
+    },
+    {
+      "id": 196,
+      "title": "Салат теплый Вакамэ",
+      "description": "",
+      "price": "390",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/3c6e1c03bb14f4eaae2c4082c9dbccf8.PNG",
+      "sku": "00171",
+      "created": "2024-05-28T22:27:17.053797+06:00",
+      "category": 8
+    },
+    {
+      "id": 197,
+      "title": "Салат чука с рукколой в ореховом соусе",
+      "description": "",
+      "price": "330",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/ba6976a58ba27d3fd4b60f7f938a1114.PNG",
+      "sku": "00170",
+      "created": "2024-05-28T22:27:17.057046+06:00",
+      "category": 8
+    },
+    {
+      "id": 200,
+      "title": "Цезарь с курицей",
+      "description": "",
+      "price": "485",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/012e4510a51419c19207d9be80444536.PNG",
+      "sku": "00166",
+      "created": "2024-05-28T22:27:17.105675+06:00",
+      "category": 8
+    },
+    {
+      "id": 203,
+      "title": "салат кимчи",
+      "description": "",
+      "price": "95",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c41b9e4402d9c07f47c9e38a1c974063.PNG",
+      "sku": "00638",
+      "created": "2024-05-28T22:27:17.116483+06:00",
+      "category": 8
+    },
+    {
+      "id": 204,
+      "title": "чука с руколой в ореховом топинге ",
+      "description": "",
+      "price": "450",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/ecdb606d49584de1627d9fdea45ef3ac.PNG",
+      "sku": "01353",
+      "created": "2024-05-28T22:27:17.119511+06:00",
+      "category": 8
+    },
+    {
+      "id": 205,
+      "title": "Цезарь с креветками ",
+      "description": "",
+      "price": "550",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/90b5e25901cf3398c847682d78eb8a6a.PNG",
+      "sku": "00167",
+      "created": "2024-05-28T22:27:17.122572+06:00",
+      "category": 8
+    },
+    {
+      "id": 207,
+      "title": "тост",
+      "description": "хлеб",
+      "price": "20",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/1a7c4746e6565d41d7a28b217f731f6d.PNG",
+      "sku": "00915",
+      "created": "2024-05-28T22:27:17.134280+06:00",
+      "category": 9
+    },
+    {
+      "id": 208,
+      "title": "крокеты",
+      "description": "Картофельные шарики",
+      "price": "150",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4e66f6834aa3668a74cadfc13e8fffd3.PNG",
+      "sku": "00665",
+      "created": "2024-05-28T22:27:17.156814+06:00",
+      "category": 9
+    },
+    {
+      "id": 209,
+      "title": "Рис ",
+      "description": "",
+      "price": "100",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/941f83499c650d666caccfefe4466c5e.PNG",
+      "sku": "00219",
+      "created": "2024-05-28T22:27:17.184647+06:00",
+      "category": 9
+    },
+    {
+      "id": 210,
+      "title": "рис с яйцон / овощами ",
+      "description": "Жаренный рис с овощами / яйцом",
+      "price": "170",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/54491a6c80a4eb0f91edea848580b0e9.PNG",
+      "sku": "00667",
+      "created": "2024-05-28T22:27:17.197090+06:00",
+      "category": 9
+    },
+    {
+      "id": 211,
+      "title": "Овощи гриль",
+      "description": "",
+      "price": "200",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/59c07ee77be6bd949a3764a30ecbae60.PNG",
+      "sku": "00221",
+      "created": "2024-05-28T22:27:17.201977+06:00",
+      "category": 9
+    },
+    {
+      "id": 212,
+      "title": "Картофель по-деревенски ",
+      "description": "Жаренные картофельные дольки",
+      "price": "220",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c172d670493479768b5fa4b2a4583868.PNG",
+      "sku": "00074",
+      "created": "2024-05-28T22:27:17.206811+06:00",
+      "category": 9
+    },
+    {
+      "id": 213,
+      "title": "чипсы",
+      "description": "",
+      "price": "130",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/b43b2403f8173f1f4f9f9d712e7bc420.PNG",
+      "sku": "01180",
+      "created": "2024-05-28T22:27:17.210864+06:00",
+      "category": 9
+    },
+    {
+      "id": 214,
+      "title": "Картофель фри",
+      "description": "",
+      "price": "150",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c66c1c7059b3700164f6d43d5c4cdb86.PNG",
+      "sku": "00220",
+      "created": "2024-05-28T22:27:17.214841+06:00",
+      "category": 9
+    },
+    {
+      "id": 215,
+      "title": "Банановый коктейл",
+      "description": "Банановые молочные коктейли – вкусное и питательное блюдо, пользующееся большой популярностью среди любителей сладкого и здоровой еды.",
+      "price": "250",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/dfec94f890e306c50ac4558058c21bd3.PNG",
+      "sku": "00454",
+      "created": "2024-05-28T22:27:17.222335+06:00",
+      "category": 10
+    },
+    {
+      "id": 216,
+      "title": "молочный коктейл ванильный",
+      "description": "Молочные коктейли – вкусное и питательное блюдо, пользующееся большой популярностью среди любителей сладкого и здоровой еды.",
+      "price": "250",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4e012099aa6d2489d1b3d98dc59ad439.PNG",
+      "sku": "00449",
+      "created": "2024-05-28T22:27:17.226082+06:00",
+      "category": 10
+    },
+    {
+      "id": 217,
+      "title": "клубничный коктейл",
+      "description": "",
+      "price": "280",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/53f73c1702a80bf27d919fc902f8860a.PNG",
+      "sku": "00452",
+      "created": "2024-05-28T22:27:17.230007+06:00",
+      "category": 10
+    },
+    {
+      "id": 218,
+      "title": "шоколадный коктейл",
+      "description": "Шоколадные молочные коктейли – вкусное и питательное блюдо, пользующееся большой популярностью среди любителей сладкого и здоровой еды.",
+      "price": "250",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/09e5ad6060b22e0fd3b86d40165e3e95.PNG",
+      "sku": "00451",
+      "created": "2024-05-28T22:27:17.233480+06:00",
+      "category": 10
+    },
+    {
+      "id": 219,
+      "title": "лимон",
+      "description": "",
+      "price": "95",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4fa1001e16896671fc18c0dc24a95e47.PNG",
+      "sku": "00675",
+      "created": "2024-05-28T22:27:17.253887+06:00",
+      "category": 11
+    },
+    {
+      "id": 220,
+      "title": "миндаль",
+      "description": "",
+      "price": "140",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/47028fe0debb585c602ff2eb10b5577c.PNG",
+      "sku": "00477",
+      "created": "2024-05-28T22:27:17.257872+06:00",
+      "category": 11
+    },
+    {
+      "id": 221,
+      "title": "чечел",
+      "description": "",
+      "price": "165",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/c2484b9e815d67d0bef0db0412e615a3.PNG",
+      "sku": "00478",
+      "created": "2024-05-28T22:27:17.261185+06:00",
+      "category": 11
+    },
+    {
+      "id": 222,
+      "title": "курут",
+      "description": "",
+      "price": "120",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/94ce23265d857f939d9665c597817ce8.PNG",
+      "sku": "00475",
+      "created": "2024-05-28T22:27:17.264306+06:00",
+      "category": 11
+    },
+    {
+      "id": 223,
+      "title": "жареный чечел",
+      "description": "",
+      "price": "165",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f99a29e2953e6ad1fd6924b88bcc2e30.PNG",
+      "sku": "00479",
+      "created": "2024-05-28T22:27:17.267736+06:00",
+      "category": 11
+    },
+    {
+      "id": 224,
+      "title": "фисташки",
+      "description": "",
+      "price": "190",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/f2cac8c302eceaf8f5feb8f581fe9d83.PNG",
+      "sku": "00472",
+      "created": "2024-05-28T22:27:17.271632+06:00",
+      "category": 11
+    },
+    {
+      "id": 225,
+      "title": "арахис",
+      "description": "",
+      "price": "120",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/b372745fa3aac940dcb823281c5bcd1b.WEBP",
+      "sku": "00473",
+      "created": "2024-05-28T22:27:17.274712+06:00",
+      "category": 11
+    },
+    {
+      "id": 226,
+      "title": "Соба с курицей",
+      "description": "",
+      "price": "390",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/03f9740f2d3bf4a5ea8d8fef2f9e2faa.PNG",
+      "sku": "00179",
+      "created": "2024-05-28T22:27:17.279915+06:00",
+      "category": 12
+    },
+    {
+      "id": 227,
+      "title": "Фунчоза с бонфиле",
+      "description": "",
+      "price": "320",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/3d9322dffd7e0e1f8122f0d67c559b38.PNG",
+      "sku": "00181",
+      "created": "2024-05-28T22:27:17.283080+06:00",
+      "category": 12
+    },
+    {
+      "id": 228,
+      "title": "Удон с говядиной",
+      "description": "",
+      "price": "410",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/3ee7cb7e79fefbfd0252e8fdcdd36711.PNG",
+      "sku": "00178",
+      "created": "2024-05-28T22:27:17.285806+06:00",
+      "category": 12
+    },
+    {
+      "id": 229,
+      "title": "соба бон-филе ",
+      "description": "",
+      "price": "370",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/99494dda78ee87b73bb6b05261386abe.PNG",
+      "sku": "00656",
+      "created": "2024-05-28T22:27:17.288833+06:00",
+      "category": 12
+    },
+    {
+      "id": 230,
+      "title": "Удон с курицей ",
+      "description": "",
+      "price": "390",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/92cc8806c191783f3c7e714d44619d37.PNG",
+      "sku": "00177",
+      "created": "2024-05-28T22:27:17.291719+06:00",
+      "category": 12
+    },
+    {
+      "id": 231,
+      "title": "Соба веган",
+      "description": "",
+      "price": "320",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/4b3866a1147d192b70cd5e8a40b85bbf.PNG",
+      "sku": "00180",
+      "created": "2024-05-28T22:27:17.294776+06:00",
+      "category": 12
+    },
+    {
+      "id": 232,
+      "title": "завтрак японский",
+      "description": "",
+      "price": "290",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/07902cb82ea7da0e788eac2fb3cd4466.PNG",
+      "sku": "00658",
+      "created": "2024-05-28T22:27:17.301387+06:00",
+      "category": 13
+    },
+    {
+      "id": 233,
+      "title": "завтраки трудяги ",
+      "description": "",
+      "price": "320",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/35c6c02b0e8f919120e80cc24959cd10.PNG",
+      "sku": "00657",
+      "created": "2024-05-28T22:27:17.305163+06:00",
+      "category": 13
+    },
+    {
+      "id": 234,
+      "title": "завтрак рыбака",
+      "description": "",
+      "price": "350",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/275add561bd6c750c2a73031d7883f89.PNG",
+      "sku": "01229",
+      "created": "2024-05-28T22:27:17.308451+06:00",
+      "category": 13
+    },
+    {
+      "id": 235,
+      "title": "завтрак охотника ",
+      "description": "",
+      "price": "380",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/bad3c8945d42211abe9b2bc155f13d2a.PNG",
+      "sku": "00659",
+      "created": "2024-05-28T22:27:17.311642+06:00",
+      "category": 13
+    },
+    {
+      "id": 292,
+      "title": "Bon agua 1л",
+      "description": "",
+      "price": "100",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/bf99c63effe28c60086cc6d770608425.PNG",
+      "sku": "00862",
+      "created": "2024-05-28T22:27:17.555031+06:00",
+      "category": 19
+    },
+    {
+      "id": 293,
+      "title": "coca cola zero",
+      "description": "",
+      "price": "None",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/8bbe843c1f9035d782ccaeccb727a363.PNG",
+      "sku": "01190",
+      "created": "2024-05-28T22:27:17.558300+06:00",
+      "category": 19
+    },
+    {
+      "id": 304,
+      "title": "pepsi",
+      "description": "",
+      "price": "None",
+      "image": "https://backend.mnogosushi.kg/media/no_image.jpg",
+      "iiko_image": "https://102922.selcdn.ru/ecomm/mnogosushi/49099/images/items/d6a7eddb614fa8163b239876cfbcdeaf.PNG",
+      "sku": "01288",
+      "created": "2024-05-28T22:27:17.596850+06:00",
+      "category": 19
+    }
+  ]

@@ -13,7 +13,7 @@ type Props = {
 const RewievCard: FC<Props> = ({ title, desprition, avatar, rate, user }) => {
     return (
         <div className={classes.card}>
-            <b style={{ fontSize: '16px' }} className={classes.card_title}>{title}</b>
+            {/* <b style={{ fontSize: '16px' }} className={classes.card_title}>{title}</b> */}
             <br />
             <Rate style={{ margin: '10px 0 15px', fontSize: '15px' }} value={rate} />
             <br />

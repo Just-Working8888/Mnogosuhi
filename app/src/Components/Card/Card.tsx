@@ -2,33 +2,37 @@ import React from 'react';
 import { Card, Image, Rate } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import classes from './Card.module.scss'
+import logo from '../../assets/icon/blackLogo (1).png'
 
 const { Meta } = Card;
 interface CardType {
     image: string;
     title: string;
+    price: string;
+    desprition: string
+    rate: number
     id: string
 }
-const ProduckCard: React.FC<CardType> = ({ image, title, id }) => {
+const ProduckCard: React.FC<CardType> = ({ image, title, id, price, desprition, rate }) => {
     const navigate = useNavigate()
     return (
         <div className={classes.card}>
             <div className={classes.card_block}>
                 <div className={classes.card_block_image}>
-                    <Image src={'https://miller.bslthemes.com/starbelly-demo/img/menu/1.jpg'} />
+                    <Image fallback={logo} width={"100%"} style={{ objectFit: "cover" }} height={270} src={image} />
                 </div>
                 <div className={classes.card_block_title}>
                     <h1>{title}</h1>
                     <div className={classes.card_block_title_price}>
-                        <span>$</span>14
+                        <span>c</span>{price}
                     </div>
                 </div>
             </div>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, debitis. Ipsa quo optio minima cum earum reprehenderit, ab, sunt repellat blanditiis dolorem, enim quidem praesentium omnis architecto temporibus ratione eos.
+                {desprition}
             </p>
             <br />
-            <Rate value={3.5} />
+            <Rate value={rate} />
 
         </div>
     )
