@@ -1,5 +1,5 @@
-
 @import "../../scss/variables/colors.module.scss";
+
 .order {
     // max-width: 1722px;
     width: 100%;
@@ -16,6 +16,9 @@
             .left {
                 width: 48%;
                 // css левой стороны
+                box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.1);
+                background-color: #FFFFFF;
+                padding: 30px;
 
                 h3 {
                     font-size: 14px;
@@ -25,7 +28,7 @@
                 }
 
                 .agreement {
-                    width: 680px;
+                    width: 100%;
                     margin-bottom: 30px;
                 }
 
@@ -92,6 +95,7 @@
 
             .right {
                 width: 48%;
+       
 
                 h3 {
                     font-size: 14px;

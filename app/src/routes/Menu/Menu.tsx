@@ -7,7 +7,7 @@ import { Button, Flex, Pagination } from "antd";
 import { fetchProduct } from "store/reducers/productReduser";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { formatParams } from "helpers/convertProps";
-import { setCategory } from "store/slices/windowSlice";
+import { setCategory, setOffcet } from "store/slices/windowSlice";
 import { clearData } from "store/slices/productSlice";
 
 
@@ -29,11 +29,25 @@ const Menu: FC = () => {
             <div className={classes.main}>
                 <br />
                 <Flex gap={15} wrap='wrap'>
+                    <Button
+                        onClick={() => {
+                            dispatch(setOffcet(1))
+                            dispatch(clearData())
+                            dispatch(setCategory(0))
+                        }}
+                        style={{ padding: '0 2rem' }}
+                        type={
+                            menuprops.category === 0
+                                ? 'primary'
+                                : 'default'}>
+                        все
+                    </Button>
                     {data.results
                         .slice(0, all === false ? 6 : data.results.length)
                         .map((category) =>
                             <Button
                                 onClick={() => {
+                                    dispatch(setOffcet(1))
                                     dispatch(clearData())
                                     dispatch(setCategory(category.id))
                                 }}

@@ -32,6 +32,7 @@ const ProductMenu: FC<Props> = ({ title, desprrition }) => {
             </div>
 
             <InfiniteScroll
+                className={classes.main_row}
                 dataLength={data.length}
                 next={next}
                 hasMore={hasNext !== null}
@@ -39,21 +40,21 @@ const ProductMenu: FC<Props> = ({ title, desprrition }) => {
                 endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
                 scrollableTarget="scrollableDiv"
             >
-                <div className={classes.main_row}>
-                    {data.map((item: IProduct) => (
-                        <ProduckCard
-                            id={`${item.id}`}
-                            image={item.iiko_image}
-                            title={item.title}
-                            desprition={item.description}
-                            rate={4}
-                            price={item.price}
-                        />
-                    ))}
-                </div>
+
+                {data.map((item: IProduct) => (
+                    <ProduckCard
+                        id={`${item.id}`}
+                        image={item.iiko_image}
+                        title={item.title}
+                        desprition={item.description}
+                        rate={4}
+                        price={item.price}
+                    />
+                ))}
+
             </InfiniteScroll>
 
-      
+
         </div>
     )
 }

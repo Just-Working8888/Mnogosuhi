@@ -1,17 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICart } from 'store/models/ICart';
-import { IProduct } from 'store/models/IProduct';
+import { IProduct, IProductGet } from 'store/models/IProduct';
 import { fetchLoadProduct, fetchProduct } from 'store/reducers/productReduser';
 
 
 
 interface productState {
-    data: {
-        count: number
-        next: null | string
-        previous: null | string
-        results: IProduct[]
-    };
+    data: IProductGet
+    promo: IProductGet
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
@@ -19,6 +15,12 @@ interface productState {
 
 const initialState: productState = {
     data: {
+        count: 0,
+        next: null,
+        previous: null,
+        results: []
+    },
+    promo: {
         count: 0,
         next: null,
         previous: null,

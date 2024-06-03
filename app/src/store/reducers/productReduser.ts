@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "api";
 import { CancelToken } from "axios";
-import { IProduct } from "store/models/IProduct";
+import { IProduct, IProductGet } from "store/models/IProduct";
 
 export const fetchProduct = createAsyncThunk<IProduct[], { filters: string, cancelToken?: CancelToken }, { rejectValue?: string }>(
     'product/fetchProducts',
@@ -19,6 +19,18 @@ export const fetchLoadProduct = createAsyncThunk<IProduct[], { filters: string, 
     async ({ filters, cancelToken }, { rejectWithValue }) => {
         try {
             const response = await api.getProduct(filters, cancelToken);
+            return response.data
+        } catch (error) {
+            return rejectWithValue(typeof error === 'string' ? error : 'Failed to fetch cart items');
+        }
+    }
+);
+
+export const fetchProductPromo = createAsyncThunk<IProductGet, { cancelToken?: CancelToken }, { rejectValue?: string }>(
+    'product/fetchProductPromo',
+    async ({ cancelToken }, { rejectWithValue }) => {
+        try {
+            const response = await api.getProductPromo(cancelToken);
             return response.data
         } catch (error) {
             return rejectWithValue(typeof error === 'string' ? error : 'Failed to fetch cart items');

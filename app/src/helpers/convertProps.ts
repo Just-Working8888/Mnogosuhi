@@ -5,10 +5,12 @@ export function formatParams(params: windowState): string {
     const { category, offset, limit } = menuprops
     const queryParams = [];
 
-    if (category !== null) {
+    if (category !== 0) {
         queryParams.push(`category=${category}`);
     }
-    queryParams.push(`offset=${offset}`);
+    if (offset > 1) {
+        queryParams.push(`offset=${offset}`);
+    }
     queryParams.push(`limit=${limit}`);
 
     return queryParams.join('&');

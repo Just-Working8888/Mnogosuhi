@@ -1,12 +1,16 @@
 import { CancelToken } from 'axios';
 import { instance } from './index'
-import { IProduct, IProductDto } from 'store/models/IProduct';
+import { IProduct, IProductDto, IProductGet } from 'store/models/IProduct';
 
 
 
 
 const getProduct = (filters: string, sourceToken?: CancelToken) =>
     instance.get<IProduct[]>(`/product/?${filters}`, { cancelToken: sourceToken });
+
+const getProductPromo = (sourceToken?: CancelToken) =>
+    instance.get<IProductGet>(`/product/promotions/`, { cancelToken: sourceToken });
+
 
 const getProductById = (id: number, sourceToken?: CancelToken) =>
     instance.get<IProduct>(`/products/${id}`, { cancelToken: sourceToken });
@@ -29,6 +33,7 @@ const endpoints = {
     createProduct,
     updateProduct,
     patchProduct,
-    deleteProductById
+    deleteProductById,
+    getProductPromo
 };
 export default endpoints;

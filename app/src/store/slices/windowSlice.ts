@@ -12,7 +12,7 @@ export interface windowState {
 
 const initialState: windowState = {
     menuprops: {
-        category: null,
+        category: 0,
         offset: 1,
         limit: 20
     }

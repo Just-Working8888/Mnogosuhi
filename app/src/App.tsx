@@ -23,7 +23,7 @@ function App() {
       <Route path='/signUp' element={<SignUp />} />
       <Route path='/' element={<Main />}>
         <Route path='/' element={<MainPage />} />
-        <Route path='/catalog' element={<Catalog />} />
+        {/* <Route path='/catalog' element={<Catalog />} /> */}
         <Route path='/food/:id' element={<SingleProduckt />} />
         <Route path="cart" element={<Cart />} />
         <Route path="orders" element={<OrderPlacing />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path='about' element={<AboutUs />} />
         <Route path='revies' element={<AllRevies />} />
         <Route path='shop' element={<Shop />} />
-        <Route path='menu' element={<Menu />} />
+        <Route path='catalog' element={<Menu />} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />
     </Routes>

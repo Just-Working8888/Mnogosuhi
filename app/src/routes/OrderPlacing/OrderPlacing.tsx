@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import classes from './OrderPlacing.module.scss';
-import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography } from "antd";
+import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix } from "antd";
 import { Link } from 'react-router-dom';
 import data from '../../data/test/cart.json'
 import { BreadCrumps } from "Components";
@@ -311,7 +311,7 @@ const OrderPlacing: React.FC = () => {
                                         },
                                     ]}
                                 >
-                                    <Checkbox>
+                                    <Checkbox style={{ textWrap: 'wrap' }}>
                                         Оформляя заказ, вы принимаете условия <a href="#/">Пользовательских соглашений</a> и даете согласие на обработку персональных данных согласно <a href="#/">Политике конфиденциальности.</a>
                                     </Checkbox>
                                 </Form.Item>
@@ -330,49 +330,51 @@ const OrderPlacing: React.FC = () => {
                         {/* Начало правой части верстки */}
 
                         <div className={classes.right}>
+                            <Affix>
+                                <div  style={{marginTop:'3rem'}}>
+                                    <h3>Ваш заказ</h3>
+                                    {
+                                        data.cart_items.map((item) => (
+                                            <div className={classes.flexConteiner}>
+                                                <div className={classes.imgProduct}>
+                                                    <img src={item.product.image} alt="" />
+                                                </div>
 
-                            <h3>Ваш заказ</h3>
-                            {
-                                data.cart_items.map((item) => (
-                                    <div className={classes.flexConteiner}>
-                                        <div className={classes.imgProduct}>
-                                            <img src={item.product.image} alt="" />
-                                        </div>
+                                                <div className={classes.title}>
+                                                    <h3>
+                                                        {item.product.title}
 
-                                        <div className={classes.title}>
-                                            <h3>
-                                                {item.product.title}
+                                                    </h3>
 
-                                            </h3>
+                                                    <span>Код товара: {item.product.product_code}</span>
 
-                                            <span>Код товара: {item.product.product_code}</span>
+                                                    <p>Цвет товара: Цвет товара</p>
 
-                                            <p>Цвет товара: Цвет товара</p>
-
-                                            <p>Количество: {item.quantity}</p>
-                                        </div>
-                                        <div className={classes.price}>
-                                            <s>{item.product.price}</s>
-                                            <h2>{item.product.old_price}</h2>
-                                        </div>
-                                    </div>
-                                ))
-                            }
+                                                    <p>Количество: {item.quantity}</p>
+                                                </div>
+                                                <div className={classes.price}>
+                                                    <s>{item.product.price}</s>
+                                                    <h2>{item.product.old_price}</h2>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
 
 
 
+                                </div>
 
+                            </Affix>
 
                         </div>
-
                         {/* Конец правой части верстки */}
 
                     </div>
 
-                </div>
+                </div >
 
                 {contextHolder}
-            </section></>
+            </section ></>
     )
 }
 
