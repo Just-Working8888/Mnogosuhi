@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "api";
 import { CancelToken } from "axios";
-import { IReviews } from "store/models/IReviews";
+import { IPeviewsGet, IReviews } from "store/models/IReviews";
 
-export const fetchReviews = createAsyncThunk<IReviews[], { cancelToken?: CancelToken, }, { rejectValue?: string }>(
+export const fetchReviews = createAsyncThunk<IPeviewsGet, { cancelToken?: CancelToken, }, { rejectValue?: string }>(
     'reviews/fetchReviews',
     async ({ cancelToken }, { rejectWithValue }) => {
         try {

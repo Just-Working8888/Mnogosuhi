@@ -1,18 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICart } from 'store/models/ICart';
-import { fetchCartItems } from 'store/reducers/cartReduser';
+import { ICart, ICartGet } from 'store/models/ICart';
+import { ICartItem } from 'store/models/ICartItem';
+import { fetchCartItemById, fetchCartItems } from 'store/reducers/cartReduser';
 
 
 
 interface cartState {
-    data: ICart[];
+    data: ICart;
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
 }
 
 const initialState: cartState = {
-    data: [],
+    data: {
+        id: 0,
+        created: '',
+        discount_amount: 0,
+        items: [],
+    },
     status: 'idle',
     error: null,
     laoding: false
@@ -27,16 +33,16 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCartItems.pending, (state) => {
+            .addCase(fetchCartItemById.pending, (state) => {
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchCartItems.fulfilled, (state, action: PayloadAction<ICart[]>) => {
+            .addCase(fetchCartItemById.fulfilled, (state, action: PayloadAction<any>) => {
                 state.status = 'succeeded';
-                state.data = [...state.data, ...action.payload]
+                state.data = action.payload;
                 state.laoding = false
             })
-            .addCase(fetchCartItems.rejected, (state, action) => {
+            .addCase(fetchCartItemById.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
                 state.laoding = false

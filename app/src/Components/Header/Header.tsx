@@ -9,14 +9,20 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { foods } from 'data/test/testData';
 import SmailCartItem from 'Components/SmallCartItem/SmailCartItem';
 import MobileNav from 'Components/MobileNav/MobileNav';
+import { useAppDispatch, useAppSelector } from 'store/hook';
+import { fetchCartItemById } from 'store/reducers/cartReduser';
+import { ICart } from 'store/models/ICart';
+import { ICartItem } from 'store/models/ICartItem';
 
 const HeaderComponent: React.FC = () => {
     const [top, setTop] = useState<boolean>(true)
     const [open, setOpen] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false)
+    const { data } = useAppSelector((state) => state.cart)
     const navigate = useNavigate()
     const location = useLocation();
     const currentPath = location.pathname;
+    const dispatch = useAppDispatch()
 
     const scrollHandler = () => {
         window.pageYOffset > 10 ? setTop(false) : setTop(true)
@@ -27,9 +33,14 @@ const HeaderComponent: React.FC = () => {
         window.addEventListener('scroll', scrollHandler)
         return () => window.removeEventListener('scroll', scrollHandler)
     }, [top])
+    useEffect(() => {
+        dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+    }, [])
     const onClose = () => {
         setOpen(false);
     };
+    console.log(data);
+    
     return (
 
         <header style={!top ? { height: "80px" } : {}} className={classes.header}>
@@ -91,7 +102,7 @@ const HeaderComponent: React.FC = () => {
                 <div className={classes.header_cartItems}>
                     <h3>your order</h3>
                     {
-                        foods.slice(0, 6).map((item) => <SmailCartItem title={item.title} image={item.image} price={124} />)
+                        data.items.map((item: any) => <SmailCartItem title={item.product.title} image={item?.product.iiko_image} price={item?.product.price} />)
                     }
                 </div>
             </Drawer>

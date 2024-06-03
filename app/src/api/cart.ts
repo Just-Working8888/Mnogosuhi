@@ -16,7 +16,7 @@ const getCartById = (id: number, sourceToken?: CancelToken) =>
     instance.get<ICart>(`/cart/${id}`, { cancelToken: sourceToken });
 
 const createCart = (data: ICartDto, sourceToken?: CancelToken) =>
-    instance.post('/cart', { ...data }, { cancelToken: sourceToken });
+    instance.post('/cart/', { ...data }, { cancelToken: sourceToken });
 
 const updateCart = (id: number, data: ICartDto, sourceToken?: CancelToken) =>
     instance.put(`/cart/${id}`, { ...data }, { cancelToken: sourceToken });

@@ -9,15 +9,15 @@ import { Navigation } from 'swiper/modules'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { foods } from 'data/test/testData';
 import SwiperItem from './SwiperSlide/SwiperSlide';
 import { Flex } from 'antd';
 import MainBtn from 'Components/MainBtn/MainBtn';
 import { LeftOutlined, RightCircleOutlined, RightOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { IProduct } from 'store/models/IProduct';
 
 SwiperCore.use([Navigation]);
-const ProductSlider: FC = () => {
+const ProductSlider: FC<{ data: IProduct[] }> = ({ data }) => {
     return (
         <div>
             <Flex justify='space-between' className={classes.main_head}>
@@ -70,8 +70,17 @@ const ProductSlider: FC = () => {
                 }}
                 className={classes.Swiper}
             >
-                {foods.map((item: any) => (
-                    <SwiperSlide> <SwiperItem id={item.id} image={item?.image} title={item.title} /> </SwiperSlide>
+                {data.map((item: IProduct) => (
+                    <SwiperSlide>
+                        <SwiperItem
+                            id={`${item.id}`}
+                            image={item.iiko_image}
+                            title={item.title}
+                            desprition={item.description}
+                            rate={4}
+                            price={item.price}
+                        />
+                    </SwiperSlide>
                 ))}
             </Swiper>
 

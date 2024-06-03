@@ -6,9 +6,18 @@ import ProductSlider from "Components/ProductSlider/ProductSlider";
 import SectionHead from "Components/SectionHead/SectionHead";
 import CookerCard from "Components/CookerCard/CookerCard";
 import { setSessionKey } from "helpers/session_key";
+import { useAppDispatch, useAppSelector } from "store/hook";
+import { fetchProductPromo } from "store/reducers/productReduser";
 
 const MainPage: FC = () => {
+  const dispatch = useAppDispatch()
+  const data = useAppSelector((state) => state.product.promo.results)
 
+
+
+  useEffect(() => {
+    dispatch(fetchProductPromo({}))
+  }, [])
   return (
     <div style={{
       backgroundColor: "rgb(255, 255, 255)!important",
@@ -29,7 +38,7 @@ const MainPage: FC = () => {
           <MainCategoriesSection />
         </div>
 
-        <ProductSlider />
+        <ProductSlider data={data} />
         <div>
 
           <SectionHead

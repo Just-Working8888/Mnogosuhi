@@ -31,11 +31,11 @@ export const fetchCartItem = createAsyncThunk<ICartItem[], { cancelToken?: Cance
     }
 );
 
-export const fetchCartItemById = createAsyncThunk<ICartItem, { cancelToken?: CancelToken, id: number }, { rejectValue?: string }>(
+export const fetchCartItemById = createAsyncThunk<ICart, { cancelToken?: CancelToken, id: number }, { rejectValue?: string }>(
     'cart/fetchCartItemById',
     async ({ cancelToken, id }, { rejectWithValue }) => {
         try {
-            const response = await api.getCartItemById(id);
+            const response = await api.getCartItemById(id, cancelToken);
             return response.data
         } catch (error) {
             return rejectWithValue(typeof error === 'string' ? error : 'Failed to fetch cart items');
@@ -50,12 +50,13 @@ export const createCart = createAsyncThunk(
         const source = axios.CancelToken.source();
         signal.addEventListener('abort', () => source.cancel('Operation canceled by the user.'));
         const response = await api.createCart(data, source.token);
+        localStorage.setItem('cart_id', response.data.id)
         return response.data;
     }
 );
 
 
-export const createCartItem = createAsyncThunk(
+export const addCartItem = createAsyncThunk(
     'cart/createCartItem',
     async ({ data }: { data: ICartItemDto; }, { signal }) => {
         const source = axios.CancelToken.source();

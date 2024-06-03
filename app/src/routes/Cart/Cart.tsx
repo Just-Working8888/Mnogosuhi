@@ -1,9 +1,11 @@
 import CartComponent from "Components/CartComponent/CartComponent";
-import React from "react";
+import React, { useEffect } from "react";
 import classes from './Cart.module.scss'
 import { Typography } from "antd";
 import { BreadCrumps, CartTable } from "Components";
 import CartRow from "Components/CartRow/CartRow";
+import { useAppDispatch, useAppSelector } from "store/hook";
+import { fetchCartItemById } from "store/reducers/cartReduser";
 interface CartProps {
 
 }
@@ -65,6 +67,11 @@ const data = [
     },
 ];
 const Cart: React.FC<CartProps> = () => {
+    const dispatch = useAppDispatch()
+    const { data } = useAppSelector((state) => state.cart)
+    useEffect(() => {
+        dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+    }, [])
     return (
         <>
             <BreadCrumps title='Your order..' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'cart', href: '/cart' }]} />
@@ -76,12 +83,12 @@ const Cart: React.FC<CartProps> = () => {
 
                 <div className={classes.main_mob}>
                     {
-                        data.map((item) => <CartRow
-                            title={item.name.title}
-                            desption={item.name.descriptions}
+                        data.items.map((item) => <CartRow
+                            title={item.product.title}
+                            desption={item.product.description}
                             quanty={item.quantity}
-                            image={item.name.image}
-                            price={item.price}
+                            image={item.product.iiko_image}
+                            price={item.product.price}
                         />)}
                 </div>
             </div>

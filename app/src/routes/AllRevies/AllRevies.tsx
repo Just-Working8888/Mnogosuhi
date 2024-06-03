@@ -30,7 +30,7 @@ const AllRevies: FC = () => {
                 <br />
                 <div>
                     <div className={classes.main_container}>
-                        {data.map((item) =>
+                        {data.results.map((item) =>
                             <RewievCard
                                 title={item.text}
                                 desprition={item.text}

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICart } from 'store/models/ICart';
 import { IProduct, IProductGet } from 'store/models/IProduct';
-import { fetchLoadProduct, fetchProduct } from 'store/reducers/productReduser';
+import { fetchLoadProduct, fetchProduct, fetchProductPromo } from 'store/reducers/productReduser';
 
 
 
@@ -57,6 +57,23 @@ const productSlice = createSlice({
                 state.laoding = false
             })
             .addCase(fetchProduct.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
+                state.laoding = false
+            })
+
+            .addCase(fetchProductPromo.pending, (state) => {
+                state.status = 'pending';
+                state.laoding = true
+            })
+            .addCase(fetchProductPromo.fulfilled, (state, action: PayloadAction<any>) => {
+                state.status = 'succeeded';
+                state.data.count = action.payload.count
+                state.data.next = action.payload.next
+                state.promo = action.payload
+                state.laoding = false
+            })
+            .addCase(fetchProductPromo.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
                 state.laoding = false

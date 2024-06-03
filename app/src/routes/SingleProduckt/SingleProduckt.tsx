@@ -1,10 +1,12 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import classes from './SingleProduckt.module.scss'
 import { Button, Flex, Typography } from 'antd'
 import { BreadCrumps, Slides } from 'Components'
 import Productinfo from 'Components/Producktinfo/Productinfo'
 import RewievCard from 'Components/RewievCard/RewievCard'
 import ProductSlider from 'Components/ProductSlider/ProductSlider'
+import { useAppDispatch, useAppSelector } from 'store/hook'
+import { fetchProductPromo } from 'store/reducers/productReduser'
 const tabItems = [
     {
         id: 0,
@@ -87,6 +89,14 @@ const tabs = [
 ]
 const SingleProduckt: FC = () => {
     const [curentTab, setCurentTab] = useState(0)
+    const dispatch = useAppDispatch()
+    const data = useAppSelector((state) => state.product.promo.results)
+
+
+
+    useEffect(() => {
+        dispatch(fetchProductPromo({}))
+    }, [])
     return (
         <>
             <BreadCrumps title='Online shop' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'Product', href: '/food' }]} />
@@ -109,7 +119,7 @@ const SingleProduckt: FC = () => {
                     tabs[curentTab].node
                 }
                 <br /><br />
-                <ProductSlider />
+                <ProductSlider data={data} />
             </div>
         </>
 

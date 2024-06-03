@@ -19,3 +19,37 @@
 .custom-table .ant-table-cell {
     border-top: none !important;
 }
+
+.cart_count {
+
+    display: flex;
+    align-items: center;
+
+    &_th {
+        margin: 0 5px;
+        text-align: center;
+        height: 50px;
+        width: 60px;
+        background-color: #F9FAFC;
+        position: relative;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+    }
+
+    &_btn {
+        border-radius: 50%;
+        background-color: #ee1d23;
+        color: white;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border: none;
+        transition: 0.3s ease-in-out;
+    }
+}

@@ -1,12 +1,12 @@
 import { CancelToken } from 'axios';
 import { instance } from './index'
-import { IReviews, IReviewsDto } from 'store/models/IReviews';
+import { IPeviewsGet, IReviews, IReviewsDto } from 'store/models/IReviews';
 
 
 
 
 const getReviews = (sourceToken?: CancelToken) =>
-    instance.get<IReviews[]>(`/reviews/`, { cancelToken: sourceToken });
+    instance.get<IPeviewsGet>(`/reviews/`, { cancelToken: sourceToken });
 
 const getReviewsById = (id: number, sourceToken?: CancelToken) =>
     instance.get<IReviews>(`/reviews/${id}`, { cancelToken: sourceToken });

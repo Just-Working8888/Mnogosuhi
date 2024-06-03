@@ -1,18 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IReviews } from 'store/models/IReviews';
+import { IPeviewsGet, IReviews } from 'store/models/IReviews';
 import { fetchReviews } from 'store/reducers/reviewsReduser';
 
 
 
 interface shopState {
-    data: IReviews[];
+    data: IPeviewsGet;
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
 }
 
 const initialState: shopState = {
-    data: [],
+    data: {
+        count: 0,
+        next: null,
+        previous: null,
+        results: []
+    },
     status: 'idle',
     error: null,
     laoding: false
@@ -31,9 +36,9 @@ const reviewsSlice = createSlice({
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchReviews.fulfilled, (state, action: PayloadAction<IReviews[]>) => {
+            .addCase(fetchReviews.fulfilled, (state, action: PayloadAction<IPeviewsGet>) => {
                 state.status = 'succeeded';
-                state.data = [...state.data, ...action.payload]
+                state.data = action.payload;
                 state.laoding = false
             })
             .addCase(fetchReviews.rejected, (state, action) => {

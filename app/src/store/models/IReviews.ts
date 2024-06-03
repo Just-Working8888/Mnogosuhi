@@ -8,6 +8,13 @@ export interface IReviews {
     user_img: string
     user_username: string
 }
+export interface IPeviewsGet {
+    count: number
+    next: string | null
+    previous: string | null
+    results: IReviews[]
+
+}
 export interface IReviewsDto {
     text: string
     stars: string
