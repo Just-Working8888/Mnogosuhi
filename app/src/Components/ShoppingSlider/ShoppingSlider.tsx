@@ -43,7 +43,24 @@ const ShoppingSlider: FC<{ data: IProduct[] }> = ({ data }) => {
 
             </Flex>
             <Swiper
-                slidesPerView={4}
+                breakpoints={{
+
+                    // when window width is >= 480px
+                    580: {
+                        slidesPerView: 1,
+
+                    },
+                    // when window width is >= 640px
+                    970: {
+                        slidesPerView: 1,
+
+                    },
+                    // when window width is >= 1024px
+                    1024: {
+                        slidesPerView: 4,
+
+                    }
+                }}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -54,7 +71,7 @@ const ShoppingSlider: FC<{ data: IProduct[] }> = ({ data }) => {
                 className={classes.Swiper}
             >
                 {data.map((item: IProduct) => (
-                    <SwiperSlide>
+                    <SwiperSlide >
                         <SwiperItem
                             id={`${item.id}`}
                             image={item.iiko_image}

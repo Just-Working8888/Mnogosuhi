@@ -13,7 +13,7 @@ const getProductPromo = (sourceToken?: CancelToken) =>
 
 
 const getProductById = (id: number, sourceToken?: CancelToken) =>
-    instance.get<IProduct>(`/products/${id}`, { cancelToken: sourceToken });
+    instance.get<IProduct>(`/product/${id}/`, { cancelToken: sourceToken });
 
 const createProduct = (data: IProductDto, sourceToken?: CancelToken) =>
     instance.post('/products', { ...data }, { cancelToken: sourceToken });

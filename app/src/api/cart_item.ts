@@ -28,7 +28,12 @@ const patchCartItem = (id: number, data: ICartItemDto, sourceToken?: CancelToken
     instance.patch(`/cart_item/${id}`, { ...data }, { cancelToken: sourceToken });
 
 const deleteCartItemById = (id: number, sourceToken?: CancelToken) =>
-    instance.delete(`/cart_item/${id}`, { cancelToken: sourceToken });
+    instance.delete(`/cart_item/${id}/`, {
+        headers: {
+            "Sessionkey": localStorage.getItem('session_key'),
+        },
+        cancelToken: sourceToken
+    });
 
 const endpoints = {
     getCartItem,

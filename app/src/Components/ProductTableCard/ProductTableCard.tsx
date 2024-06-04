@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Flex, Image, Rate, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import classes from './SwiperSlide.module.scss'
+import classes from './ProductTableCard.module.scss'
 import { RightCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useAppDispatch } from 'store/hook';
 import { addCartItem } from 'store/reducers/cartReduser';
@@ -15,7 +15,7 @@ interface CardType {
     rate: number
     id: string
 }
-const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, rate }) => {
+const ProductTableCard: React.FC<CardType> = ({ image, title, id, price, desprition, rate }) => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     function add() {
@@ -25,7 +25,7 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
             cart: Number(localStorage.getItem('cart_id')) as any,
             product: +id
         }
-        dispatch(addCartItem({ data: data })).then(() => message.success('товар успешно удален из корзины'))
+        dispatch(addCartItem({ data: data })).then(() => message.success('товар успешно добавлен в корзину'))
     }
     return (
         <div className={classes.card}>
@@ -57,4 +57,4 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
     )
 }
 
-export default SwiperItem;
+export default ProductTableCard;

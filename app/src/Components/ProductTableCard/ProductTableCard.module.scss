@@ -1,12 +1,12 @@
-@import '../../../scss/variables/colors.module.scss';
+@import '../../scss/variables/colors.module.scss';
 
 .card {
-    width: 100%;
+    flex: 0 0 25%;
+    max-width: 25%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 500px;
 
     &_btnn {
         width: 55px;

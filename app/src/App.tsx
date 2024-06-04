@@ -14,6 +14,7 @@ import AboutUs from 'routes/AboutUs/AboutUs';
 import AllRevies from 'routes/AllRevies/AllRevies';
 import Shop from 'routes/Shop/Shop';
 import Menu from 'routes/Menu/Menu';
+import TablePage from 'routes/Table/TablePage';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='revies' element={<AllRevies />} />
         <Route path='shop' element={<Shop />} />
         <Route path='catalog' element={<Menu />} />
+        <Route path='table/:id' element={<TablePage />} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />
     </Routes>

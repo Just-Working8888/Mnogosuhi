@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICart } from 'store/models/ICart';
 import { IProduct, IProductGet } from 'store/models/IProduct';
-import { fetchLoadProduct, fetchProduct, fetchProductPromo } from 'store/reducers/productReduser';
+import { fetchLoadProduct, fetchProduct, fetchProductByID, fetchProductPromo } from 'store/reducers/productReduser';
 
 
 
 interface productState {
     data: IProductGet
     promo: IProductGet
+    product: IProduct
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
@@ -26,9 +27,20 @@ const initialState: productState = {
         previous: null,
         results: []
     },
+    product: {
+        id: 0,
+        title: "Loaing....",
+        description: "Loaing....",
+        price: "Loaing....",
+        image: "Loaing....",
+        iiko_image: "Loaing....",
+        sku: "Loaing....",
+        created: "Loaing....",
+        category: 0,
+    },
     status: 'idle',
     error: null,
-    laoding: false
+    laoding: true
 };
 
 
@@ -74,6 +86,20 @@ const productSlice = createSlice({
                 state.laoding = false
             })
             .addCase(fetchProductPromo.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
+                state.laoding = false
+            })
+            .addCase(fetchProductByID.pending, (state) => {
+                state.status = 'pending';
+                state.laoding = true
+            })
+            .addCase(fetchProductByID.fulfilled, (state, action: PayloadAction<IProduct>) => {
+                state.status = 'succeeded';
+                state.product = action.payload
+                state.laoding = false
+            })
+            .addCase(fetchProductByID.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
                 state.laoding = false

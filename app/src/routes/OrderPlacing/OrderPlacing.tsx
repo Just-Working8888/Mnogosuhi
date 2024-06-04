@@ -4,26 +4,16 @@ import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix
 import { Link } from 'react-router-dom';
 import data from '../../data/test/cart.json'
 import { BreadCrumps } from "Components";
+import { useAppDispatch, useAppSelector } from "store/hook";
+import { fetchCartItemById } from "store/reducers/cartReduser";
 const OrderPlacing: React.FC = () => {
-
-
     const [modal, contextHolder] = Modal.useModal();
-
-
-
-    let students = [
-        { name: "Alice", age: 10, grade: 90 },
-        { name: "Bob", age: 22, grade: 85 },
-        { name: "Charlie", age: 21, grade: 88 },
-        { name: "Alice", age: 30, grade: 90 },
-        { name: "Bob", age: 11, grade: 85 },
-        { name: "Charlie", age: 15, grade: 88 },
-        { name: "Alice", age: 18, grade: 90 },
-        { name: "Bob", age: 12, grade: 85 },
-        { name: "Charlie", age: 41, grade: 88 }
-    ];
-
     const { TextArea } = Input;
+    const dispatch = useAppDispatch()
+    const { data } = useAppSelector((state) => state.cart)
+    useEffect(() => {
+        dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+    }, [])
 
     return (
         <>
@@ -330,14 +320,14 @@ const OrderPlacing: React.FC = () => {
                         {/* Начало правой части верстки */}
 
                         <div className={classes.right}>
-                            <Affix>
-                                <div  style={{marginTop:'3rem'}}>
+                           
+                                <div style={{ marginTop: '3rem' }}>
                                     <h3>Ваш заказ</h3>
                                     {
-                                        data.cart_items.map((item) => (
+                                        data.items.map((item) => (
                                             <div className={classes.flexConteiner}>
                                                 <div className={classes.imgProduct}>
-                                                    <img src={item.product.image} alt="" />
+                                                    <img src={item.product.iiko_image} alt="" />
                                                 </div>
 
                                                 <div className={classes.title}>
@@ -346,7 +336,7 @@ const OrderPlacing: React.FC = () => {
 
                                                     </h3>
 
-                                                    <span>Код товара: {item.product.product_code}</span>
+                                               
 
                                                     <p>Цвет товара: Цвет товара</p>
 
@@ -354,7 +344,7 @@ const OrderPlacing: React.FC = () => {
                                                 </div>
                                                 <div className={classes.price}>
                                                     <s>{item.product.price}</s>
-                                                    <h2>{item.product.old_price}</h2>
+                                                    {/* <h2>{item.product.old_price}</h2> */}
                                                 </div>
                                             </div>
                                         ))
@@ -363,8 +353,6 @@ const OrderPlacing: React.FC = () => {
 
 
                                 </div>
-
-                            </Affix>
 
                         </div>
                         {/* Конец правой части верстки */}

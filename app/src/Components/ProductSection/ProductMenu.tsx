@@ -8,6 +8,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { Button, Divider, Skeleton } from 'antd'
 import { formatParams } from 'helpers/convertProps'
 import { setOffcet } from 'store/slices/windowSlice'
+import CardSceleton from 'Components/Sceletons/CardSceleton/CardSceleton'
 type Props = {
     title: string,
     desprrition: string,
@@ -18,6 +19,7 @@ const ProductMenu: FC<Props> = ({ title, desprrition }) => {
     const data = useAppSelector((state) => state.product.data.results)
     const hasNext = useAppSelector((state) => state.product.data.next)
     const { menuprops } = useAppSelector((state) => state.window)
+    const { laoding } = useAppSelector((state) => state.product)
 
     function next() {
         dispatch(setOffcet((menuprops.offset + 20)))
@@ -31,29 +33,57 @@ const ProductMenu: FC<Props> = ({ title, desprrition }) => {
 
             </div>
 
-            <InfiniteScroll
-                className={classes.main_row}
-                dataLength={data.length}
-                next={next}
-                hasMore={hasNext !== null}
-                loader={<Skeleton avatar paragraph={{ rows: 1 }} active />}
-                endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
-                scrollableTarget="scrollableDiv"
-            >
+            {laoding
+                ?
+                <div className={classes.main_row}>
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                    <CardSceleton />
+                </div>
+                :
+                <InfiniteScroll
+                    className={classes.main_row}
+                    dataLength={data.length}
+                    next={next}
+                    hasMore={hasNext !== null}
+                    loader={<div className={classes.main_row}>
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                        <CardSceleton />
+                    </div>}
+                    endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
+                    scrollableTarget="scrollableDiv"
+                >
 
-                {data.map((item: IProduct) => (
-                    <ProduckCard
-                        id={`${item.id}`}
-                        image={item.iiko_image}
-                        title={item.title}
-                        desprition={item.description}
-                        rate={4}
-                        price={item.price}
-                    />
-                ))}
+                    {data.map((item: IProduct) => (
+                        <ProduckCard
+                            id={`${item.id}`}
+                            image={item.iiko_image}
+                            title={item.title}
+                            desprition={item.description}
+                            rate={4}
+                            price={item.price}
+                        />
+                    ))}
 
-            </InfiniteScroll>
-
+                </InfiniteScroll>
+            }
 
         </div>
     )

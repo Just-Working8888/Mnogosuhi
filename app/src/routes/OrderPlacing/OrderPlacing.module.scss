@@ -113,10 +113,12 @@
 
                     .imgProduct {
                         width: 25%;
+                        height: 150px;
+                        overflow: hidden;
 
                         img {
                             width: 100%;
-                            height: auto;
+                            height: 100%;
                         }
                     }
 

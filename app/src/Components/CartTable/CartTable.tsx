@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Image, Space, InputNumber, Button } from 'antd';
+import { Table, Image, Space, InputNumber, Button, message } from 'antd';
 import type { TableProps } from 'antd';
 import './CartTable.scss'
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { ICart, ICartItemPR } from 'store/models/ICart';
 import { useAppDispatch, useAppSelector } from 'store/hook';
 import { fetchCartItemById } from 'store/reducers/cartReduser';
+import { api } from 'api';
+import { removeItem } from 'store/slices/cartSlice';
 
 
 
 
 const CartTable: React.FC = () => {
+
 
     const [totalSum, setTotalSum] = useState<number>(0);
 
@@ -20,6 +23,20 @@ const CartTable: React.FC = () => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
     }, [])
 
+    async function delte(id: number) {
+
+        try {
+
+            await api.deleteCartItemById(id).then(() => {
+                dispatch(removeItem(id))
+                message.success('товар успешно удален из корзины')
+            })
+
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
 
     const columns: TableProps<any>['columns'] = [
         {
@@ -73,7 +90,7 @@ const CartTable: React.FC = () => {
         {
             title: '',
             key: 'closr',
-            render: () => <CloseCircleOutlined />,
+            render: (text, record) => <CloseCircleOutlined onClick={() => delte(record.id)} />,
         },
     ];
 
@@ -83,6 +100,8 @@ const CartTable: React.FC = () => {
             <div style={{ textAlign: 'right', marginTop: '16px' }}>
                 <h3>Total Sum: ${totalSum}</h3>
             </div>
+
+
         </div>
     );
 };

@@ -25,6 +25,9 @@ import SmailCartItem from "./SmallCartItem/SmailCartItem"
 import CartTable from "./CartTable/CartTable"
 import MobileNav from "./MobileNav/MobileNav"
 import ProductMenu from "./ProductSection/ProductMenu"
+import ProductTable from "./ProductSection/ProductTable"
+import ProductTableCard from "./ProductTableCard/ProductTableCard"
+import CardSceleton from "./Sceletons/CardSceleton/CardSceleton"
 export {
     HeaderComponent,
     Login,
@@ -52,6 +55,9 @@ export {
     SmailCartItem,
     CartTable,
     MobileNav,
-    ProductMenu
+    ProductMenu,
+    ProductTable,
+    ProductTableCard,
+    CardSceleton
 }
 

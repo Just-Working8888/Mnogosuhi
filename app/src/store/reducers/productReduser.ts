@@ -37,3 +37,14 @@ export const fetchProductPromo = createAsyncThunk<IProductGet, { cancelToken?: C
         }
     }
 );
+export const fetchProductByID = createAsyncThunk<IProduct, { id: number, cancelToken?: CancelToken }, { rejectValue?: string }>(
+    'product/fetchProductByID',
+    async ({ id, cancelToken }, { rejectWithValue }) => {
+        try {
+            const response = await api.getProductById(id, cancelToken);
+            return response.data
+        } catch (error) {
+            return rejectWithValue(typeof error === 'string' ? error : 'Failed to fetch cart items');
+        }
+    }
+);
