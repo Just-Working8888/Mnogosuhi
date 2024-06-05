@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Image, Space, InputNumber, Button, message } from 'antd';
+import { Table, Image, Space, InputNumber, Button, message, Card, Flex } from 'antd';
 import type { TableProps } from 'antd';
 import './CartTable.scss'
-import { CloseCircleOutlined } from '@ant-design/icons';
+import { CloseCircleOutlined, LeftCircleOutlined, UpCircleOutlined } from '@ant-design/icons';
 import { ICart, ICartItemPR } from 'store/models/ICart';
 import { useAppDispatch, useAppSelector } from 'store/hook';
-import { fetchCartItemById } from 'store/reducers/cartReduser';
+import { fetchCartItemById, updateCartItem } from 'store/reducers/cartReduser';
 import { api } from 'api';
 import { removeItem } from 'store/slices/cartSlice';
+import Counter from './Counter';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,13 +17,21 @@ import { removeItem } from 'store/slices/cartSlice';
 const CartTable: React.FC = () => {
 
 
-    const [totalSum, setTotalSum] = useState<number>(0);
 
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { data } = useAppSelector((state) => state.cart)
+   
     useEffect(() => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+
     }, [])
+    const [totalSum, setTotalSum] = useState<number>();
+    useEffect(() => {
+        setTotalSum(data.items.reduce((sum, item) => {
+            return sum + Number(item?.product.price) * item.quantity;
+        }, 0))
+    }, [data])
 
     async function delte(id: number) {
 
@@ -60,13 +70,7 @@ const CartTable: React.FC = () => {
             title: 'Quantity',
             dataIndex: 'quantity',
             key: 'quantity',
-            render: (text, record) => (
-                <div className={"cart_count"}>
-                    <div className={"cart_count_btn"}>-</div>
-                    <div className={"cart_count_th"}>{record.quantity}</div>
-                    <div className={"cart_count_btn"}>+</div>
-                </div>
-            ),
+            render: (text, record) => <Counter record={record} />
         },
         {
             title: '',
@@ -97,8 +101,36 @@ const CartTable: React.FC = () => {
     return (
         <div>
             <Table className="custom-table" columns={columns} dataSource={data.items} pagination={false} />
-            <div style={{ textAlign: 'right', marginTop: '16px' }}>
-                <h3>Total Sum: ${totalSum}</h3>
+            <div style={{ textAlign: 'right', marginTop: '16px', justifyContent: 'end', display: 'flex' }}>
+                <Card className='checking_cart' >
+                    <Flex justify='space-between' align='center'>
+                        <h3>Subtotal:</h3>
+                        <p>$999</p>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between' align='center'>
+                        <h4>Estimated shipping:</h4>
+                        <p>$999</p>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between' align='center'>
+                        <h3>Total:</h3>
+                        <p>{totalSum}</p>
+                    </Flex>
+                    <br />
+                    <div className='line'></div>
+                    <Flex justify='space-between' align='center'>
+                        <Flex align='center' gap={14}>
+                            <div onClick={() => navigate('/shop')} className='cart_to_checkout_btn'><LeftCircleOutlined /></div>
+                            <h4>         Continue shopping</h4>
+                        </Flex>
+                        <Button onClick={() => navigate('/orders')} type='primary' icon={<UpCircleOutlined />}>
+                            checkout
+                        </Button>
+                    </Flex>
+
+
+                </Card>
             </div>
 
 

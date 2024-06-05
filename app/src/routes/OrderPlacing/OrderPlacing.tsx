@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from './OrderPlacing.module.scss';
-import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix } from "antd";
+import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex } from "antd";
 import { Link } from 'react-router-dom';
 import data from '../../data/test/cart.json'
 import { BreadCrumps } from "Components";
@@ -11,6 +11,14 @@ const OrderPlacing: React.FC = () => {
     const { TextArea } = Input;
     const dispatch = useAppDispatch()
     const { data } = useAppSelector((state) => state.cart)
+
+
+    const [totalSum, setTotalSum] = useState<number>();
+    useEffect(() => {
+        setTotalSum(data.items.reduce((sum, item) => {
+            return sum + Number(item?.product.price) * item.quantity;
+        }, 0))
+    }, [data])
     useEffect(() => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
     }, [])
@@ -319,42 +327,59 @@ const OrderPlacing: React.FC = () => {
 
                         {/* Начало правой части верстки */}
 
-                        <div className={classes.right}>
-                           
-                                <div style={{ marginTop: '3rem' }}>
-                                    <h3>Ваш заказ</h3>
-                                    {
-                                        data.items.map((item) => (
-                                            <div className={classes.flexConteiner}>
-                                                <div className={classes.imgProduct}>
-                                                    <img src={item.product.iiko_image} alt="" />
-                                                </div>
+                        <Card className={classes.right}>
 
-                                                <div className={classes.title}>
-                                                    <h3>
-                                                        {item.product.title}
-
-                                                    </h3>
-
-                                               
-
-                                                    <p>Цвет товара: Цвет товара</p>
-
-                                                    <p>Количество: {item.quantity}</p>
-                                                </div>
-                                                <div className={classes.price}>
-                                                    <s>{item.product.price}</s>
-                                                    {/* <h2>{item.product.old_price}</h2> */}
-                                                </div>
+                            <div style={{ height: 'fit-content' }}>
+                                <h3>Ваш заказ</h3>
+                                {
+                                    data.items.map((item) => (
+                                        <div className={classes.flexConteiner}>
+                                            <div className={classes.imgProduct}>
+                                                <img src={item.product.iiko_image} alt="" />
                                             </div>
-                                        ))
-                                    }
+
+                                            <div className={classes.title}>
+                                                <h3>
+                                                    {item.product.title}
+
+                                                </h3>
 
 
 
-                                </div>
+                                                <p>Цвет товара: Цвет товара</p>
 
-                        </div>
+                                                <p>Количество: <strong>{item.quantity}</strong></p>
+                                            </div>
+                                            <div className={classes.price}>
+                                                <s>{item.product.price}</s>
+                                                <h2>{item.product.price * item.quantity}</h2>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+
+
+
+                            </div>
+                            <br />
+                            <div className='' >
+                                <Flex justify='space-between' align='center'>
+                                    <h3>Subtotal:</h3>
+                                    <p>$999</p>
+                                </Flex>
+                                <br />
+                                <Flex justify='space-between' align='center'>
+                                    <h4>Estimated shipping:</h4>
+                                    <p>$999</p>
+                                </Flex>
+                                <br />
+                                <Flex justify='space-between' align='center'>
+                                    <h3><b>Total</b>:</h3>
+                                    <p>{totalSum}</p>
+                                </Flex>
+                            </div>
+
+                        </Card>
                         {/* Конец правой части верстки */}
 
                     </div>

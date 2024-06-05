@@ -11,5 +11,5 @@ export interface ICartItemDto {
     quantity: number
     total: number
     cart: number
-    product: number
+    product: any
 }

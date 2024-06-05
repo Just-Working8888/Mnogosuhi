@@ -1,16 +1,38 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import classes from './Productinfo.module.scss'
 import { Button, Card, Flex, Image, Rate } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
-import { useAppSelector } from 'store/hook'
+import { useAppDispatch, useAppSelector } from 'store/hook'
+import { useParams } from 'react-router-dom'
+import { updateCartItem } from 'store/reducers/cartReduser'
 
 const Productinfo: FC = () => {
     const { product } = useAppSelector((state) => state.product)
+    const { data } = useAppSelector((state) => state.cart)
+    const [quantity, setQuantity] = useState<number>(1)
+    const { id } = useParams()
+    const dispatch = useAppDispatch()
+    const selectedProduct = data.items.find((item) => item.product.id === Number(id))
+    useEffect(() => {
+        const selectedProduct = data.items.find((item) => item.product.id === Number(id))
+        if (selectedProduct) {
+            setQuantity(selectedProduct.quantity)
+        }
+    }, [data, id])
+    function changeQuantity(action: string) {
+        setQuantity(prev => {
+            const newQuantity = action === '-' ? prev - 1 : prev + 1;
+            if (selectedProduct) {
+                dispatch(updateCartItem({ id: selectedProduct.id, data: { ...selectedProduct, quantity: newQuantity } }));
+            }
+            return newQuantity;
+        });
+    }
 
     return (
         <div className={classes.main}>
             <div className={classes.main_left}>
-                <Image height={"50vh"} src={product.iiko_image} />
+                <Image height={"50vh"} width={'100%'} style={{ objectFit: 'cover' }} src={product.iiko_image} />
 
             </div>
             <div className={classes.main_right}>
@@ -50,14 +72,30 @@ const Productinfo: FC = () => {
                 <br />
                 <br />
                 <Flex gap={16}>
-                    <Flex align='center'>
-                        <div className={classes.main_right_toggle}>-</div>
-                        <div className={classes.main_right_count}>
-                            4
-                        </div>
-                        <div className={classes.main_right_toggle}>+</div>
-                    </Flex>
-                    <Button type='primary'>
+                    {selectedProduct
+                        ?
+                        <Flex align='center'>
+                            <div onClick={() => {
+                                changeQuantity('-')
+                            }} className={classes.main_right_toggle}>-</div>
+                            <div className={classes.main_right_count}>
+                                {quantity}
+                            </div>
+                            <div onClick={() => {
+                                changeQuantity('+')
+                            }} className={classes.main_right_toggle}>+</div>
+                        </Flex>
+                        :
+                        <Flex align='center'>
+                            <div onClick={() => setQuantity(prev => prev - 1)} className={classes.main_right_toggle}>-</div>
+                            <div className={classes.main_right_count}>
+                                {quantity}
+                            </div>
+                            <div onClick={() => setQuantity(prev => prev + 1)} className={classes.main_right_toggle}>+</div>
+                        </Flex>
+                    }
+
+                    <Button disabled={selectedProduct ? true : false} type='primary'>
                         <Flex gap={16}>
                             <ShoppingCartOutlined style={{ fontSize: 24 }} />
                             Add to cart

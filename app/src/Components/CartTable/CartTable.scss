@@ -53,3 +53,40 @@
         transition: 0.3s ease-in-out;
     }
 }
+
+
+
+
+
+.cart_to_checkout_btn {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F3F5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.line {
+    margin-bottom: 1rem;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed #ccc;
+    ;
+}
+
+
+
+.checking_cart {
+    width: 50%;
+}
+
+@media(max-width:768px) {
+
+
+    .checking_cart {
+        width: 100%;
+    }
+}

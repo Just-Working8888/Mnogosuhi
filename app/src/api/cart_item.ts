@@ -22,7 +22,7 @@ const createCartItem = (data: ICartItemDto, sourceToken?: CancelToken) =>
     instance.post('/cart_item/', { ...data }, { cancelToken: sourceToken });
 
 const updateCartItem = (id: number, data: ICartItemDto, sourceToken?: CancelToken) =>
-    instance.put(`/cart_item/${id}`, { ...data }, { cancelToken: sourceToken });
+    instance.put(`/cart_item/${id}/`, { ...data }, { cancelToken: sourceToken });
 
 const patchCartItem = (id: number, data: ICartItemDto, sourceToken?: CancelToken) =>
     instance.patch(`/cart_item/${id}`, { ...data }, { cancelToken: sourceToken });

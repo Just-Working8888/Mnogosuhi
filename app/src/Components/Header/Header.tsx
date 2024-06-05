@@ -58,7 +58,7 @@ const HeaderComponent: React.FC = () => {
                 </ol>
                 <div className={classes.header_cart}>
                     <div onClick={() => setOpen(true)} className={classes.header_cart_icon}>
-                        <Badge count={10} offset={[15, -10]} >
+                        <Badge count={data.items.length} offset={[15, -10]} >
                             <ShoppingCartOutlined style={{ fontSize: '20px' }} />
                         </Badge>
 
