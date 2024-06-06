@@ -40,7 +40,7 @@ const OrderPlacing: React.FC = () => {
             user: 0,
             parent: 0
         };
-        console.log(data);
+      
 
         dispatch(createBiling({
             data: data

@@ -28,7 +28,6 @@ export default function Main() {
             }))
         }
 
-        console.log(storedSessionKey);
 
     }, [])
     return (

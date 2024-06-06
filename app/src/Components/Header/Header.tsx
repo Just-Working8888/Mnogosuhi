@@ -158,7 +158,7 @@ const HeaderComponent: React.FC = () => {
     const onClose2 = () => {
         setOpen2(false);
     };
-    console.log(data);
+
 
     return (
 
