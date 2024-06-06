@@ -1,20 +1,41 @@
 import React, { FC, useEffect, useState } from 'react'
 import classes from './Productinfo.module.scss'
-import { Button, Card, Flex, Image, Rate } from 'antd'
+import { Button, Card, Flex, Image, Rate, message } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { useAppDispatch, useAppSelector } from 'store/hook'
 import { useParams } from 'react-router-dom'
-import { updateCartItem } from 'store/reducers/cartReduser'
+import { addCartItem, updateCartItem } from 'store/reducers/cartReduser'
+import { fetchProductByID } from 'store/reducers/productReduser'
 
 const Productinfo: FC = () => {
     const { product } = useAppSelector((state) => state.product)
     const { data } = useAppSelector((state) => state.cart)
     const [quantity, setQuantity] = useState<number>(1)
+    const [isDisabled, setIsDisabled] = useState(false)
     const { id } = useParams()
     const dispatch = useAppDispatch()
-    const selectedProduct = data.items.find((item) => item.product.id === Number(id))
+    const [selectedProduct, setSelectedProduct] = useState(data.items.find((item) => item.product.id === Number(id)))
+
+
+
+    function add() {
+        const dataa = {
+            quantity: quantity,
+            total: Number(product.price) * quantity,
+            cart: Number(localStorage.getItem('cart_id')) as any,
+            product: Number(id)
+        }
+        dispatch(addCartItem({ data: dataa }))
+            .then(() => message.success('товар успешно удален из корзины'))
+            .then(() => dispatch(fetchProductByID({ id: Number(id) })))
+
+        setIsDisabled(true)
+
+    }
     useEffect(() => {
         const selectedProduct = data.items.find((item) => item.product.id === Number(id))
+        setSelectedProduct(data.items.find((item) => item.product.id === Number(id)))
+        setIsDisabled(selectedProduct ? true : false)
         if (selectedProduct) {
             setQuantity(selectedProduct.quantity)
         }
@@ -95,7 +116,7 @@ const Productinfo: FC = () => {
                         </Flex>
                     }
 
-                    <Button disabled={selectedProduct ? true : false} type='primary'>
+                    <Button onClick={add} disabled={isDisabled} type='primary'>
                         <Flex gap={16}>
                             <ShoppingCartOutlined style={{ fontSize: 24 }} />
                             Add to cart

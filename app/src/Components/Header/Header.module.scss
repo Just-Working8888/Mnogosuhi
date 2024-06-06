@@ -120,6 +120,18 @@
     display: none;
 }
 
+
+.titles_ofSider {
+    span {
+        font-size: 14px;
+    }
+
+    p {
+        color: #6F6F87;
+        font-size: 12px;
+    }
+}
+
 @media(max-width:1200px) {
     .header nav {
         max-width: 960px;
