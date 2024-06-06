@@ -14,6 +14,7 @@ import table_order from './table_order'
 import table_order_item from './table_order_item'
 import users from './users'
 import categories from './categories'
+import biling from './biling'
 
 
 const instance = axios.create({
@@ -54,7 +55,8 @@ const api = {
   ...table_order,
   ...table_order_item,
   ...users,
-  ...categories
+  ...categories,
+  ...biling
 }
 
 export { instance, api };

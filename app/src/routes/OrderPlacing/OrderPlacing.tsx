@@ -6,6 +6,7 @@ import data from '../../data/test/cart.json'
 import { BreadCrumps } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { fetchCartItemById } from "store/reducers/cartReduser";
+import { createBiling } from "store/reducers/bilingReduser";
 const OrderPlacing: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
     const { TextArea } = Input;
@@ -13,7 +14,7 @@ const OrderPlacing: React.FC = () => {
     const { data } = useAppSelector((state) => state.cart)
 
 
-    const [totalSum, setTotalSum] = useState<number>();
+    const [totalSum, setTotalSum] = useState<number>(1);
     useEffect(() => {
         setTotalSum(data.items.reduce((sum, item) => {
             return sum + Number(item?.product.price) * item.quantity;
@@ -22,6 +23,29 @@ const OrderPlacing: React.FC = () => {
     useEffect(() => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
     }, [])
+
+
+    const onFinish = async (values: any) => {
+        const data = {
+            session_key: localStorage.getItem('session_key') as any,
+            billing_receipt_type: values.billing_receipt_type,
+            total_price: totalSum,
+            delivery_price: "string",
+            address: values.address,
+            phone: values.phone,
+            payment_method: values.payment_method,
+            payment_code: "string",
+            note: values.note,
+            status: true,
+            user: 0,
+            parent: 0
+        };
+        console.log(data);
+
+        dispatch(createBiling({
+            data: data
+        }))
+    };
 
     return (
         <>
@@ -32,202 +56,37 @@ const OrderPlacing: React.FC = () => {
 
                     <div className={classes.flexConteiner}>
 
-                        <Form
-
-                            name="complex-form"
-                            className={classes.left}
-                        >
-
-                            <div className={classes.flexForm}>
-                                <Form.Item className={classes.item}>
-
-                                    <div className={classes.input}>
-                                        <p className={classes.link}> <Button style={{ opacity: 0 }} className={classes.linkButton} type="link"><Link to={'/login'}>Войти</Link></Button>Личные данные</p>
-                                        <Form.Item
-                                            name="username"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input1}
-                                                placeholder="Имя"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item name="email" rules={[{ required: true }]}>
-                                            <Input
-                                                type="email"
-                                                className={classes.input}
-                                                placeholder="E-mail"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
+                        <Form onFinish={onFinish} name="complex-form" className={classes.left}>
+                            <h3>Ваши данные</h3>
+                            <Flex gap={16} className={classes.flexForm}>
+                                <Form.Item className={classes.item} name="phone" rules={[{ required: true, message: 'Please input your phone number!' }]}>
+                                    <Input className={classes.input} placeholder="Телефон" size="large" />
                                 </Form.Item>
-
-                                <Form.Item className={classes.item}>
-
-                                    <div className={classes.input}>
-                                        <p className={classes.link}>У вас уже есть аккаунт? <Button className={classes.linkButton} type="link"><Link to={'/login'}>Войти</Link></Button></p>
-                                        <Form.Item
-                                            name="surname"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Фамилия"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="number"
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Телефон"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
+                                <Form.Item className={classes.item} name="address" rules={[{ required: true, message: 'Please input your address!' }]}>
+                                    <Input className={classes.input} placeholder="Край/Область/Регион, Улица/Дом" size="large" />
                                 </Form.Item>
-                            </div>
+                            </Flex>
 
                             <h3>Способ доставки</h3>
 
                             <div className={classes.flexForm}>
-                                <div className={classes.item}>
-                                    <Form.Item name="billing_receipt_type">
-                                        <Radio.Group>
-                                            <Radio className={classes.radio} value="Доставка">Доставка курьером до двери</Radio>
-                                            <Radio className={classes.radio} value="Самовывоз">Самовывоз из магазина</Radio>
-                                            {/* <Radio className={classes.radio} value="postOffices">Кыргыз почтасы</Radio> */}
-                                        </Radio.Group>
-                                    </Form.Item>
-                                </div>
-
-                                <div className={classes.item}>
-                                    <p>Ылдам-Экспресс, 3 дня - бесплатно</p>
-                                    <p>После 100% оплаты, бесплатно</p>
-                                    <p>Отделения и почтоматы</p>
-                                </div>
-                            </div>
-
-                            {/* Второй 7 инпутов */}
-
-                            <h3>Адрес доставки</h3>
-
-                            <div className={classes.flexForm}>
-                                <Form.Item className={classes.item}>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="country"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Страна"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="city"
-                                            rules={[{ required: true }]}
-                                            style={{ marginBottom: 0 }}
-                                        >
-                                            <Input
-                                                type="text"
-                                                className={classes.input}
-                                                placeholder="Город"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            style={{ marginBottom: 0 }}
-                                            name="office"
-                                            rules={[{ required: true }]}>
-                                            <Input
-                                                type="text"
-                                                className={classes.input}
-                                                placeholder="Квартира/Офис"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-                                </Form.Item>
-
-                                <Form.Item className={classes.item}>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="region"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Край/Область/Регион"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            style={{ marginBottom: 0 }}
-                                            name="street"
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Улица/Дом"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            style={{ marginBottom: 0 }}
-                                            name="index"
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Индекс"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
+                                <Form.Item name="billing_receipt_type" className={classes.item} rules={[{ required: true, message: 'Please select a delivery method!' }]}>
+                                    <Radio.Group>
+                                        <Radio className={classes.radio} value="Доставка">Доставка курьером до двери</Radio>
+                                        <Radio className={classes.radio} value="Самовывоз">Самовывоз из магазина</Radio>
+                                    </Radio.Group>
                                 </Form.Item>
                             </div>
 
+
+                            <h3>Дополнительная информация</h3>
                             <Form.Item name="note">
-                                <TextArea className={classes.item} rows={6} />
+                                <TextArea className={classes.item} rows={6} placeholder="Примечание" />
                             </Form.Item>
 
                             <h3>Способ оплаты</h3>
 
-                            {/* Последине инпуты */}
-
-                            <Form.Item name="radio-group">
+                            <Form.Item name="payment_method" rules={[{ required: true, message: 'Please select a payment method!' }]}>
                                 <Radio.Group>
                                     <Radio value="bankCard">Банковской картой</Radio>
                                     <Radio value="PayPal">PayPal</Radio>
@@ -236,70 +95,8 @@ const OrderPlacing: React.FC = () => {
                                 </Radio.Group>
                             </Form.Item>
 
-                            <div className={classes.flexForm}>
-                                <Form.Item className={classes.item}>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="usernameCart"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="Фамилия и имя на карте"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item name="bankCard" rules={[{ required: true }]}>
-                                            <Input
-                                                type="numberCart"
-                                                className={classes.input}
-                                                placeholder="Номер банковской карты"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-                                </Form.Item>
-
-                                <Form.Item className={classes.item}>
-
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="idCart"
-                                            style={{ marginBottom: 0 }}
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="ММ/ГГ"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-
-                                    <div className={classes.input}>
-                                        <Form.Item
-                                            name="CVC/CVV"
-                                            rules={[{ required: true }]}
-                                        >
-                                            <Input
-                                                className={classes.input}
-                                                placeholder="CVC/CVV"
-                                                size="large"
-                                            ></Input>
-                                        </Form.Item>
-                                    </div>
-                                </Form.Item>
-                            </div>
-
                             <div className={classes.agreement}>
                                 <Form.Item
-                                    style={{ marginBottom: '0' }}
                                     name="agreement"
                                     valuePropName="checked"
                                     rules={[
@@ -309,12 +106,11 @@ const OrderPlacing: React.FC = () => {
                                         },
                                     ]}
                                 >
-                                    <Checkbox style={{ textWrap: 'wrap' }}>
+                                    <Checkbox>
                                         Оформляя заказ, вы принимаете условия <a href="#/">Пользовательских соглашений</a> и даете согласие на обработку персональных данных согласно <a href="#/">Политике конфиденциальности.</a>
                                     </Checkbox>
                                 </Form.Item>
                             </div>
-
 
                             <Form.Item colon={false}>
                                 <Button className={classes.button} type="primary" htmlType="submit" block>
@@ -322,10 +118,6 @@ const OrderPlacing: React.FC = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
-
-                        {/* Конец левой части верстки (Форма) */}
-
-                        {/* Начало правой части верстки */}
 
                         <Card className={classes.right}>
 
