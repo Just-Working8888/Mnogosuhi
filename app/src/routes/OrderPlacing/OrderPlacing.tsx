@@ -37,7 +37,7 @@ const OrderPlacing: React.FC = () => {
             payment_code: "string",
             note: values.note,
             status: true,
-            user: 0,
+          
             parent: 0
         };
       

@@ -8,15 +8,18 @@ import CookerCard from "Components/CookerCard/CookerCard";
 import { setSessionKey } from "helpers/session_key";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { fetchProductPromo } from "store/reducers/productReduser";
+import { fetchEmployes } from "store/reducers/employeesReduser";
 
 const MainPage: FC = () => {
   const dispatch = useAppDispatch()
   const data = useAppSelector((state) => state.product.promo.results)
+  const employes = useAppSelector((state) => state.employes.data)
 
 
 
   useEffect(() => {
     dispatch(fetchProductPromo({}))
+    dispatch(fetchEmployes({}))
   }, [])
   return (
     <div style={{
@@ -49,10 +52,9 @@ const MainPage: FC = () => {
           />
           <br /><br />
           <Flex wrap="wrap"   >
-            <CookerCard />
-            <CookerCard />
-            <CookerCard />
-            <CookerCard />
+            <Flex wrap="wrap">
+              {employes.results.slice(0, 4).map((item) => <CookerCard item={item} />)}
+            </Flex>
           </Flex>
         </div>
         <br />

@@ -1,40 +1,54 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import classes from './AboutUs.module.scss'
 import { AboutUsItem, BreadCrumps, MiniInfoSection, MiniInfoSectionAbout, PreFooterComponent, RewueSlider, VideoSection } from 'Components'
 import { Flex } from 'antd'
 import SectionHead from 'Components/SectionHead/SectionHead'
 import CookerCard from 'Components/CookerCard/CookerCard'
+import { useAppDispatch, useAppSelector } from 'store/hook'
+import { fetchAboutUs, fetchAboutUsFucts } from 'store/reducers/aboutReduser'
+import { fetchEmployes } from 'store/reducers/employeesReduser'
 
 const items = [
     {
-        "id": "01",
+        "number": "01",
         "title": "We are located in the city center",
-        "description": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
+        "text": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
     },
     {
-        "id": "02",
+        "number": "02",
         "title": "Fresh ingredients from organic farms",
-        "description": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
+        "text": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
     },
     {
-        "id": "03",
+        "number": "03",
         "title": "Own fast delivery. 30 min Maximum",
-        "description": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
+        "text": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
     },
     {
-        "id": "04",
+        "number": "04",
         "title": "Professional, experienced chefs",
-        "description": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
+        "text": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
     },
     {
-        "id": "05",
+        "number": "05",
         "title": "The highest standards of service",
-        "description": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
+        "text": "Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam."
     }
 ]
 
 
 const AboutUs: FC = () => {
+    const { data, facts } = useAppSelector((state) => state.about)
+    const employes = useAppSelector((state) => state.employes.data)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(fetchAboutUs({}))
+        dispatch(fetchAboutUsFucts({}))
+        dispatch(fetchEmployes({}))
+    }, [])
+    console.log(data);
+
+
     return (
         <>
             <BreadCrumps title='About us' hrefs={[{ label: 'Home', href: '/' }, { label: 'About us', href: '/about' },]} />
@@ -44,7 +58,7 @@ const AboutUs: FC = () => {
 
                 <Flex wrap='wrap'>
                     {
-                        items.map((item) => <div className={classes.aboutItem} > <AboutUsItem title={item.title} number={item.id} desprition={item.description} /></div>)}
+                        facts.results.map((item) => <div className={classes.aboutItem} > <AboutUsItem title={item.title} number={`${item.number}`} desprition={item.text} /></div>)}
                 </Flex>
                 <VideoSection />
                 <div>
@@ -57,10 +71,7 @@ const AboutUs: FC = () => {
                     />
                     <br /><br />
                     <Flex wrap="wrap">
-                        <CookerCard />
-                        <CookerCard />
-                        <CookerCard />
-                        <CookerCard />
+                        {employes.results.slice(0, 4).map((item) => <CookerCard item={item} />)}
                     </Flex>
                 </div>
                 <RewueSlider />

@@ -7,6 +7,8 @@ import tableReduser from './slices/tableSlice'
 import cateoriesReduser from './slices/categorySlice'
 import productReduser from './slices/productSlice'
 import windowReduser from './slices/windowSlice'
+import aboutReduser from './slices/aboutSlice'
+import emplayesReduser from './slices/employesSlice'
 
 const store = configureStore({
   reducer: {
@@ -17,7 +19,9 @@ const store = configureStore({
     table: tableReduser,
     categories: cateoriesReduser,
     product: productReduser,
-    window: windowReduser
+    window: windowReduser,
+    about: aboutReduser,
+    employes: emplayesReduser
   },
 });
 

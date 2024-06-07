@@ -3,8 +3,10 @@ import classes from './VideoSection.module.scss'
 import { Flex, Tag } from 'antd'
 import { ArrowRightOutlined, FireOutlined, PlayCircleOutlined } from '@ant-design/icons'
 import { AnimateKeyframes } from 'react-simple-animate'
+import { useAppSelector } from 'store/hook'
 
 const VideoSection: FC = () => {
+    const { data } = useAppSelector((state) => state.about)
     return (
         <div className={classes.main}>
             <div className={classes.main_container}>
@@ -15,12 +17,11 @@ const VideoSection: FC = () => {
                     <br />
                     <br />
                     <h1>
-                        Restaurant is like a theater.
-                        Our task is to amaze you!
+                        {data.results[0]?.promo_title}
                     </h1>
                     <br /><br />
                     <p>
-                        Repellat, dolorem a. Qui ipsam quos, obcaecati mollitia consectetur ad vero minus neque sit architecto totam distineserunt pariatur adipisci rem aspernatur illum ex!
+                        {data.results[0]?.promo_desc}
                     </p>
                     <br /><br />
                     <Flex gap={10} align='center'>
@@ -46,7 +47,7 @@ const VideoSection: FC = () => {
                                 'transform: scale(1.2)' // Конечная позиция
                             ]}
                         >
-                            <img width={'100%'} height={'100%'} src="https://miller.bslthemes.com/starbelly-demo/img/illustrations/interior.jpg" alt="" />
+                            <img width={'100%'} height={'100%'} src={data.results[0]?.promo_image} alt="" />
                         </AnimateKeyframes>
 
                     </div>

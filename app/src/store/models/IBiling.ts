@@ -9,6 +9,6 @@ export interface IBiling {
     payment_code: string
     note: string
     status: boolean
-    user: number | null
+    
     parent: number | null
 }

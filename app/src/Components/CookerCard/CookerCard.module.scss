@@ -22,11 +22,15 @@
     &_image {
         overflow: hidden;
 
+
+
         img {
             transition: 0.3s;
+
             position: relative;
             z-index: 9;
-            height: 100% !important;
+            object-fit: cover;
+            height: 40vh !important;
             width: 100%;
         }
 

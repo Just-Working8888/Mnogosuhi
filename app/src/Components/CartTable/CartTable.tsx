@@ -105,7 +105,7 @@ const CartTable: React.FC = () => {
                 <Card className='checking_cart' >
                     <Flex justify='space-between' align='center'>
                         <h3>Subtotal:</h3>
-                        <p>$999</p>
+                        <p>{totalSum}</p>
                     </Flex>
                     <br />
                     <Flex justify='space-between' align='center'>

@@ -6,15 +6,18 @@ import CookerCard from 'Components/CookerCard/CookerCard'
 import SectionHead from 'Components/SectionHead/SectionHead'
 import { useAppDispatch, useAppSelector } from 'store/hook'
 import { fetchProduct, fetchProductPromo } from 'store/reducers/productReduser'
+import { fetchEmployes } from 'store/reducers/employeesReduser'
 const Shop: FC = () => {
     const dispatch = useAppDispatch()
     const data = useAppSelector((state) => state.product.promo.results)
     const foods = useAppSelector((state) => state.product.data.results)
+    const employes = useAppSelector((state) => state.employes.data)
 
 
     useEffect(() => {
         dispatch(fetchProductPromo({}))
         dispatch(fetchProduct({ filters: 'category=3' }))
+        dispatch(fetchEmployes({}))
     }, [])
     return (
         <div>
@@ -35,10 +38,7 @@ const Shop: FC = () => {
                     />
                     <br /><br />
                     <Flex wrap="wrap" >
-                        <CookerCard />
-                        <CookerCard />
-                        <CookerCard />
-                        <CookerCard />
+                        {employes.results.slice(0, 4).map((item) => <CookerCard item={item} />)}
                     </Flex>
 
                 </div>
