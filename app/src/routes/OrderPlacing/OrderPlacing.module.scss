@@ -95,7 +95,7 @@
 
             .right {
                 width: 48%;
-       
+
 
                 h3 {
                     font-size: 14px;
@@ -247,4 +247,13 @@
         }
     }
 
+}
+
+@media(max-width:968px) {
+    .flexConteiner {
+        flex-direction: column;
+        .left{
+            width: 100%;
+        }
+    }
 }
