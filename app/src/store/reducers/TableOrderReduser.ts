@@ -17,10 +17,11 @@ export const createTableOrder = createAsyncThunk(
 
 export const addTableOrderItem = createAsyncThunk(
     'table/addTableOrderItem',
-    async ({ data }: { data: ITableOrderItemDto; }, { signal }) => {
+    async ({ data }: { data: ITableOrderItemDto; }, { signal, dispatch }) => {
         const source = axios.CancelToken.source();
         signal.addEventListener('abort', () => source.cancel('Operation canceled by the user.'));
         const response = await api.createTableOrderItem(data, source.token);
+        dispatch(fetchOrderItemById({ id: localStorage.getItem('table_key') as any }))
         return response.data;
     }
 );

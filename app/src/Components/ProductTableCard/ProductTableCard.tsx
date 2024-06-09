@@ -27,7 +27,9 @@ const ProductTableCard: React.FC<CardType> = ({ image, title, id, price, desprit
             table: Number(localStorage.getItem('table_key')) as any,
             product: +id
         }
-        dispatch(addTableOrderItem({ data: data })).then(() => message.success('товар успешно добавлен в корзину стола'))
+        dispatch(addTableOrderItem({ data: data })).then(() => {
+            message.success('товар успешно добавлен в корзину стола')
+        })
     }
     return (
         <div className={classes.card}>
