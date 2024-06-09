@@ -207,7 +207,6 @@ const HeaderComponent: React.FC = () => {
                     <div onClick={() => setOpen2(true)}>
                         <MoreOutlined style={{ fontSize: '20px' }} />
                     </div>
-                    <Button onClick={() => ReplaceCreateOrder()}>replace</Button>
                 </div>
             </nav>
 

@@ -1,14 +1,16 @@
 import React, { FC, useState } from 'react'
 import classes from './CartRow.module.scss'
 import { Flex, Image } from 'antd'
+import Counter from 'Components/CartTable/Counter'
 type Props = {
     title: string
     desption: string
     image: string
     price: number
     quanty: number
+    item: any
 }
-const CartRow: FC<Props> = ({ title, desption, image, price, quanty }) => {
+const CartRow: FC<Props> = ({ title, desption, image, price, quanty, item }) => {
     const [count, setCount] = useState()
     return (
         <div className={classes.cart}>
@@ -22,11 +24,7 @@ const CartRow: FC<Props> = ({ title, desption, image, price, quanty }) => {
                 </div>
             </div>
             <Flex align='center' justify='space-between'>
-                <div className={classes.cart_count}>
-                    <div className={classes.cart_count_btn}>-</div>
-                    <div className={classes.cart_count_th}>{quanty}</div>
-                    <div className={classes.cart_count_btn}>+</div>
-                </div>
+                <Counter record={item} />
                 <div>
                     Price: $ {price}
                 </div>

@@ -58,10 +58,11 @@ export const createCart = createAsyncThunk(
 
 export const addCartItem = createAsyncThunk(
     'cart/createCartItem',
-    async ({ data }: { data: ICartItemDto; }, { signal }) => {
+    async ({ data }: { data: ICartItemDto; }, { signal, dispatch }) => {
         const source = axios.CancelToken.source();
         signal.addEventListener('abort', () => source.cancel('Operation canceled by the user.'));
         const response = await api.createCartItem(data, source.token);
+        dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
         return response.data;
     }
 );

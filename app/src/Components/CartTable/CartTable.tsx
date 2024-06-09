@@ -101,7 +101,7 @@ const CartTable: React.FC = () => {
     return (
         <div>
             <Table className="custom-table" columns={columns} dataSource={data.items} pagination={false} />
-            <div style={{ textAlign: 'right', marginTop: '16px', justifyContent: 'end', display: 'flex' }}>
+            {/* <div style={{ textAlign: 'right', marginTop: '16px', justifyContent: 'end', display: 'flex' }}>
                 <Card className='checking_cart' >
                     <Flex justify='space-between' align='center'>
                         <h3>Subtotal:</h3>
@@ -131,7 +131,7 @@ const CartTable: React.FC = () => {
 
 
                 </Card>
-            </div>
+            </div> */}
 
 
         </div>
