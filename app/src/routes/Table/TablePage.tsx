@@ -9,6 +9,8 @@ import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { formatParams } from "helpers/convertProps";
 import { setCategory, setOffcet } from "store/slices/windowSlice";
 import { clearData } from "store/slices/productSlice";
+import { createTableOrder } from "store/reducers/TableOrderReduser";
+import { useParams } from "react-router-dom";
 
 
 
@@ -17,11 +19,28 @@ const TablePage: FC = () => {
     const { data } = useAppSelector((state) => state.categories)
     const { menuprops } = useAppSelector((state) => state.window)
     const [all, setALl] = useState(false)
+    const { id } = useParams()
 
     useEffect(() => {
         dispatch(fetchCategories({}))
         dispatch(fetchProduct({ filters: formatParams({ menuprops }) }))
     }, [menuprops])
+
+    useEffect(() => {
+        if (!localStorage.getItem('table_key')) {
+            dispatch(createTableOrder({
+                data: {
+                    session_key: localStorage.getItem('session_key') as any,
+                    menu_table: Number(id),
+                    promo_code: true,
+                    discount_amount: 0
+                }
+            })).then((res) => {
+                localStorage.setItem('table_key', res.payload?.id)
+            })
+        }
+
+    }, [id])
 
     return (
         <>

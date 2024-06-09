@@ -28,6 +28,7 @@ import ProductMenu from "./ProductSection/ProductMenu"
 import ProductTable from "./ProductSection/ProductTable"
 import ProductTableCard from "./ProductTableCard/ProductTableCard"
 import CardSceleton from "./Sceletons/CardSceleton/CardSceleton"
+import FAQItem from "./FAQItem/FAQItem"
 export {
     HeaderComponent,
     Login,
@@ -58,6 +59,7 @@ export {
     ProductMenu,
     ProductTable,
     ProductTableCard,
-    CardSceleton
+    CardSceleton,
+    FAQItem
 }
 

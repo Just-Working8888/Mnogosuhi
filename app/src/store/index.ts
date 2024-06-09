@@ -9,7 +9,8 @@ import productReduser from './slices/productSlice'
 import windowReduser from './slices/windowSlice'
 import aboutReduser from './slices/aboutSlice'
 import emplayesReduser from './slices/employesSlice'
-
+import faqReduser from './slices/faqSlice'
+import tableCartReduser from './slices/tableCartSlice'
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -21,7 +22,9 @@ const store = configureStore({
     product: productReduser,
     window: windowReduser,
     about: aboutReduser,
-    employes: emplayesReduser
+    employes: emplayesReduser,
+    faq: faqReduser,
+    tableCart: tableCartReduser,
   },
 });
 

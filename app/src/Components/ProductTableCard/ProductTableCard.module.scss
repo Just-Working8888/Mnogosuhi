@@ -67,3 +67,19 @@
         }
     }
 }
+
+
+
+@media(max-width:970px) {
+    .card {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media(max-width:768px) {
+    .card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

@@ -7,5 +7,6 @@ export function setSessionKey() {
     if (storedSessionKey) {
         return sessionKey
     }
-    return localStorage.setItem('session_key', sessionKey)
+    localStorage.setItem('session_key', sessionKey)
+    return sessionKey
 }

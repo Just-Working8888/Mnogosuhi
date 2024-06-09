@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, Card, Flex, Image, Rate, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import classes from './ProductTableCard.module.scss'
 import { RightCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useAppDispatch } from 'store/hook';
 import { addCartItem } from 'store/reducers/cartReduser';
+import { addTableOrderItem } from 'store/reducers/TableOrderReduser';
 
 const { Meta } = Card;
 interface CardType {
@@ -18,14 +19,15 @@ interface CardType {
 const ProductTableCard: React.FC<CardType> = ({ image, title, id, price, desprition, rate }) => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
+
     function add() {
         const data = {
             quantity: 1,
             total: +price,
-            cart: Number(localStorage.getItem('cart_id')) as any,
+            table: Number(localStorage.getItem('table_key')) as any,
             product: +id
         }
-        dispatch(addCartItem({ data: data })).then(() => message.success('товар успешно добавлен в корзину'))
+        dispatch(addTableOrderItem({ data: data })).then(() => message.success('товар успешно добавлен в корзину стола'))
     }
     return (
         <div className={classes.card}>

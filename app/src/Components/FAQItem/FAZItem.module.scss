@@ -1,0 +1,137 @@
+.ProgressItem {
+    border-top: 1px solid #909090;
+    border-bottom: 1px solid #909090;
+    padding: 40px 0;
+
+    .box {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 140px;
+        }
+    }
+
+    .description {
+        display: flex;
+        align-items: center;
+        gap: 140px;
+        margin-top: 30px;
+        transition: 0.3s;
+        height: 40px;
+
+        div {
+            width: 30px;
+            opacity: 0;
+        }
+
+        h1 {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: 0em;
+            text-align: left;
+
+        }
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0px;
+        text-align: left;
+
+    }
+
+    h2 {
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 35px;
+        letter-spacing: 0px;
+        text-align: left;
+
+    }
+
+    button {
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: white;
+        border: none;
+        padding: 16px 25px;
+        border-radius: 50%;
+    }
+}
+
+@media(max-width:768px) {
+    .ProgressItem {
+
+        padding: 25px 0;
+
+        .box {
+
+
+
+            .title {
+                gap: 70px;
+            }
+        }
+
+        .description {
+            gap: 70px;
+
+    
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        button {
+            padding: 11px 21px;
+        }
+    }
+}
+
+@media(max-width:570px) {
+    .ProgressItem {
+
+        padding: 25px 0;
+
+        .box {
+
+
+
+            .title {
+                gap: 20px;
+            }
+        }
+
+        .description {
+            gap: 20px;
+
+      
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        button {
+            padding: 11px 21px;
+        }
+    }
+}

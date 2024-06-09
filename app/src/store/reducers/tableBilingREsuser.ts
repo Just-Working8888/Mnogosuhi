@@ -2,28 +2,23 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { message } from "antd";
 import { api } from "api";
 import axios from "axios";
-import { setSessionKey } from "helpers/session_key";
-import { useAppDispatch } from "store/hook";
-import { IBiling } from "store/models/IBiling";
-import { createCart } from "./cartReduser";
+import { ITableBilingDto } from "store/models/ITableBiling";
 
-export const createBiling = createAsyncThunk(
-    'biling/createBiling',
-    async ({ data }: { data: IBiling; }, { signal }) => {
+export const createTableBiling = createAsyncThunk(
+    'biling/createTableBiling',
+    async ({ data }: { data: ITableBilingDto; }, { signal }) => {
 
         try {
             const source = axios.CancelToken.source();
             signal.addEventListener('abort', () => source.cancel('Operation canceled by the user.'));
-            const response = await api.createBilingItem(data, source.token);
+            const response = await api.createTableBiling(data, source.token);
             message.success('Successfully created')
 
             return response.data;
         } catch (error) {
             message.error('Ошибка сервера')
         } finally {
-            localStorage.removeItem('cart_id')
             localStorage.removeItem('table_key')
-            localStorage.removeItem('session_key')
         }
 
     }

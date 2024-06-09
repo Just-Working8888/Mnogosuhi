@@ -4,7 +4,7 @@ import { IFaq } from "store/models/IFaq";
 
 
 const getFaq = (sourceToken?: CancelToken) =>
-    instance.get<IFaq[]>(`/faq`, { cancelToken: sourceToken });
+    instance.get<IFaq>(`/settings/faq/`, { cancelToken: sourceToken });
 
 
 const endpoints = {

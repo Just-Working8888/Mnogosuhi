@@ -3,6 +3,7 @@ import './scss/app.scss';
 import Main from 'layout/Main/Main';
 import { Suspense, lazy } from 'react';
 import { Spin } from 'antd';
+import BilingTable from 'routes/BilingTable/BilingTable';
 
 const SingleProduckt = lazy(() => import('./routes/SingleProduckt/SingleProduckt'))
 const MainPage = lazy(() => import('routes/MainPage/MainPage'))
@@ -16,6 +17,7 @@ const Menu = lazy(() => import('routes/Menu/Menu'))
 const TablePage = lazy(() => import('routes/Table/TablePage'))
 const Login = lazy(() => import('./Components/Login/Login'))
 const SignUp = lazy(() => import('./Components/SignUp/SignUp'))
+const FAQ = lazy(() => import('./routes/FAQ/FAQ'))
 
 function App() {
 
@@ -33,7 +35,9 @@ function App() {
         <Route path='revies' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><AllRevies /></Suspense>} />
         <Route path='shop' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><Shop /></Suspense>} />
         <Route path='catalog' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><Menu /></Suspense>} />
+        <Route path='faq' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><FAQ /></Suspense>} />
         <Route path='table/:id' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><TablePage /></Suspense>} />
+        <Route path='tablebiling/:id' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><BilingTable /></Suspense>} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />
     </Routes>

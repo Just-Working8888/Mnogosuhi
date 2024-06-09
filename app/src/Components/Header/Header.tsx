@@ -2,14 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import classes from './Header.module.scss'
 import { Badge, Button, Card, Drawer, Flex, Image, List, Space } from 'antd';
-import { CloseOutlined, FacebookOutlined, InstagramOutlined, MenuOutlined, MoreOutlined, ShoppingCartOutlined, TwitterOutlined, YoutubeOutlined } from '@ant-design/icons';
+import { CloseOutlined, FacebookOutlined, FormOutlined, InstagramOutlined, MenuOutlined, MoreOutlined, ShoppingCartOutlined, TwitterOutlined, YoutubeOutlined } from '@ant-design/icons';
 import Logo from 'Components/Logo/Logo';
 import items from '../../data/test/headeritems.json'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import SmailCartItem from 'Components/SmallCartItem/SmailCartItem';
 import MobileNav from 'Components/MobileNav/MobileNav';
 import { useAppDispatch, useAppSelector } from 'store/hook';
 import { fetchCartItemById } from 'store/reducers/cartReduser';
+import { fetchTableById } from 'store/reducers/tableReduser';
+import { fetchOrderItemById } from 'store/reducers/TableOrderReduser';
+import { ReplaceCreateOrder } from 'helpers/ReCreateOrder';
 
 const contact = [
     {
@@ -133,12 +136,15 @@ const HeaderComponent: React.FC = () => {
     const [top, setTop] = useState<boolean>(true)
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
+    const [open3, setOpen3] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false)
     const { data } = useAppSelector((state) => state.cart)
+    const tableCart = useAppSelector((state) => state.tableCart.data)
     const navigate = useNavigate()
     const location = useLocation();
     const currentPath = location.pathname;
     const dispatch = useAppDispatch()
+    const { id } = useParams()
 
     const scrollHandler = () => {
         window.pageYOffset > 10 ? setTop(false) : setTop(true)
@@ -151,6 +157,7 @@ const HeaderComponent: React.FC = () => {
     }, [top])
     useEffect(() => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+        dispatch(fetchOrderItemById({ id: localStorage.getItem('table_key') as any }))
     }, [])
     const onClose = () => {
         setOpen(false);
@@ -176,12 +183,21 @@ const HeaderComponent: React.FC = () => {
                     }
                 </ol>
                 <div className={classes.header_cart}>
-                    <div onClick={() => setOpen(true)} className={classes.header_cart_icon}>
+
+
+                    {currentPath.includes('table') ? <div onClick={() => setOpen3(true)} className={classes.header_cart_icon}>
+                        <Badge count={tableCart.items.length} offset={[15, -10]} >
+                            <FormOutlined style={{ fontSize: '20px' }} />
+                        </Badge>
+
+
+                    </div> : <div onClick={() => setOpen(true)} className={classes.header_cart_icon}>
                         <Badge count={data.items.length} offset={[15, -10]} >
                             <ShoppingCartOutlined style={{ fontSize: '20px' }} />
                         </Badge>
 
-                    </div>
+                    </div>}
+
                     <div className={classes.mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>
                         {
                             mobileOpen ? <CloseOutlined style={{ fontSize: '20px' }} /> : <MenuOutlined style={{ fontSize: '20px' }} />
@@ -191,8 +207,10 @@ const HeaderComponent: React.FC = () => {
                     <div onClick={() => setOpen2(true)}>
                         <MoreOutlined style={{ fontSize: '20px' }} />
                     </div>
+                    <Button onClick={() => ReplaceCreateOrder()}>replace</Button>
                 </div>
             </nav>
+
             <Drawer
                 title={`Cart`}
                 placement="right"
@@ -222,6 +240,34 @@ const HeaderComponent: React.FC = () => {
                     <h3>your order</h3>
                     {
                         data.items.map((item: any) => <SmailCartItem title={item.product.title} image={item?.product.iiko_image} price={item?.product.price} />)
+                    }
+                </div>
+            </Drawer>
+            <Drawer
+                title={`Table`}
+                placement="right"
+                onClose={() => setOpen3(false)}
+                size={'large'}
+                open={open3}
+                footer={
+                    <Flex className={classes.headFooter} gap={16}>
+                        <Button onClick={() => {
+                            setOpen(false)
+                            navigate(`/tablebiling/${id}`)
+                        }} >Checkout</Button>
+                    </Flex>
+                }
+                extra={
+                    <Space>
+                        <Button onClick={() => setOpen3(false)}>Cancel</Button>
+                    </Space>
+                }
+            >
+
+                <div className={classes.header_cartItems}>
+                    <h3>your order</h3>
+                    {
+                        tableCart?.items?.map((item: any) => <SmailCartItem title={item.product.title} image={item?.product.iiko_image} price={item?.product.price} />)
                     }
                 </div>
             </Drawer>

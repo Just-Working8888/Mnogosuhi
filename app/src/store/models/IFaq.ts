@@ -1,5 +1,10 @@
 export interface IFaq {
-    id: number
-    question: string
-    answer: string
+    count: number
+    next: string | null
+    previous: string | null
+    results: {
+        id: number
+        question: string
+        answer: string
+    }[]
 }

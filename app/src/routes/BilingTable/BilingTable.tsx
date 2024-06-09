@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import classes from './OrderPlacing.module.scss';
-import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex } from "antd";
+import classes from './BilingTable.module.scss';
+import { Input, Button, Form, Radio, Checkbox, Modal, Card, Flex } from "antd";
 import { BreadCrumps } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
-import { createCart, fetchCartItemById } from "store/reducers/cartReduser";
-import { createBiling } from "store/reducers/bilingReduser";
-import { setSessionKey } from "helpers/session_key";
-const OrderPlacing: React.FC = () => {
+import { fetchCartItemById } from "store/reducers/cartReduser";
+import { createTableBiling } from "store/reducers/tableBilingREsuser";
+import { useParams } from "react-router-dom";
+import { createTableOrder, fetchOrderItemById } from "store/reducers/TableOrderReduser";
+import { fetchTableById } from "store/reducers/tableReduser";
+const BilingTable: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
     const { TextArea } = Input;
     const dispatch = useAppDispatch()
-    const { data } = useAppSelector((state) => state.cart)
+    const { data } = useAppSelector((state) => state.tableCart)
+    const { table } = useAppSelector((state) => state.table)
+    const { id } = useParams()
 
 
     const [totalSum, setTotalSum] = useState<number>(1);
@@ -20,40 +24,34 @@ const OrderPlacing: React.FC = () => {
         }, 0))
     }, [data])
     useEffect(() => {
-        dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
+        dispatch(fetchOrderItemById({ id: localStorage.getItem('table_key') as any }))
+        dispatch(fetchTableById({ id: Number(id) }))
     }, [])
 
 
     const onFinish = async (values: any) => {
         const data = {
-            billing_receipt_type: values.billing_receipt_type,
-            delivery_price: "string",
-            address: values.address,
-            phone: values.phone,
+            table_uuid: Number(id),
             payment_method: values.payment_method,
-            payment_code: "string",
             note: values.note,
-            status: true,
-            parent: 0
+            parent: 0,
+            table_title: table.title
         };
-
-
-        dispatch(createBiling({
+        dispatch(createTableBiling({
             data: data
         })).then(() => {
-            dispatch(createCart({
+            dispatch(createTableOrder({
                 data: {
-                    session_key: setSessionKey(),
-                    discount_amount: 1,
-                    promo_code: false
+                    session_key: localStorage.getItem('session_key') as any,
+                    menu_table: Number(id),
+                    promo_code: true,
+                    discount_amount: 0
                 }
-            })).then((res: any) => {
-                console.log(res);
-                dispatch(fetchCartItemById({ id: res.payload.id }))
-
+            })).then((res) => {
+                localStorage.setItem('table_key', res.payload?.id)
             })
-        }
-        )
+        })
+
     };
 
     return (
@@ -66,28 +64,6 @@ const OrderPlacing: React.FC = () => {
                     <div className={classes.flexConteiner}>
 
                         <Form onFinish={onFinish} name="complex-form" className={classes.left}>
-                            <h3>Ваши данные</h3>
-                            <Flex gap={16} className={classes.flexForm}>
-                                <Form.Item className={classes.item} name="phone" rules={[{ required: true, message: 'Please input your phone number!' }]}>
-                                    <Input className={classes.input} placeholder="Телефон" size="large" />
-                                </Form.Item>
-                                <Form.Item className={classes.item} name="address" rules={[{ required: true, message: 'Please input your address!' }]}>
-                                    <Input className={classes.input} placeholder="Край/Область/Регион, Улица/Дом" size="large" />
-                                </Form.Item>
-                            </Flex>
-
-                            <h3>Способ доставки</h3>
-
-                            <div className={classes.flexForm}>
-                                <Form.Item name="billing_receipt_type" className={classes.item} rules={[{ required: true, message: 'Please select a delivery method!' }]}>
-                                    <Radio.Group>
-                                        <Radio className={classes.radio} value="Доставка">Доставка курьером до двери</Radio>
-                                        <Radio className={classes.radio} value="Самовывоз">Самовывоз из магазина</Radio>
-                                    </Radio.Group>
-                                </Form.Item>
-                            </div>
-
-
                             <h3>Дополнительная информация</h3>
                             <Form.Item name="note">
                                 <TextArea className={classes.item} rows={6} placeholder="Примечание" />
@@ -192,4 +168,4 @@ const OrderPlacing: React.FC = () => {
     )
 }
 
-export default OrderPlacing;
+export default BilingTable;
