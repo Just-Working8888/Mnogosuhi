@@ -127,7 +127,7 @@ const OrderPlacing: React.FC = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
-                        <OrderProducts />
+                        <OrderProducts data={data} />
                         {/* <Card className={classes.right}>
 
                             <div style={{ height: 'fit-content' }}>

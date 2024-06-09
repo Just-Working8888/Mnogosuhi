@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from './BilingTable.module.scss';
 import { Input, Button, Form, Radio, Checkbox, Modal, Card, Flex } from "antd";
-import { BreadCrumps } from "Components";
+import { BreadCrumps, OrderProducts } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { fetchCartItemById } from "store/reducers/cartReduser";
 import { createTableBiling } from "store/reducers/tableBilingREsuser";
@@ -104,59 +104,7 @@ const BilingTable: React.FC = () => {
                             </Form.Item>
                         </Form>
 
-                        <Card className={classes.right}>
-
-                            <div style={{ height: 'fit-content' }}>
-                                <h3>Ваш заказ</h3>
-                                {
-                                    data.items.map((item) => (
-                                        <div className={classes.flexConteiner}>
-                                            <div className={classes.imgProduct}>
-                                                <img src={item.product.iiko_image} alt="" />
-                                            </div>
-
-                                            <div className={classes.title}>
-                                                <h3>
-                                                    {item.product.title}
-
-                                                </h3>
-
-
-
-                                                <p>Цвет товара: Цвет товара</p>
-
-                                                <p>Количество: <strong>{item.quantity}</strong></p>
-                                            </div>
-                                            <div className={classes.price}>
-                                                <s>{item.product.price}</s>
-                                                <h2>{item.product.price * item.quantity}</h2>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-
-
-
-                            </div>
-                            <br />
-                            <div className='' >
-                                <Flex justify='space-between' align='center'>
-                                    <h3>Subtotal:</h3>
-                                    <p>$999</p>
-                                </Flex>
-                                <br />
-                                <Flex justify='space-between' align='center'>
-                                    <h4>Estimated shipping:</h4>
-                                    <p>$999</p>
-                                </Flex>
-                                <br />
-                                <Flex justify='space-between' align='center'>
-                                    <h3><b>Total</b>:</h3>
-                                    <p>{totalSum}</p>
-                                </Flex>
-                            </div>
-
-                        </Card>
+                        <OrderProducts data={data as any} />
                         {/* Конец правой части верстки */}
 
                     </div>

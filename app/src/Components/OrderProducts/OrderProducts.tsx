@@ -2,9 +2,9 @@ import { Card, Flex, Image } from 'antd'
 import React, { FC, useEffect, useState } from 'react'
 import classes from './OrderPriducts.module.scss'
 import { useAppSelector } from 'store/hook'
+import { ICart } from 'store/models/ICart'
 
-const OrderProducts: FC = () => {
-    const { data } = useAppSelector((state) => state.cart)
+const OrderProducts: FC<{ data: ICart }> = ({ data }) => {
     const [totalSum, setTotalSum] = useState<number>(1);
     useEffect(() => {
         setTotalSum(data.items.reduce((sum, item) => {
