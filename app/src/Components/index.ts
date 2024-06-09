@@ -29,6 +29,7 @@ import ProductTable from "./ProductSection/ProductTable"
 import ProductTableCard from "./ProductTableCard/ProductTableCard"
 import CardSceleton from "./Sceletons/CardSceleton/CardSceleton"
 import FAQItem from "./FAQItem/FAQItem"
+import OrderProducts from "./OrderProducts/OrderProducts"
 export {
     HeaderComponent,
     Login,
@@ -60,6 +61,7 @@ export {
     ProductTable,
     ProductTableCard,
     CardSceleton,
-    FAQItem
+    FAQItem,
+    OrderProducts
 }
 

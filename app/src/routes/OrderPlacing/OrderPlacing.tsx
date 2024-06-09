@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from './OrderPlacing.module.scss';
 import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex } from "antd";
-import { BreadCrumps } from "Components";
+import { BreadCrumps, OrderProducts } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { createCart, fetchCartItemById } from "store/reducers/cartReduser";
 import { createBiling } from "store/reducers/bilingReduser";
@@ -127,8 +127,8 @@ const OrderPlacing: React.FC = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
-
-                        <Card className={classes.right}>
+                        <OrderProducts />
+                        {/* <Card className={classes.right}>
 
                             <div style={{ height: 'fit-content' }}>
                                 <h3>Ваш заказ</h3>
@@ -138,18 +138,11 @@ const OrderPlacing: React.FC = () => {
                                             <div className={classes.imgProduct}>
                                                 <img src={item.product.iiko_image} alt="" />
                                             </div>
-
                                             <div className={classes.title}>
-                                                <h3>
+                                                <h2>
                                                     {item.product.title}
-
-                                                </h3>
-
-
-
-                                                <p>Цвет товара: Цвет товара</p>
-
-                                                <p>Количество: <strong>{item.quantity}</strong></p>
+                                                </h2>
+                                                <p><Flex gap={10}>  Количество: <strong>{item.quantity}</strong></Flex></p>
                                             </div>
                                             <div className={classes.price}>
                                                 <s>{item.product.price}</s>
@@ -180,7 +173,7 @@ const OrderPlacing: React.FC = () => {
                                 </Flex>
                             </div>
 
-                        </Card>
+                        </Card> */}
                         {/* Конец правой части верстки */}
 
                     </div>
