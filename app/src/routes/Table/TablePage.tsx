@@ -11,6 +11,7 @@ import { setCategory, setOffcet } from "store/slices/windowSlice";
 import { clearData } from "store/slices/productSlice";
 import { createTableOrder } from "store/reducers/TableOrderReduser";
 import { useParams } from "react-router-dom";
+import { fetchTableById } from "store/reducers/tableReduser";
 
 
 
@@ -19,11 +20,14 @@ const TablePage: FC = () => {
     const { data } = useAppSelector((state) => state.categories)
     const { menuprops } = useAppSelector((state) => state.window)
     const [all, setALl] = useState(false)
+    const { table } = useAppSelector((state) => state.table)
+
     const { id } = useParams()
 
     useEffect(() => {
         dispatch(fetchCategories({}))
         dispatch(fetchProduct({ filters: formatParams({ menuprops }) }))
+        dispatch(fetchTableById({ id: Number(id) }))
     }, [menuprops])
 
     useEffect(() => {
@@ -44,7 +48,7 @@ const TablePage: FC = () => {
 
     return (
         <>
-            <BreadCrumps title='Mnogosushi menu.' hrefs={[{ label: 'Home', href: '/' }, { label: 'table', href: '/table' }]} />
+            <BreadCrumps title={`Mnogosushi стол ${table.title}.`} hrefs={[{ label: 'Home', href: '/' }, { label: 'Стол', href: `/table/${id}` },]} />
             <div className={classes.main}>
                 <br />
                 <Flex gap={15} wrap='wrap'>

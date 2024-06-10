@@ -2,8 +2,10 @@
 
 .order {
     // max-width: 1722px;
+    max-width: 1200px;
     width: 100%;
-    padding: 50px 100px;
+    margin: 0 auto;
+    padding: 24px;
 
     .conteiner {
         width: 100%;
@@ -256,5 +258,34 @@
         .left {
             width: 100% !important;
         }
+
+        .right {
+            width: 100% !important;
+        }
     }
+}
+
+@media(max-width:500px) {
+    .flexForm {
+        flex-direction: column;
+
+        .item {
+            width: 100% !important;
+
+            input {
+                width: 100% !important;
+            }
+        }
+    }
+
+    .imgProduct {
+        width: 100% !important;
+        height: 200px !important;
+        margin-bottom: 10px;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
 }

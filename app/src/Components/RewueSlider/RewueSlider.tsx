@@ -32,8 +32,8 @@ const RewueSlider: FC = () => {
 
                 <Flex className={classes.flex} gap={16} align='center'>
                     <Flex gap={16}>
-                        <div className="swiper-button-next"><LeftOutlined /></div>
-                        <div className="swiper-button-prev"><RightOutlined /></div>
+                        <div className="swiper-button-prev"><LeftOutlined /></div>
+                        <div className="swiper-button-next"><RightOutlined /></div>
                     </Flex>
                     <Link to={'/revies'}>
                         <MainBtn title='all rewues' icon={<RightCircleOutlined />} size={55} />

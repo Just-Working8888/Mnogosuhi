@@ -2,13 +2,16 @@ import React, { FC } from 'react'
 import classes from './PromotionCard.module.scss'
 import { UpCircleOutlined } from '@ant-design/icons'
 import { AnimateKeyframes } from 'react-simple-animate'
+import { useNavigate } from 'react-router-dom'
 type Props = {
     discount: string,
     title: string,
     desprition: string,
-    image: string
+    image: string,
+    url: string
 }
-const PromotionCard: FC<Props> = ({ discount, title, desprition, image }) => {
+const PromotionCard: FC<Props> = ({ discount, title, desprition, image, url }) => {
+    const navigate = useNavigate()
     return (
         <div className={classes.PromotionCard}>
             <div className={classes.PromotionCard_left}>
@@ -16,9 +19,12 @@ const PromotionCard: FC<Props> = ({ discount, title, desprition, image }) => {
                 <h2>{title}</h2>
                 <p>{desprition}</p>
                 <br />
-                <button>
+                <a href={url}>
+                <button >
                     <UpCircleOutlined />    Get it now
                 </button>
+                </a>
+              
             </div>
             <AnimateKeyframes
                 play

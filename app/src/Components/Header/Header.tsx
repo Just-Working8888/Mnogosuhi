@@ -13,6 +13,10 @@ import { fetchCartItemById } from 'store/reducers/cartReduser';
 import { fetchTableById } from 'store/reducers/tableReduser';
 import { fetchOrderItemById } from 'store/reducers/TableOrderReduser';
 import { ReplaceCreateOrder } from 'helpers/ReCreateOrder';
+import { fetchSetting } from 'store/reducers/settingReduser';
+import Protected from 'routes/Protected/Protected';
+import { deleteCookie } from 'helpers/cookies';
+import icon from '../../assets/icon/blackLogo (1).png'
 
 const contact = [
     {
@@ -145,6 +149,7 @@ const HeaderComponent: React.FC = () => {
     const currentPath = location.pathname;
     const dispatch = useAppDispatch()
     const { id } = useParams()
+    const setting = useAppSelector((state) => state.setting.data.results[0])
 
     const scrollHandler = () => {
         window.pageYOffset > 10 ? setTop(false) : setTop(true)
@@ -158,6 +163,8 @@ const HeaderComponent: React.FC = () => {
     useEffect(() => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
         dispatch(fetchOrderItemById({ id: localStorage.getItem('table_key') as any }))
+        dispatch(fetchSetting({}))
+
     }, [])
     const onClose = () => {
         setOpen(false);
@@ -165,7 +172,14 @@ const HeaderComponent: React.FC = () => {
     const onClose2 = () => {
         setOpen2(false);
     };
-
+    useEffect(() => {
+        document.title = setting?.title;
+        const linkElement = document.createElement('link');
+        linkElement.rel = 'stylesheet';
+        linkElement.rel = 'icon'
+        linkElement.href = icon;
+        document.head.appendChild(linkElement)
+    }, [setting]);
 
     return (
 
@@ -207,6 +221,10 @@ const HeaderComponent: React.FC = () => {
                     <div onClick={() => setOpen2(true)}>
                         <MoreOutlined style={{ fontSize: '20px' }} />
                     </div>
+                    <Protected fallback={<>  <Button onClick={() => navigate('/login')} type='primary'>Войти</Button></>}>
+                        <Button onClick={() => deleteCookie('access_token')} type='primary'>выйти</Button>
+                    </Protected>
+
                 </div>
             </nav>
 
@@ -302,26 +320,44 @@ const HeaderComponent: React.FC = () => {
             >
 
                 <Card title={'contact'}>
-                    <List
-                        itemLayout="horizontal"
-                        dataSource={contact}
-                        renderItem={(item, index) => (
-                            <List.Item>
-                                <List.Item.Meta
-
-                                    title={<a href="https://ant.design">{item.title}</a>}
-                                />
-
-                                <Flex justify='space-between'>
-                                    <div></div>
-                                    <Link to={item.href}>{item.value}</Link>
-                                </Flex>
-                            </List.Item>
-                        )}
-                    />
+                    <Flex justify='space-between'>
+                        <div>email</div>
+                        <Link to={setting?.email}>{setting?.email}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>telegram</div>
+                        <Link to={setting?.telegram}>{setting?.telegram}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>facebook</div>
+                        <Link to={setting?.facebook}>{setting?.facebook}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>phone</div>
+                        <Link to={setting?.phone}>{setting?.phone}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>instagram</div>
+                        <Link to={setting?.instagram}>{setting?.instagram}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>whatsapp</div>
+                        <Link to={setting?.whatsapp}>{setting?.whatsapp}</Link>
+                    </Flex>
+                    <br />
+                    <Flex justify='space-between'>
+                        <div>tiktok</div>
+                        <Link to={setting?.tiktok}>{setting?.tiktok}</Link>
+                    </Flex>
+                    <br />
                 </Card>
                 <br />
-                <Card title={'instagram'}>
+                {/* <Card title={'instagram'}>
                     <Image.PreviewGroup
                         preview={{
                             onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
@@ -335,7 +371,7 @@ const HeaderComponent: React.FC = () => {
                         </Flex>
 
                     </Image.PreviewGroup>
-                </Card>
+                </Card> */}
                 <br />
                 <Card title={'последние публикации'}>
                     <List

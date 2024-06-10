@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISettingGet, ISettings } from 'store/models/ISetting';
-import { fetchSetting } from 'store/reducers/settingReduser';
+import { IPromotionResponse, ISettingGet, ISettings } from 'store/models/ISetting';
+import { fetchSetting, fetchSettingPromotion } from 'store/reducers/settingReduser';
 
 
 
 interface settingState {
     data: ISettingGet;
+    promotion: IPromotionResponse
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
@@ -13,6 +14,12 @@ interface settingState {
 
 const initialState: settingState = {
     data: {
+        count: 0,
+        next: null,
+        previous: null,
+        results: []
+    },
+    promotion: {
         count: 0,
         next: null,
         previous: null,
@@ -42,6 +49,20 @@ const settingSlice = createSlice({
                 state.laoding = false
             })
             .addCase(fetchSetting.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
+                state.laoding = false
+            })
+            .addCase(fetchSettingPromotion.pending, (state) => {
+                state.status = 'pending';
+                state.laoding = true
+            })
+            .addCase(fetchSettingPromotion.fulfilled, (state, action: PayloadAction<IPromotionResponse>) => {
+                state.status = 'succeeded';
+                state.promotion = action.payload
+                state.laoding = false
+            })
+            .addCase(fetchSettingPromotion.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
                 state.laoding = false

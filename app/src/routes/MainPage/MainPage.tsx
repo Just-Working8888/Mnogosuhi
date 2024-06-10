@@ -46,8 +46,8 @@ const MainPage: FC = () => {
 
           <SectionHead
             href="about"
-            title="They will cook for you"
-            despririon="Consectetur numquam poro nemo veniameligendi rem adipisci quo modi."
+            title="Они готовят для вас"
+            despririon="Можно сделать вывод, что никто и никогда не захочет получить вещь любыми способами."
             btn="more about us"
           />
           <br /><br />

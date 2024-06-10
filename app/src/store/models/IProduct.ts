@@ -8,6 +8,12 @@ export interface IProduct {
     sku: string
     created: string
     category: number
+    ingredients?: {
+        id: number
+        title: string
+        desc: string
+        product: number
+    }[]
 }
 export interface IProductGet {
     count: number

@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import classes from './AddRewue.module.scss'
-import { Card, Form, Input, Rate, Select } from 'antd'
+import { Button, Card, Form, Input, Rate, Select } from 'antd'
 import TextArea from 'antd/es/input/TextArea';
 
 type FieldType = {
@@ -36,7 +36,7 @@ const AddRewue: FC = () => {
                     <TextArea style={{ padding: '10px' }} placeholder="Отзыв" />
                 </Form.Item>
 
-                <Form.Item
+                {/* <Form.Item
                     name="advantages"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
@@ -51,11 +51,16 @@ const AddRewue: FC = () => {
                     <Input style={{ padding: '10px' }} placeholder="Недостатки" />
                 </Form.Item>
                 <Form.Item name="term_of_use" rules={[{ required: true, message: 'Please select your agreement with the terms of use' }]}>
-                    <Select style={{ height: '40px' }} placeholder="Select your agreement">
+                    <Select style={{ height: '50px' }} placeholder="Select your agreement">
                         <Select.Option value="день">день</Select.Option>
                         <Select.Option value="неделю">неделю</Select.Option>
                         <Select.Option value="месяц">месяц</Select.Option>
                     </Select>
+                </Form.Item> */}
+                <Form.Item colon={false}>
+                    <Button className={classes.button} type="primary" htmlType="submit" block>
+                        Submit
+                    </Button>
                 </Form.Item>
             </Form>
         </Card>

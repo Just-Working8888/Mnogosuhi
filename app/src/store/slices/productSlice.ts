@@ -37,6 +37,7 @@ const initialState: productState = {
         sku: "Loaing....",
         created: "Loaing....",
         category: 0,
+        ingredients: []
     },
     status: 'idle',
     error: null,

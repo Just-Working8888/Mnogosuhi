@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Rate } from 'antd';
+import { Button, Card, Image, Rate } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import classes from './Card.module.scss'
 import logo from '../../assets/icon/blackLogo (1).png'
@@ -33,7 +33,8 @@ const ProduckCard: React.FC<CardType> = ({ image, title, id, price, desprition, 
             </p>
             <br />
             <Rate value={rate} />
-
+            <br />
+           
         </div>
     )
 }

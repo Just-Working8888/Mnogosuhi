@@ -49,6 +49,9 @@ const BilingTable: React.FC = () => {
                 }
             })).then((res) => {
                 localStorage.setItem('table_key', res.payload?.id)
+                dispatch(fetchOrderItemById({ id: res.payload?.id }))
+
+
             })
         })
 
@@ -56,7 +59,7 @@ const BilingTable: React.FC = () => {
 
     return (
         <>
-            <BreadCrumps title='Your order.' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'cart', href: '/cart' }]} />
+            <BreadCrumps title='Ваш стол.' hrefs={[{ label: 'Home', href: '/' }, { label: 'Стол', href: `/table/${id}` }, { label: 'заказ', href: `/tablebiling/${id}` }]} />
             <section className={classes.order}>
 
                 <div className={classes.conteiner}>

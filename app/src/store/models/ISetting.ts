@@ -23,3 +23,18 @@ export interface ISettingGet {
     previous: string | null;
     results: ISettings[];
 }
+export interface IPromotionItem {
+    id: number;
+    title: string;
+    sub_title: string;
+    text: string;
+    image: string;
+    url: string;
+}
+
+export interface IPromotionResponse {
+    count: number;
+    next: null | string;
+    previous: null | string;
+    results: IPromotionItem[];
+}

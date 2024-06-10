@@ -35,7 +35,7 @@ const FooterComponent: FC = () => {
 
 
                 <div className={classes.header_cart}>
-                    © late 2021 Starbelly. All Rights Reserved.
+                    © late 2021 Codex. All Rights Reserved.
                 </div>
             </nav>
         </footer>
