@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import classes from './SendeMessege.module.scss'
 import { Tag } from 'antd'
 import ContactForm from './ContactForm/ContactForm'
+import { Link } from 'react-router-dom'
 
 const SendMessege: FC = () => {
     return (
@@ -14,14 +15,13 @@ const SendMessege: FC = () => {
                     <Tag>
                         Contact
                     </Tag>
-                    <h1>Get in Touch with Starbelly
+                    <h1>Свяжитесь с Mnogosushi
                     </h1>
                     <p>
-                        Consectetur numquam poro nemo veniam
-                        eligendi rem adipisci quo modi.
+                        Я никогда никому не прощу решение получить вещь каким-либо образом.
                     </p>
                     <div className={classes.main_container_btn}>
-                        Home / menu
+                        <Link to="/"> Home</Link> / contact
                     </div>
                 </div>
 

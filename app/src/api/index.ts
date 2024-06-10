@@ -18,6 +18,7 @@ import biling from './biling'
 import about from './about'
 import employees from './employees'
 import table_biling from './table_biling'
+import messege from './messege'
 
 
 const instance = axios.create({
@@ -62,7 +63,8 @@ const api = {
   ...biling,
   ...about,
   ...employees,
-  ...table_biling
+  ...table_biling,
+  ...messege
 }
 
 export { instance, api };

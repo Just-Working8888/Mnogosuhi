@@ -1,9 +1,10 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-import { FormInstance } from 'antd/lib/form';
 import classes from './ContactForm.module.scss'
 import { UpCircleOutlined } from '@ant-design/icons';
 import { AnimateKeyframes } from 'react-simple-animate';
+import { useAppDispatch } from 'store/hook';
+import { createMessege } from 'store/reducers/messegeReduser';
 const { TextArea } = Input;
 
 interface ContactFormValues {
@@ -13,10 +14,18 @@ interface ContactFormValues {
 }
 
 const ContactForm: React.FC = () => {
-    const [form] = Form.useForm();
+
+    const dispatch = useAppDispatch()
 
     const onFinish = (values: ContactFormValues) => {
         console.log('Success:', values);
+        dispatch(createMessege({
+            data: {
+                message: values.message,
+                name: values.name,
+                email: values.email
+            }
+        }))
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -40,14 +49,13 @@ const ContactForm: React.FC = () => {
                 <img style={{ position: 'absolute', right: '-29%', }} width={150} src="https://png.pngtree.com/png-vector/20221121/ourmid/pngtree-salmon-fish-sushi-vector-design-png-image_6472855.png" alt="" />
             </AnimateKeyframes>
             <div className={classes.fd}>
-                <h1>Send Message</h1>
+                <h1>Отправить сообщение</h1>
                 <Form
-                    form={form}
+
                     name="contact"
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
-                    autoComplete="off"
 
                 >
                     <Form.Item
@@ -73,15 +81,16 @@ const ContactForm: React.FC = () => {
                     >
                         <TextArea placeholder="Message" rows={4} />
                     </Form.Item>
+                    <p>
+                        *Мы обещаем не раскрывать вашу личную информацию третьим лицам.
+                    </p>
+                    <Button icon={<UpCircleOutlined />} className={classes.mainn_btn} type="primary" htmlType="submit" >
+                        Submit
+                    </Button>
                 </Form>
-                <p>
-                    *We promise not to disclose your
-                    personal information to third parties.
-                </p>
+
                 <br />
-                <Button icon={<UpCircleOutlined />} className={classes.mainn_btn} type="primary" htmlType="submit" >
-                    Submit
-                </Button>
+
             </div>
             <AnimateKeyframes
                 play
