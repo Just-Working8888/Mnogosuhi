@@ -21,7 +21,7 @@ const ProduckCard: React.FC<CardType> = ({ image, title, id, price, desprition, 
                 <div className={classes.card_block_image}>
                     <Image fallback={logo} width={"100%"} style={{ objectFit: "cover" }} height={270} src={image} />
                 </div>
-                <div className={classes.card_block_title}>
+                <div onClick={() => navigate(`/food/${id}`)} className={classes.card_block_title}>
                     <h1>{title}</h1>
                     <div className={classes.card_block_title_price}>
                         <span>c</span>{price}

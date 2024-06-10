@@ -176,7 +176,11 @@ thead[class*="ant-table-thead"] th {
 }
 
 .swiper-button-next,
-.swiper-button-prev {
+.swiper-button-prev,
+.one-next,
+.one-prev,
+.two-next,
+.two-prev {
   height: 50px;
   width: 50px;
   font-size: 12px;

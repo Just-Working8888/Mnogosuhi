@@ -1,18 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISettings } from 'store/models/ISetting';
+import { ISettingGet, ISettings } from 'store/models/ISetting';
 import { fetchSetting } from 'store/reducers/settingReduser';
 
 
 
 interface settingState {
-    data: ISettings[];
+    data: ISettingGet;
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
 }
 
 const initialState: settingState = {
-    data: [],
+    data: {
+        count: 0,
+        next: null,
+        previous: null,
+        results: []
+    },
     status: 'idle',
     error: null,
     laoding: false
@@ -31,9 +36,9 @@ const settingSlice = createSlice({
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchSetting.fulfilled, (state, action: PayloadAction<ISettings[]>) => {
+            .addCase(fetchSetting.fulfilled, (state, action: PayloadAction<ISettingGet>) => {
                 state.status = 'succeeded';
-                state.data = [...state.data, ...action.payload]
+                state.data = action.payload
                 state.laoding = false
             })
             .addCase(fetchSetting.rejected, (state, action) => {

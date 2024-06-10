@@ -17,7 +17,7 @@ const SmailCartItem: FC<Props> = ({ title, image, price }) => {
                 <h1>   {title}</h1>
             </Card>
             <div className={classes.item_price}>
-                <span>$</span>    {price}
+                <span>c</span>    {price}
             </div>
         </Flex>
     )

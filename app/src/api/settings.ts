@@ -1,9 +1,9 @@
 import { instance } from "api";
 import { CancelToken } from "axios";
-import { ISettings } from "store/models/ISetting";
+import { ISettingGet, ISettings } from "store/models/ISetting";
 
 const getSettings = (sourceToken?: CancelToken) =>
-    instance.get<ISettings[]>(`/settings`, { cancelToken: sourceToken });
+    instance.get<ISettingGet>(`/settings/`, { cancelToken: sourceToken });
 
 
 const endpoints = {

@@ -30,7 +30,7 @@ const CartRow: FC<Props> = ({ title, desption, image, price, quanty, item }) => 
                 </div>
                 <div>
                     <b>
-                        Total: $   {quanty * price}
+                        Total:   {quanty * price}
                     </b>
                 </div>
             </Flex>

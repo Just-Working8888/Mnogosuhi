@@ -7,6 +7,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.3s;
+
+    &:hover {
+        transform: scale(1.01);
+    }
 
     p {
         color: #6F6F87;
@@ -15,6 +20,7 @@
 
     &_block {
 
+        cursor: pointer;
 
         &_image {
             width: 100%;

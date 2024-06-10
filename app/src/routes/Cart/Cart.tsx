@@ -110,7 +110,7 @@ const Cart: React.FC<CartProps> = () => {
                         <br />
                         <Flex justify='space-between' align='center'>
                             <h4>Estimated shipping:</h4>
-                            <p>$999</p>
+                            <p>999</p>
                         </Flex>
                         <br />
                         <Flex justify='space-between' align='center'>

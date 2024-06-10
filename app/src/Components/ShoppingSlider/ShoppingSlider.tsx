@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 import { IProduct } from 'store/models/IProduct';
 
 SwiperCore.use([Navigation]);
-const ShoppingSlider: FC<{ data: IProduct[] }> = ({ data }) => {
+const ShoppingSlider: FC<{ data: IProduct[], sliderId: string }> = ({ data, sliderId }) => {
     return (
         <div>
             <Flex justify='space-between' className={classes.main_head}>
@@ -32,8 +32,9 @@ const ShoppingSlider: FC<{ data: IProduct[] }> = ({ data }) => {
                 </div>
                 <Flex className={classes.flex} gap={16} align='center'>
                     <Flex gap={16}>
-                        <div className="swiper-button-next"><LeftOutlined /></div>
-                        <div className="swiper-button-prev"><RightOutlined /></div>
+                        <div className={`${sliderId}-prev`}><LeftOutlined /></div>
+                        <div className={`${sliderId}-next`}><RightOutlined /></div>
+
                     </Flex>
                     <Link to={'/catalog'}>
                         <MainBtn title='Full menu' icon={<RightCircleOutlined />} size={55} />
@@ -62,8 +63,8 @@ const ShoppingSlider: FC<{ data: IProduct[] }> = ({ data }) => {
                     }
                 }}
                 navigation={{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                    nextEl: `.${sliderId}-next`,
+                    prevEl: `.${sliderId}-prev`,
                 }}
                 pagination={{
                     clickable: true,

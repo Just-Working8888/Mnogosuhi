@@ -22,12 +22,11 @@ const Shop: FC = () => {
     return (
         <div>
             <BreadCrumps title='Online shop' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }]} />
-
             <div className={classes.main}>
                 <br />
                 <MainCategoriesSection />
-                <ShoppingSlider data={data} />
-                <ShoppingSlider data={foods} />
+                <ShoppingSlider data={data} sliderId='one' />
+                <ShoppingSlider data={foods}  sliderId='two'/>
                 <div>
 
                     <SectionHead

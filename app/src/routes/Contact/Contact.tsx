@@ -1,7 +1,14 @@
 import { BreadCrumps, SendMessege } from 'Components'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import classes from './Contact.module.scss'
+import { useAppDispatch, useAppSelector } from 'store/hook'
+import { fetchSetting } from 'store/reducers/settingReduser'
 const Contact: FC = () => {
+    const data = useAppSelector((state) => state.setting.data.results[0])
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(fetchSetting({}))
+    }, [])
     return (
         <>
             <SendMessege />
@@ -13,9 +20,9 @@ const Contact: FC = () => {
                             01
                         </h1>
                         <div>
-                            <h2>Welcome</h2>
-                            <p>Montréal, 1510 Rue Sauvé
-
+                            <h2>Добро пожаловать</h2>
+                            <p>
+                                {data?.address}
                             </p>
                         </div>
                     </div>
@@ -24,9 +31,10 @@ const Contact: FC = () => {
                             02
                         </h1>
                         <div>
-                            <h2>Call
+                            <h2>
+                                Позвонить
                             </h2>
-                            <p>+996 777 77 77 77 </p>
+                            <p>{data?.phone} </p>
                         </div>
                     </div>
                     <div className={classes.main_numbers_item}>
@@ -34,19 +42,19 @@ const Contact: FC = () => {
                             03
                         </h1>
                         <div>
-                            <h2>Write</h2>
-                            <p>starbelly@mail.com </p>
+                            <h2>Написать</h2>
+                            <p>{data?.email} </p>
                         </div>
                     </div>
                 </section>
                 <section>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12133.64669422799!2d72.79318835000001!3d40.510391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1716375379300!5m2!1sru!2skg"
-                        width={'100%'}
-                        height="450"
                         style={{ border: 'none' }}
+                        width={'100%'}
+                        height="560"
                         loading="lazy"
-                    ></iframe>
+                        src="https://widgets.2gis.com/widget?type=firmsonmap&amp;options=%7B%22pos%22%3A%7B%22lat%22%3A42.871718262613314%2C%22lon%22%3A74.60871219635011%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22bishkek%22%7D%2C%22org%22%3A%2270000001044582059%22%7D"></iframe>
+
                 </section>
             </div>
         </>

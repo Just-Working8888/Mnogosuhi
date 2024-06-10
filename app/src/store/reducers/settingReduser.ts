@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "api";
 import { CancelToken } from "axios";
-import { ISettings } from "store/models/ISetting";
+import { ISettingGet, ISettings } from "store/models/ISetting";
 
-export const fetchSetting = createAsyncThunk<ISettings[], { cancelToken?: CancelToken }, { rejectValue?: string }>(
+export const fetchSetting = createAsyncThunk<ISettingGet, { cancelToken?: CancelToken }, { rejectValue?: string }>(
     'setting/fetchSetting',
     async ({ cancelToken }, { rejectWithValue }) => {
         try {
