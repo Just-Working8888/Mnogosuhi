@@ -1,3 +1,5 @@
+import { IReviews } from "./IReviews"
+
 export interface IProduct {
     id: number
     title: string
@@ -8,6 +10,7 @@ export interface IProduct {
     sku: string
     created: string
     category: number
+    product_reviews?: IReviews[]
     ingredients?: {
         id: number
         title: string

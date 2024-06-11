@@ -2,6 +2,10 @@ import React, { FC, useState } from 'react'
 import classes from './AddRewue.module.scss'
 import { Button, Card, Form, Input, Rate, Select } from 'antd'
 import TextArea from 'antd/es/input/TextArea';
+import { useAppDispatch } from 'store/hook';
+import { createRewue } from 'store/reducers/reviewsReduser';
+import { useParams } from 'react-router-dom';
+import { fetchProductByID } from 'store/reducers/productReduser';
 
 type FieldType = {
     term_of_use?: string;
@@ -13,12 +17,28 @@ type FieldType = {
 const AddRewue: FC = () => {
     const [form] = Form.useForm();
     const [star, setStar] = useState(0)
+    const { id } = useParams()
+    const dispatch = useAppDispatch()
+    const onFinish = (values: any) => {
+        console.log('Success:', values);
+        dispatch(createRewue({
+            data: {
+                text: values.text,
+                stars: star,
+                user: localStorage.getItem('user_id') as any,
+                product: Number(id)
+            }
+        })).then(() => {
+            dispatch(fetchProductByID({ id: Number(id) }))
+        })
+    };
+
     return (
         <Card className={classes.form}>
             <Form
                 name="basic"
                 form={form}
-
+                onFinish={onFinish}
                 autoComplete="off"
             >
 

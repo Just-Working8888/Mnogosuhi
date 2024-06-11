@@ -12,7 +12,7 @@ const getReviewsById = (id: number, sourceToken?: CancelToken) =>
     instance.get<IReviews>(`/reviews/${id}`, { cancelToken: sourceToken });
 
 const createReviews = (data: IReviewsDto, sourceToken?: CancelToken) =>
-    instance.post('/reviews', { ...data }, { cancelToken: sourceToken });
+    instance.post('/reviews/', { ...data }, { cancelToken: sourceToken });
 
 const updateReviews = (id: number, data: IReviewsDto, sourceToken?: CancelToken) =>
     instance.put(`/reviews/${id}`, { ...data }, { cancelToken: sourceToken });

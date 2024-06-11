@@ -76,18 +76,18 @@ const Productinfo: FC = () => {
                 <Flex className={classes.flex} justify='space-between'>
                     <div className={classes.main_right_item}>
                         <h1>01</h1>
-                        <h2>Add to the cart and place an order</h2>
-                        <h3>Porro comirton pera nemo veniam</h3>
+                        <h2>Добавьте в корзину и оформите заказ</h2>
+                        <h3>Больше никто не придет с сумочкой</h3>
                     </div>
                     <div className={classes.main_right_item}>
-                        <h1>01</h1>
-                        <h2>Add to the cart and place an order</h2>
-                        <h3>Porro comirton pera nemo veniam</h3>
+                        <h1>02</h1>
+                        <h2>Введите свой номер телефона и адрес</h2>
+                        <h3>У тебя никогда не будет выбора.</h3>
                     </div>
                     <div className={classes.main_right_item}>
-                        <h1>01</h1>
-                        <h2>Add to the cart and place an order</h2>
-                        <h3>Porro comirton pera nemo veniam</h3>
+                        <h1>03</h1>
+                        <h2>Наслаждайтесь любимой едой дома!</h2>
+                        <h3>Для текущих нужд</h3>
                     </div>
                 </Flex>
                 <br />

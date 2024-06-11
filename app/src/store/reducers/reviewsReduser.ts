@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { message } from "antd";
 import { api } from "api";
-import { CancelToken } from "axios";
-import { IPeviewsGet, IReviews } from "store/models/IReviews";
+import axios, { CancelToken } from "axios";
+import { IPeviewsGet, IReviews, IReviewsDto } from "store/models/IReviews";
 
 export const fetchReviews = createAsyncThunk<IPeviewsGet, { cancelToken?: CancelToken, }, { rejectValue?: string }>(
     'reviews/fetchReviews',
@@ -14,3 +15,23 @@ export const fetchReviews = createAsyncThunk<IPeviewsGet, { cancelToken?: Cancel
         }
     }
 );
+
+
+export const createRewue = createAsyncThunk(
+    'revue/createRewue',
+    async ({ data }: { data: IReviewsDto; }, { signal }) => {
+
+        try {
+            const source = axios.CancelToken.source();
+            signal.addEventListener('abort', () => source.cancel('Operation canceled by the user.'));
+            const response = await api.createReviews(data, source.token);
+            message.success('Successfully created')
+
+            return response.data;
+        } catch (error) {
+            message.error('Ошибка сервера')
+        }
+
+    }
+);
+

@@ -56,22 +56,18 @@ const SingleProduckt: FC = () => {
         {
             id: 2,
             node: <div>
-              
+
                 <div className={classes.rewueRow}>
-                    <RewievCard
-                        title='Very tasty'
-                        desprition='Inventore possimus laudantium provident, rem eligendi velit. Aut molestias, ipsa itaque laborum, natus tempora, ut soluta animi ducimus dignissimos deserunt doloribus in reprehenderit rem accusamus! Quibusdam labore, aliquam dolor harum!'
-                        rate={4}
-                        user='Emma Newman'
-                        avatar='https://miller.bslthemes.com/starbelly-demo/img/faces/2.jpg'
-                    />
-                    <RewievCard
-                        title='Very tasty'
-                        desprition='Inventore possimus laudantium provident, rem eligendi velit. Aut molestias, ipsa itaque laborum, natus tempora, ut soluta animi ducimus dignissimos deserunt doloribus in reprehenderit rem accusamus! Quibusdam labore, aliquam dolor harum!'
-                        rate={4}
-                        user='Emma Newman'
-                        avatar='https://miller.bslthemes.com/starbelly-demo/img/faces/2.jpg'
-                    />
+                    {
+                        product.product_reviews?.map((item) => <RewievCard
+                            title={''}
+                            desprition={item.text}
+                            rate={item.stars}
+                            user={item.user_username}
+                            avatar={item.user_img}
+                        />)
+                    }
+
                 </div>
                 <h3>оставить отзыв</h3>
                 <br />

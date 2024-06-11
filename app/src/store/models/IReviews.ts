@@ -17,7 +17,7 @@ export interface IPeviewsGet {
 }
 export interface IReviewsDto {
     text: string
-    stars: string
+    stars: number
     user: number
     product: number
 }

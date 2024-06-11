@@ -27,6 +27,7 @@ const Login: React.FC = () => {
             console.log(response);
 
             setCookie('access_token', response.payload.access, 30);
+            localStorage.setItem('user_id', response.payload.user_id);
         } catch (err: any) {
             if (axios.isAxiosError(err) && err.response) {
                 console.log(err.response.data.message || 'Ошибка авторизации.');
