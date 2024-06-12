@@ -243,6 +243,15 @@ thead[class*="ant-table-thead"] th {
 }
 
 
+
+
+.loginMOdal {
+  .ant-modal-footer {
+    display: none !important;
+  }
+}
+
+
 @media(max-width:970px) {
   .swiper-slide {
     width: 50% !important;

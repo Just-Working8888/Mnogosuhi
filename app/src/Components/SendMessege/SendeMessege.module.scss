@@ -1,8 +1,6 @@
 @import '../../scss/variables/colors.module.scss';
 
-a {
-    color: white;
-}
+
 
 .main {
     background-color: #F9FAFC;
@@ -15,6 +13,10 @@ a {
     flex-direction: column;
 
     padding: 20px 0;
+
+    a {
+        color: white;
+    }
 
     &_container {
         display: flex;
