@@ -252,6 +252,17 @@ thead[class*="ant-table-thead"] th {
 }
 
 
+.ant-select.ant-select-in-form-item {
+  height: 50px !important;
+  border-radius: 0 !important;
+  background-color: #F9FAFC !important;
+}
+
+.ant-select-selector{
+  border-radius: 0 !important;
+  background-color: #F9FAFC !important;
+}
+
 @media(max-width:970px) {
   .swiper-slide {
     width: 50% !important;

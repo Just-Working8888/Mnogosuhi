@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import classes from './OrderPlacing.module.scss';
-import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex } from "antd";
+import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex, Select } from "antd";
 import { BreadCrumps, OrderProducts } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { createCart, fetchCartItemById } from "store/reducers/cartReduser";
 import { createBiling } from "store/reducers/bilingReduser";
 import { setSessionKey } from "helpers/session_key";
+import { fetchAdresses } from "store/reducers/adressesReduser";
+import { log } from "console";
 const OrderPlacing: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
+    const adresses = useAppSelector((state) => state.adresses.data)
+    const [query, setQuery] = useState('')
     const { TextArea } = Input;
     const dispatch = useAppDispatch()
     const { data } = useAppSelector((state) => state.cart)
-
-
     const [totalSum, setTotalSum] = useState<number>(1);
     useEffect(() => {
         setTotalSum(data.items.reduce((sum, item) => {
@@ -23,7 +25,9 @@ const OrderPlacing: React.FC = () => {
         dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
     }, [])
 
-
+    useEffect(() => {
+        dispatch(fetchAdresses({ query: query }))
+    }, [query])
     const onFinish = async (values: any) => {
         const data = {
             billing_receipt_type: values.billing_receipt_type,
@@ -50,11 +54,21 @@ const OrderPlacing: React.FC = () => {
             })).then((res: any) => {
                 console.log(res);
                 dispatch(fetchCartItemById({ id: res.payload.id }))
-
             })
         }
         )
     };
+    const onChange = (value: string) => {
+        console.log(value);
+
+        setQuery(value)
+    };
+
+    const onSearch = (value: string) => {
+        setQuery(value)
+    };
+    const filterOption = (input: string, option?: { label: string; value: string }) =>
+        (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
     return (
         <>
@@ -72,10 +86,25 @@ const OrderPlacing: React.FC = () => {
                                     <Input className={classes.input} placeholder="Телефон" size="large" />
                                 </Form.Item>
                                 <Form.Item className={classes.item} name="address" rules={[{ required: true, message: 'Please input your address!' }]}>
-                                    <Input className={classes.input} placeholder="Край/Область/Регион, Улица/Дом" size="large" />
+                                    {/* <Input onChange={(e) => setQuery(e.target.value)} className={classes.input} placeholder="Край/Область/Регион, Улица/Дом" /> */}
+                                    <Select
+                                        showSearch
+                                        className={'select'}
+                                        size="large"
+                                        optionFilterProp="children"
+
+                                        placeholder="Край/Область/Регион, Улица/Дом"
+                                        onChange={onChange}
+                                        style={{ background: '#F9FAFC' }}
+                                        onSearch={onSearch}
+                                        searchValue={query}
+                                        filterOption={filterOption}
+                                        options={adresses?.result?.items?.map((item: any) => {
+                                            return { value: item.full_name, label: item.full_name }
+                                        })}
+                                    />
                                 </Form.Item>
                             </Flex>
-
                             <h3>Способ доставки</h3>
 
                             <div className={classes.flexForm}>
@@ -128,58 +157,9 @@ const OrderPlacing: React.FC = () => {
                             </Form.Item>
                         </Form>
                         <OrderProducts data={data} />
-                        {/* <Card className={classes.right}>
-
-                            <div style={{ height: 'fit-content' }}>
-                                <h3>Ваш заказ</h3>
-                                {
-                                    data.items.map((item) => (
-                                        <div className={classes.flexConteiner}>
-                                            <div className={classes.imgProduct}>
-                                                <img src={item.product.iiko_image} alt="" />
-                                            </div>
-                                            <div className={classes.title}>
-                                                <h2>
-                                                    {item.product.title}
-                                                </h2>
-                                                <p><Flex gap={10}>  Количество: <strong>{item.quantity}</strong></Flex></p>
-                                            </div>
-                                            <div className={classes.price}>
-                                                <s>{item.product.price}</s>
-                                                <h2>{item.product.price * item.quantity}</h2>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-
-
-
-                            </div>
-                            <br />
-                            <div className='' >
-                                <Flex justify='space-between' align='center'>
-                                    <h3>Subtotal:</h3>
-                                    <p>$999</p>
-                                </Flex>
-                                <br />
-                                <Flex justify='space-between' align='center'>
-                                    <h4>Estimated shipping:</h4>
-                                    <p>$999</p>
-                                </Flex>
-                                <br />
-                                <Flex justify='space-between' align='center'>
-                                    <h3><b>Total</b>:</h3>
-                                    <p>{totalSum}</p>
-                                </Flex>
-                            </div>
-
-                        </Card> */}
-                        {/* Конец правой части верстки */}
-
                     </div>
 
-                </div >
-
+                </div>
                 {contextHolder}
             </section ></>
     )
