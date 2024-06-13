@@ -12,6 +12,7 @@ import emplayesReduser from './slices/employesSlice'
 import faqReduser from './slices/faqSlice'
 import tableCartReduser from './slices/tableCartSlice'
 import adressesReduser from './slices/adressesSlice'
+import delivaryReduser from './slices/delivarySlice'
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -26,7 +27,8 @@ const store = configureStore({
     employes: emplayesReduser,
     faq: faqReduser,
     tableCart: tableCartReduser,
-    adresses: adressesReduser
+    adresses: adressesReduser,
+    delivary: delivaryReduser
   },
 });
 

@@ -31,6 +31,7 @@ import CardSceleton from "./Sceletons/CardSceleton/CardSceleton"
 import FAQItem from "./FAQItem/FAQItem"
 import OrderProducts from "./OrderProducts/OrderProducts"
 import LoginModal from "./LoginModal/LoginModal"
+import Map from "./Map/Map"
 export {
     HeaderComponent,
     Login,
@@ -64,6 +65,7 @@ export {
     CardSceleton,
     FAQItem,
     OrderProducts,
-    LoginModal
+    LoginModal,
+    Map,
 }
 

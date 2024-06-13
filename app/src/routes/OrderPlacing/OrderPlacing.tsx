@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import classes from './OrderPlacing.module.scss';
 import { Input, Button, Form, Radio, Checkbox, Modal, message, Typography, Affix, Card, Flex, Select } from "antd";
-import { BreadCrumps, OrderProducts } from "Components";
+import { BreadCrumps, Map, OrderProducts } from "Components";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { createCart, fetchCartItemById } from "store/reducers/cartReduser";
 import { createBiling } from "store/reducers/bilingReduser";
 import { setSessionKey } from "helpers/session_key";
-import { fetchAdresses } from "store/reducers/adressesReduser";
+import { fetchAdresses, fetchAdressesById } from "store/reducers/adressesReduser";
 import { log } from "console";
+import { createDelivary } from "store/reducers/delivaryReduser";
 const OrderPlacing: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
     const adresses = useAppSelector((state) => state.adresses.data)
+    const points = useAppSelector((state) => state.adresses.adressPoint)
+    const delivery = useAppSelector((state) => state.delivary.data)
     const [query, setQuery] = useState('')
     const { TextArea } = Input;
     const dispatch = useAppDispatch()
@@ -28,10 +31,14 @@ const OrderPlacing: React.FC = () => {
     useEffect(() => {
         dispatch(fetchAdresses({ query: query }))
     }, [query])
+
+    useEffect(() => {
+        dispatch(createDelivary({ data: { lon: `${points[0]}`, lat: `${points[1]}` } }))
+    }, [points])
     const onFinish = async (values: any) => {
         const data = {
             billing_receipt_type: values.billing_receipt_type,
-            delivery_price: "string",
+            delivery_price: delivery.price,
             address: values.address,
             phone: values.phone,
             payment_method: values.payment_method,
@@ -58,10 +65,9 @@ const OrderPlacing: React.FC = () => {
         }
         )
     };
-    const onChange = (value: string) => {
+    const onChange = (value: any) => {
         console.log(value);
-
-        setQuery(value)
+        dispatch(fetchAdressesById({ itemId: +value.value }))
     };
 
     const onSearch = (value: string) => {
@@ -73,6 +79,7 @@ const OrderPlacing: React.FC = () => {
     return (
         <>
             <BreadCrumps title='Your order.' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'cart', href: '/cart' }]} />
+
             <section className={classes.order}>
 
                 <div className={classes.conteiner}>
@@ -80,6 +87,8 @@ const OrderPlacing: React.FC = () => {
                     <div className={classes.flexConteiner}>
 
                         <Form onFinish={onFinish} name="complex-form" className={classes.left}>
+                            <Map />
+                            <br />
                             <h3>Ваши данные</h3>
                             <Flex gap={16} className={classes.flexForm}>
                                 <Form.Item className={classes.item} name="phone" rules={[{ required: true, message: 'Please input your phone number!' }]}>
@@ -100,7 +109,7 @@ const OrderPlacing: React.FC = () => {
                                         searchValue={query}
                                         filterOption={filterOption}
                                         options={adresses?.result?.items?.map((item: any) => {
-                                            return { value: item.full_name, label: item.full_name }
+                                            return { value: { value: item.id, label: item.full_name }, label: item.full_name }
                                         })}
                                     />
                                 </Form.Item>
