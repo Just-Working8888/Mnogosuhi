@@ -9,11 +9,13 @@ import { setSessionKey } from "helpers/session_key";
 import { fetchAdresses, fetchAdressesById } from "store/reducers/adressesReduser";
 import { log } from "console";
 import { createDelivary } from "store/reducers/delivaryReduser";
+import { setAdressTitle } from "store/slices/adressesSlice";
 const OrderPlacing: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
     const adresses = useAppSelector((state) => state.adresses.data)
-    const points = useAppSelector((state) => state.adresses.adressPoint)
+    const points = useAppSelector((state) => state.point)
     const delivery = useAppSelector((state) => state.delivary.data)
+    const AdressTitle = useAppSelector((state) => state.adresses.adressTitle)
     const [query, setQuery] = useState('')
     const { TextArea } = Input;
     const dispatch = useAppDispatch()
@@ -31,15 +33,16 @@ const OrderPlacing: React.FC = () => {
     useEffect(() => {
         dispatch(fetchAdresses({ query: query }))
     }, [query])
+    console.log(points.adressPoint);
 
     useEffect(() => {
-        dispatch(createDelivary({ data: { lon: `${points[0]}`, lat: `${points[1]}` } }))
+        dispatch(createDelivary({ data: { lon: `${points.adressPoint[0]}`, lat: `${points.adressPoint[1]}` } }))
     }, [points])
     const onFinish = async (values: any) => {
         const data = {
             billing_receipt_type: values.billing_receipt_type,
             delivery_price: delivery.price,
-            address: values.address,
+            address: AdressTitle,
             phone: values.phone,
             payment_method: values.payment_method,
             payment_code: "string",
@@ -67,7 +70,8 @@ const OrderPlacing: React.FC = () => {
     };
     const onChange = (value: any) => {
         console.log(value);
-        dispatch(fetchAdressesById({ itemId: +value.value }))
+
+        dispatch(fetchAdressesById({ itemId: +value }))
     };
 
     const onSearch = (value: string) => {
@@ -75,6 +79,7 @@ const OrderPlacing: React.FC = () => {
     };
     const filterOption = (input: string, option?: { label: string; value: string }) =>
         (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+    console.log(AdressTitle);
 
     return (
         <>
@@ -102,14 +107,14 @@ const OrderPlacing: React.FC = () => {
                                         size="large"
                                         optionFilterProp="children"
 
-                                        placeholder="Край/Область/Регион, Улица/Дом"
+                                        placeholder={AdressTitle}
                                         onChange={onChange}
                                         style={{ background: '#F9FAFC' }}
                                         onSearch={onSearch}
                                         searchValue={query}
                                         filterOption={filterOption}
                                         options={adresses?.result?.items?.map((item: any) => {
-                                            return { value: { value: item.id, label: item.full_name }, label: item.full_name }
+                                            return { value: item.id, label: item.full_name }
                                         })}
                                     />
                                 </Form.Item>

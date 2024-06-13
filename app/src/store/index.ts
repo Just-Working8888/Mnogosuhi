@@ -13,6 +13,7 @@ import faqReduser from './slices/faqSlice'
 import tableCartReduser from './slices/tableCartSlice'
 import adressesReduser from './slices/adressesSlice'
 import delivaryReduser from './slices/delivarySlice'
+import pointReduser from './slices/PointsSlice'
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -28,7 +29,8 @@ const store = configureStore({
     faq: faqReduser,
     tableCart: tableCartReduser,
     adresses: adressesReduser,
-    delivary: delivaryReduser
+    delivary: delivaryReduser,
+    point: pointReduser
   },
 });
 
