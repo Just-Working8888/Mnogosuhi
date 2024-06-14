@@ -7,6 +7,7 @@ import { ICart } from 'store/models/ICart'
 const OrderProducts: FC<{ data: ICart }> = ({ data }) => {
     const [totalSum, setTotalSum] = useState<number>(1);
     const AdressTitle = useAppSelector((state) => state.adresses.adressTitle)
+    const delivery = useAppSelector((state) => state.delivary)
     useEffect(() => {
         setTotalSum(data.items.reduce((sum, item) => {
             return sum + Number(item?.product.price) * item.quantity;
@@ -36,9 +37,11 @@ const OrderProducts: FC<{ data: ICart }> = ({ data }) => {
             </div>
             <div className={classes.foot}>
                 <h2>Subtotal:      <p>{totalSum}</p></h2>
-                <h2>Subtotal:      <h2>{totalSum}</h2></h2>
+                <h2>Стоимость доставки:      <h2>{delivery.data.price}</h2></h2>
                 <h2>Адресc: <p>{AdressTitle}</p>  </h2>
-
+                <h2>Растояние <p>{delivery.data.distanse}</p></h2>
+                <h2>Примерное время доставки <p>{delivery.data.time}</p></h2>
+                <h2>total:      <p>{totalSum + delivery.data.price}</p></h2>
             </div>
         </Card>
     )

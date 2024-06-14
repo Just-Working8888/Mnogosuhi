@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IDelivary } from 'store/models/IDelivary';
-import { fetchDelivaryById } from 'store/reducers/delivaryReduser';
+import { createDelivary, fetchDelivaryById } from 'store/reducers/delivaryReduser';
 
 
 
@@ -16,7 +16,7 @@ const initialState: delivaryState = {
         id: 0,
         price: 'loading',
         time: 'loading',
-        distance: 'loading',
+        distanse: 'loading',
     },
     status: 'idle',
     error: null,
@@ -31,16 +31,16 @@ const delivarySlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchDelivaryById.pending, (state) => {
+            .addCase(createDelivary.pending, (state) => {
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchDelivaryById.fulfilled, (state, action: PayloadAction<any>) => {
+            .addCase(createDelivary.fulfilled, (state, action: PayloadAction<any>) => {
                 state.status = 'succeeded';
                 state.data = action.payload;
                 state.laoding = false
             })
-            .addCase(fetchDelivaryById.rejected, (state, action) => {
+            .addCase(createDelivary.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch products' : 'Failed to fetch products';
                 state.laoding = false

@@ -2,7 +2,7 @@ export interface IDelivary {
     id: number
     price: string
     time: string
-    distance: string
+    distanse: string
 
 }
 export interface IDelivaryDto {

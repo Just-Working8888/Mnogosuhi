@@ -3,6 +3,7 @@ import { load } from '@2gis/mapgl';
 import { MapWrapper } from './MapWrapper';
 import { useAppDispatch, useAppSelector } from 'store/hook';
 import { setAdressTitle } from 'store/slices/adressesSlice';
+import { createDelivary } from 'store/reducers/delivaryReduser';
 
 // Типы для состояния и координат
 interface PointState {
@@ -53,6 +54,12 @@ const Map: React.FC = () => {
                 const address = await reverseGeocode(lngLat); // Вызов функции обратного геокодирования
                 console.log('Coordinates:', lngLat);
                 dispatch(setAdressTitle(address))
+                dispatch(createDelivary({
+                    data: {
+                        lon: `${lngLat[0]}`,
+                        lat: `${lngLat[1]}`
+                    }
+                }))
                 // Удалить предыдущий маркер, если он существует
                 if (markerRef.current) {
                     markerRef.current.destroy();
@@ -68,6 +75,9 @@ const Map: React.FC = () => {
                 });
 
                 markerRef.current = newMarker;
+
+                mapInstance.setCenter(lngLat);
+                mapInstance.setZoom(17);
             });
 
             setMap(mapInstance);
@@ -87,6 +97,8 @@ const Map: React.FC = () => {
     useEffect(() => {
         if (map && points && points.adressPoint) {
             map.setCenter(points.adressPoint);
+            map.setZoom(17);
+
         }
     }, [map, points]); // Зависимость от points для центрирования карты при изменении
 

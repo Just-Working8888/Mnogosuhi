@@ -37,7 +37,7 @@ const OrderPlacing: React.FC = () => {
 
     useEffect(() => {
         dispatch(createDelivary({ data: { lon: `${points.adressPoint[0]}`, lat: `${points.adressPoint[1]}` } }))
-    }, [points])
+    }, [points, AdressTitle])
     const onFinish = async (values: any) => {
         const data = {
             billing_receipt_type: values.billing_receipt_type,

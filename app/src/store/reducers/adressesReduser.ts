@@ -16,7 +16,7 @@ export const fetchAdresses = createAsyncThunk<any, { query: string, cancelToken?
 );
 
 export const fetchAdressesById = createAsyncThunk<any, { itemId: number, cancelToken?: CancelToken }, { rejectValue?: string, }>(
-    'adress/fetchAdresses',
+    'adress/fetchAdressesById',
     async ({ itemId, cancelToken }, { rejectWithValue, dispatch }) => {
         try {
             const response = await api.getAdressesById(itemId, cancelToken);
