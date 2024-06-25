@@ -39,6 +39,10 @@
 
         border: none;
     }
+    .disabled{
+        background-color: #989898;
+        opacity: 0.5;
+    }
 
     &_btn {
         border-radius: 50%;

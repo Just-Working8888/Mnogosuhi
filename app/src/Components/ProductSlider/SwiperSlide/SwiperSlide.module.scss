@@ -3,6 +3,21 @@
 .card {
     width: 100%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+
+    &_btnn {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #F2F3F5;
+        border-radius: 50%;
+    }
+
 
     p {
         color: #6F6F87;

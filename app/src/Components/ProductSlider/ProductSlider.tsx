@@ -22,10 +22,10 @@ const ProductSlider: FC<{ data: IProduct[] }> = ({ data }) => {
         <div>
             <Flex justify='space-between' className={classes.main_head}>
                 <div>
-                    <h1>What do you like today?
+                    <h1>Вам может понравиться
+
                     </h1>
-                    <p>Consectetur numquam poro nemo veniam
-                        eligendi rem adipisci quo modi.
+                    <p>Я никогда никому не прощу решение получить вещь каким-либо образом.
 
                     </p>
                 </div>
@@ -35,7 +35,7 @@ const ProductSlider: FC<{ data: IProduct[] }> = ({ data }) => {
                         <div className="swiper-button-prev"><RightOutlined /></div>
                     </Flex>
                     <Link to={'catalog'}>
-                        <MainBtn title='Full menu' icon={<RightCircleOutlined />} size={55} />
+                        <MainBtn title='меню' icon={<RightCircleOutlined />} size={55} />
                     </Link>
 
                 </Flex>

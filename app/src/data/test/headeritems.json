@@ -1,27 +1,27 @@
 [
     {
         "id": 1,
-        "title": "Home",
+        "title": "Главная",
         "href": "/"
     },
     {
         "id": 2,
-        "title": "Pages",
+        "title": "О нас",
         "href": "/about"
     },
     {
         "id": 3,
-        "title": "Menu",
+        "title": "Меню",
         "href": "/catalog"
     },
     {
         "id": 4,
-        "title": "Shop",
+        "title": "магазин",
         "href": "/shop"
     },
     {
         "id": 5,
-        "title": "Contact",
+        "title": "Контакты",
         "href": "/contact"
     }
 ]

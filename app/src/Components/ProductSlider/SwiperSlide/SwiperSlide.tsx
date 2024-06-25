@@ -1,7 +1,10 @@
 import React from 'react';
-import { Card, Image, Rate } from 'antd';
+import { Button, Card, Flex, Image, Rate, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import classes from './SwiperSlide.module.scss'
+import { addCartItem } from 'store/reducers/cartReduser';
+import { useAppDispatch } from 'store/hook';
+import { RightCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 interface CardType {
@@ -14,6 +17,16 @@ interface CardType {
 }
 const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, rate }) => {
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+    function add() {
+        const data = {
+            quantity: 1,
+            total: +price,
+            cart: Number(localStorage.getItem('cart_id')) as any,
+            product: +id
+        }
+        dispatch(addCartItem({ data: data })).then(() => message.success('товар успешно добвлен '))
+    }
     return (
         <div className={classes.card}>
             <div className={classes.card_block}>
@@ -31,7 +44,14 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
                 {desprition}
             </p>
             <br />
-            <Rate value={rate} />
+            <Flex justify='space-between' align='center'>
+                <div onClick={() => navigate(`/food/${id}`)} className={classes.card_btnn}>
+                    <RightCircleOutlined style={{ fontSize: '20px' }} />
+                </div>
+                <Button onClick={add} type='primary' icon={<ShoppingCartOutlined style={{ fontSize: '20px' }} />}>
+                    Add to cart
+                </Button>
+            </Flex>
 
         </div>
     )

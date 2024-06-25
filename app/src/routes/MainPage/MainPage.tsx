@@ -28,27 +28,27 @@ const MainPage: FC = () => {
     }}>
       <MainBaner />
       <div className={classes.main}>
-        <MiniInfoSection />
+
         <div>
           <SectionHead
             href="shop"
-            title="What do you like today?"
-            despririon="Consectetur numquam poro nemo veniam
-            eligendi rem adipisci quo modi."
-            btn="go to shopping now"
+            title="Что тебе нравится сегодня?"
+            despririon="Я никогда никому не прощу решение получить вещь каким-либо образом."
+            btn="пойти за покупками сейчас"
           />
           <br />
           <MainCategoriesSection />
         </div>
 
         <ProductSlider data={data} />
+        <MiniInfoSection />
         <div>
 
           <SectionHead
             href="about"
             title="Они готовят для вас"
             despririon="Можно сделать вывод, что никто и никогда не захочет получить вещь любыми способами."
-            btn="more about us"
+            btn="подробнее о нас"
           />
           <br /><br />
           <Flex wrap="wrap"   >

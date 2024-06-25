@@ -31,46 +31,41 @@ const MiniInfoSection: FC = () => {
                 <div className={classes.main_left_exp}>
                     <div>
                         <h1>17</h1>
-                        <h2>Years Experiense</h2>
+                        <h2>Многолетний опыт</h2>
                     </div>
                 </div>
             </div>
             <div className={classes.main_rigth}>
-                <h1>We are doing more than
-                    you expect
-                
+                <h1>Мы делаем больше, чем вы ожидаете
                 </h1>
                 <Flex gap={16} className={classes.main_rigth_item}>
                     <h1>01</h1>
                     <div>
                         <h2>
-                            We are located in the city center
+                        Мы находимся в центре города
                         </h2>
                         <h3>
-                            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-                        </h3>
+                        Более того, никто не простит потребности настоящего выбирать вещь в моменты, в которую никогда не попадет.                        </h3>
                     </div>
                 </Flex>
                 <Flex gap={16} className={classes.main_rigth_item}>
                     <h1>02</h1>
                     <div>
                         <h2>
-                            We are located in the city center
+                        Мы находимся в центре города
                         </h2>
                         <h3>
-                            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-                        </h3>
+                        Более того, никто не простит потребности настоящего выбирать вещь в моменты, в которую никогда не попадет.                        </h3>
                     </div>
                 </Flex>
                 <Flex gap={16} className={classes.main_rigth_item}>
                     <h1>03</h1>
                     <div>
                         <h2>
-                            We are located in the city center
+                        Мы находимся в центре города
                         </h2>
                         <h3>
-                            Porro nemo veniam necessitatibus praesentium eligendi rem temporibus adipisci quo modi numquam.
-                        </h3>
+                        Более того, никто не простит потребности настоящего выбирать вещь в моменты, в которую никогда не попадет.                        </h3>
                     </div>
                 </Flex>
             </div>

@@ -11,6 +11,7 @@ const Counter: FC<any> = ({ record }) => {
     }, [])
     function changeQuantity(action: string) {
         setQuantity(prev => {
+
             const newQuantity = action === '-' ? prev - 1 : prev + 1;
             dispatch(updateCartItem({ id: selectedProduct.id, data: { ...selectedProduct, quantity: newQuantity } })).then(() => {
                 dispatch(fetchCartItemById({ id: localStorage.getItem('cart_id') as any }))
@@ -21,10 +22,10 @@ const Counter: FC<any> = ({ record }) => {
         });
     }
     return <div className={"cart_count"}>
-        <div onClick={() => changeQuantity('-')} className={"cart_count_btn"}>-</div>
+        <button disabled={quantity === 1 ? true : false} onClick={() => changeQuantity('-')} className={`cart_count_btn ${quantity === 1 ? 'disabled' : ''}`}>-</button>
         <div className={"cart_count_th"}>{quantity}</div>
-        <div onClick={() => changeQuantity('+')} className={"cart_count_btn"}>+</div>
-    </div>
+        <button onClick={() => changeQuantity('+')} className={"cart_count_btn"}>+</button>
+    </div >
 
 }
 

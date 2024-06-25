@@ -85,7 +85,7 @@ const SingleProduckt: FC = () => {
                 <h3>оставить отзыв</h3>
                 <br />
                 <Protected fallback={<Button type="primary" onClick={showModal}>
-                    Open Modal
+                    войти чтобы оставить отзыв
                 </Button>}>
                     <AddRewue />
                 </Protected>
@@ -118,7 +118,7 @@ const SingleProduckt: FC = () => {
                 <ProductSlider data={data} />
             </div>
 
-            <Modal className='loginMOdal' title="Basic Modal" open={isModalOpen} >
+            <Modal className='loginMOdal' onCancel={() => setIsModalOpen(false)} title="Basic Modal" open={isModalOpen} >
                 <LoginModal close={handleOk} />
             </Modal>
 

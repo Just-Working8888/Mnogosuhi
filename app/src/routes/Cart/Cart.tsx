@@ -11,63 +11,7 @@ import { useNavigate } from "react-router-dom";
 interface CartProps {
 
 }
-const data = [
-    {
-        key: '1',
-        name: {
-            title: 'Product 1',
-            image: 'https://miller.bslthemes.com/starbelly-demo/img/menu/1.jpg',
-            descriptions: 'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design'
-        },
-        price: 50,
-        quantity: 1,
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: {
-            title: 'Product 2',
-            image: 'https://miller.bslthemes.com/starbelly-demo/img/menu/2.jpg',
-            descriptions: 'The Koss Porta Pro is a lightweight, on-ear headphone with a retro design and great sound quality.'
-        },
-        price: 75,
-        quantity: 2,
-        tags: ['cool', 'tech'],
-    },
-    {
-        key: '1',
-        name: {
-            title: 'Product 1',
-            image: 'https://miller.bslthemes.com/starbelly-demo/img/menu/1.jpg',
-            descriptions: 'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design'
-        },
-        price: 50,
-        quantity: 1,
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: {
-            title: 'Product 2',
-            image: 'https://miller.bslthemes.com/starbelly-demo/img/menu/2.jpg',
-            descriptions: 'The Koss Porta Pro is a lightweight, on-ear headphone with a retro design and great sound quality.'
-        },
-        price: 75,
-        quantity: 2,
-        tags: ['cool', 'tech'],
-    },
-    {
-        key: '3',
-        name: {
-            title: 'Product 3',
-            image: 'https://miller.bslthemes.com/starbelly-demo/img/menu/3.jpg',
-            descriptions: 'The Logitech MX Master 3 is a premium wireless mouse with advanced features and ergonomic design.'
-        },
-        price: 100,
-        quantity: 1,
-        tags: ['high-tech', 'office'],
-    },
-];
+
 const Cart: React.FC<CartProps> = () => {
     const dispatch = useAppDispatch()
     const { data } = useAppSelector((state) => state.cart)
@@ -104,25 +48,22 @@ const Cart: React.FC<CartProps> = () => {
                 <div style={{ textAlign: 'right', marginTop: '16px', justifyContent: 'end', display: 'flex' }}>
                     <Card className='checking_cart' >
                         <Flex justify='space-between' align='center'>
-                            <h3>Subtotal:</h3>
+                            <h3>Промежуточный итог:</h3>
                             <p>{totalSum}</p>
                         </Flex>
                         <br />
-                        <Flex justify='space-between' align='center'>
-                            <h4>Estimated shipping:</h4>
-                            <p>999</p>
-                        </Flex>
+               
                         <br />
                         <Flex justify='space-between' align='center'>
-                            <h3>Total:</h3>
+                            <h3>итог:</h3>
                             <p>{totalSum}</p>
                         </Flex>
                         <br />
                         <div className='line'></div>
                         <Flex justify='space-between' align='center'>
                             <Flex align='center' gap={14}>
-                                <div onClick={() => navigate('/shop')} className='cart_to_checkout_btn'><LeftCircleOutlined /></div>
-                                <h4>         Continue shopping</h4>
+                                <div onClick={() => navigate('/catalog')} className='cart_to_checkout_btn'><LeftCircleOutlined /></div>
+                                <h4>        Продолжить покупки</h4>
                             </Flex>
                             <Button onClick={() => navigate('/orders')} type='primary' icon={<UpCircleOutlined />}>
                                 checkout

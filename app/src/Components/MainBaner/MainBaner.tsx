@@ -12,18 +12,14 @@ const MainBaner: FC = () => {
             <div className={classes.main_container}>
                 <div style={{ width: "100%", height: 'fit-content' }}>
                     <Tag>
-                        Hi, new friend!
-                    </Tag>
+                    Привет, новый друг!                    </Tag>
                     <br />
                     <br />
                     <h1>
-                        We do not cook,
-                        we create your
-                        emotions!
+                        Мы не готовим, мы создаем ваши эмоции!
                     </h1>
                     <p>
-                        Consectetur numquam poro nemo veniam
-                        eligendi rem adipisci quo modi.
+                    Я никогда никому не прощу решение получить вещь каким-либо образом.
                     </p>
                     <Flex gap={10} align='center'>
                         <div onClick={() => navigate('/catalog')} className={classes.main_container_btn}>

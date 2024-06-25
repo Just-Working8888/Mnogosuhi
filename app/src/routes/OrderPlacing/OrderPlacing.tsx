@@ -10,6 +10,7 @@ import { fetchAdresses, fetchAdressesById } from "store/reducers/adressesReduser
 import { log } from "console";
 import { createDelivary } from "store/reducers/delivaryReduser";
 import { setAdressTitle } from "store/slices/adressesSlice";
+import MapTest from "Components/Map/TestMap";
 const OrderPlacing: React.FC = () => {
     const [modal, contextHolder] = Modal.useModal();
     const adresses = useAppSelector((state) => state.adresses.data)
@@ -92,7 +93,8 @@ const OrderPlacing: React.FC = () => {
                     <div className={classes.flexConteiner}>
 
                         <Form onFinish={onFinish} name="complex-form" className={classes.left}>
-                            <Map />
+                            {/* <Map /> */}
+                            <MapTest/>
                             <br />
                             <h3>Ваши данные</h3>
                             <Flex gap={16} className={classes.flexForm}>

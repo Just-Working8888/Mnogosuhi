@@ -16,14 +16,13 @@ const MainCategoriesSection: FC = () => {
     const { menuprops } = useAppSelector((state) => state.window)
 
     function Click(id: number) {
+        dispatch(clearData())
         navigate(`/catalog`)
         dispatch(setOffcet(1))
-        dispatch(setCategory(id))
         dispatch(clearData())
-        setTimeout(() => {
-            dispatch(fetchProduct({ filters: formatParams({ menuprops }) }))
-        }, 100)
-
+        dispatch(setCategory(id))
+      
+  
     }
     return (
         <div className={classes.main}>
