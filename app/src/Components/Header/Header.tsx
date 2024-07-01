@@ -199,7 +199,7 @@ const HeaderComponent: React.FC = () => {
                 <div className={classes.header_cart}>
 
 
-                    {currentPath.includes('menu') && currentPath.includes('tablebiling') ? <div onClick={() => setOpen3(true)} className={classes.header_cart_icon}>
+                    {currentPath.includes('menu') || currentPath.includes('tablebiling') ? <div onClick={() => setOpen3(true)} className={classes.header_cart_icon}>
                         <Badge count={tableCart.items.length} offset={[15, -10]} >
                             <FormOutlined style={{ fontSize: '20px' }} />
                         </Badge>

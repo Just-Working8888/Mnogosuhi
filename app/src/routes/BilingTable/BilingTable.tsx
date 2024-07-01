@@ -59,7 +59,7 @@ const BilingTable: React.FC = () => {
 
     return (
         <>
-            <BreadCrumps title='Ваш стол.' hrefs={[{ label: 'Главная', href: '/' }, { label: 'Стол', href: `/table/${id}` }, { label: 'заказ', href: `/tablebiling/${id}` }]} />
+            <BreadCrumps title={`Ваш стол ${table.number}`} hrefs={[{ label: 'Главная', href: '/' }, { label: 'Стол', href: `/table/${id}` }, { label: 'заказ', href: `/tablebiling/${id}` }]} />
             <section className={classes.order}>
 
                 <div className={classes.conteiner}>
