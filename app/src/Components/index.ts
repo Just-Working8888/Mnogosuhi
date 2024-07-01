@@ -32,6 +32,7 @@ import FAQItem from "./FAQItem/FAQItem"
 import OrderProducts from "./OrderProducts/OrderProducts"
 import LoginModal from "./LoginModal/LoginModal"
 import Map from "./Map/Map"
+import ScrollToTop from "./ScrollToTop/ScrolToTop"
 export {
     HeaderComponent,
     Login,
@@ -67,5 +68,6 @@ export {
     OrderProducts,
     LoginModal,
     Map,
+    ScrollToTop
 }
 

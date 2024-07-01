@@ -35,7 +35,7 @@ const FooterComponent: FC = () => {
 
 
                 <div className={classes.header_cart}>
-                    © late 2021 Codex. All Rights Reserved.
+                    ©  2023 - 2024 Codex.  Все права защищены.
                 </div>
             </nav>
         </footer>

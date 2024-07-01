@@ -64,7 +64,7 @@ const LoginModal: React.FC<{ close: Function }> = ({ close }) => {
                     name="username"
                     rules={[{ required: true, message: 'Please input your Username!' }]}
                 >
-                    <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                    <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Имя пользователья" />
                 </Form.Item>
                 <Form.Item
                     name="password"
@@ -73,20 +73,20 @@ const LoginModal: React.FC<{ close: Function }> = ({ close }) => {
                     <Input
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type="password"
-                        placeholder="Password"
+                        placeholder="пароль"
                     />
                 </Form.Item>
                 <Form.Item>
                     <div className={classes.formBlock}>
                         <div>
                             <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Remember me</Checkbox>
+                                <Checkbox>Запомнить меня</Checkbox>
                             </Form.Item>
                         </div>
 
                         <div>
                             <a className="login-form-forgot" href="#/">
-                                Forgot password
+                                Забыл пароль
                             </a>
                         </div>
                     </div>
@@ -94,9 +94,9 @@ const LoginModal: React.FC<{ close: Function }> = ({ close }) => {
 
                 <Form.Item>
                     <Button loading={loading} type="primary" htmlType="submit" className="login-form-button" block>
-                        Log in
+                        Войти
                     </Button>
-                    Or <a href="#/"> <Link to={'/signUp'}>register now!</Link></a>
+                    или <a href="#/"> <Link to={'/signUp'}>зарегистрироваться сейчас!</Link></a>
                 </Form.Item>
             </Form>
         </div>

@@ -15,7 +15,12 @@ const BreadCrumps: FC<Props> = ({ title, hrefs }) => {
             <div className={classes.main_container}>
                 <h1>{title}</h1>
                 <div className={classes.main_container_btn}>
-                    {hrefs.map((href) => <><Link to={href.href}>{href.label}</Link> /</>)}
+                    {hrefs.map((href, index) => (
+                        <React.Fragment key={href.href}>
+                            <Link to={href.href}>{href.label}</Link>
+                            {index < hrefs.length - 1 && <span>ㅤ/ㅤ</span>}
+                        </React.Fragment>
+                    ))}
                 </div>
             </div>
         </div>

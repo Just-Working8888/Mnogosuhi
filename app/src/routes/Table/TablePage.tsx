@@ -63,7 +63,7 @@ const TablePage: FC = () => {
                             menuprops.category === 0
                                 ? 'primary'
                                 : 'default'}>
-                        все
+                        Все
                     </Button>
                     {data.results
                         .slice(0, all === false ? 6 : data.results.length)

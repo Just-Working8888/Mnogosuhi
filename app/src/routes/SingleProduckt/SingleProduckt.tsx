@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import classes from './SingleProduckt.module.scss'
 import { Button, Flex, Modal, Typography } from 'antd'
-import { AddRewue, BreadCrumps, LoginModal, Slides } from 'Components'
+import { AddRewue, BreadCrumps, LoginModal, ScrollToTop, Slides } from 'Components'
 import Productinfo from 'Components/Producktinfo/Productinfo'
 import RewievCard from 'Components/RewievCard/RewievCard'
 import ProductSlider from 'Components/ProductSlider/ProductSlider'
@@ -12,15 +12,15 @@ import Protected from 'routes/Protected/Protected'
 const tabItems = [
     {
         id: 0,
-        title: "Ingridients",
+        title: "Ингредиенты",
     },
     {
         id: 1,
-        title: "Deteil",
+        title: "Детально",
     },
     {
         id: 2,
-        title: "Rewue",
+        title: "Отзывы",
     }
 ]
 
@@ -48,7 +48,7 @@ const SingleProduckt: FC = () => {
     useEffect(() => {
         dispatch(fetchProductPromo({}))
         dispatch(fetchProductByID({ id: Number(id) }))
-    }, [])
+    }, [id])
     const tabs = [
         {
             id: 0,
@@ -95,7 +95,8 @@ const SingleProduckt: FC = () => {
     ]
     return (
         <>
-            <BreadCrumps title='Online shop' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: product.title, href: '/food' + product.id }]} />
+        <ScrollToTop/>
+            <BreadCrumps title={product.title} hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: product.title, href: '/food' + product.id }]} />
             <div className={classes.main}>
                 <br /><br />
                 <Productinfo />
@@ -118,7 +119,7 @@ const SingleProduckt: FC = () => {
                 <ProductSlider data={data} />
             </div>
 
-            <Modal className='loginMOdal' onCancel={() => setIsModalOpen(false)} title="Basic Modal" open={isModalOpen} >
+            <Modal className='loginMOdal' onCancel={() => setIsModalOpen(false)} title="" open={isModalOpen} >
                 <LoginModal close={handleOk} />
             </Modal>
 
