@@ -36,7 +36,7 @@ function App() {
         <Route path='shop' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><Shop /></Suspense>} />
         <Route path='catalog' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><Menu /></Suspense>} />
         <Route path='faq' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><FAQ /></Suspense>} />
-        <Route path='table/:id' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><TablePage /></Suspense>} />
+        <Route path='menu/:id' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><TablePage /></Suspense>} />
         <Route path='tablebiling/:id' element={<Suspense fallback={<Spin spinning={true} fullscreen />}><BilingTable /></Suspense>} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />

@@ -36,7 +36,7 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
                 <div className={classes.card_block_title}>
                     <h1>{title}</h1>
                     <div className={classes.card_block_title_price}>
-                        <span>c</span>{price}
+                        <span></span>{price}
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
                     <RightCircleOutlined style={{ fontSize: '20px' }} />
                 </div>
                 <Button onClick={add} type='primary' icon={<ShoppingCartOutlined style={{ fontSize: '20px' }} />}>
-                    Add to cart
+            В корзину
                 </Button>
             </Flex>
 

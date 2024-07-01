@@ -119,7 +119,7 @@ const Productinfo: FC = () => {
                     <Button onClick={add} disabled={isDisabled} type='primary'>
                         <Flex gap={16}>
                             <ShoppingCartOutlined style={{ fontSize: 24 }} />
-                            Add to cart
+                    В корзину
                         </Flex>
                     </Button>
                 </Flex>

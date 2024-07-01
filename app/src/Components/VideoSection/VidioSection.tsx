@@ -11,9 +11,9 @@ const VideoSection: FC = () => {
         <div className={classes.main}>
             <div className={classes.main_container}>
                 <div style={{ width: "100%", height: 'fit-content' }}>
-                    <Tag>
+                    {/* <Tag>
                         Promo video
-                    </Tag>
+                    </Tag> */}
                     <br />
                     <br />
                     <h1>
