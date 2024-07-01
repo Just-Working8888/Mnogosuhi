@@ -50,7 +50,7 @@ const CartTable: React.FC = () => {
 
     const columns: TableProps<any>['columns'] = [
         {
-            title: 'Product',
+            title: 'Продукт',
             dataIndex: 'name',
             key: 'name',
             render: (text, record) => {
@@ -67,7 +67,7 @@ const CartTable: React.FC = () => {
             }
         },
         {
-            title: 'Quantity',
+            title: 'Количество',
             dataIndex: 'quantity',
             key: 'quantity',
             render: (text, record) => <Counter record={record} />
@@ -77,13 +77,13 @@ const CartTable: React.FC = () => {
             key: '',
         },
         {
-            title: 'Price',
+            title: 'Цена',
             dataIndex: 'price',
             key: 'price',
             render: (text, record) => `$${record.product.price}`,
         },
         {
-            title: 'Total',
+            title: 'Итого',
             key: 'total',
             render: (text, record) => {
                 console.log(record, text, 'fdsfd');

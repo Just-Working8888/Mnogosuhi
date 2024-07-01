@@ -26,11 +26,11 @@ const CartRow: FC<Props> = ({ title, desption, image, price, quanty, item }) => 
             <Flex align='center' justify='space-between'>
                 <Counter record={item} />
                 <div>
-                    Price: $ {price}
+                   Цена {price}
                 </div>
                 <div>
                     <b>
-                        Total:   {quanty * price}
+                        Итого:   {quanty * price}
                     </b>
                 </div>
             </Flex>
