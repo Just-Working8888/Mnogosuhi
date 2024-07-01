@@ -66,7 +66,7 @@ const Cart: React.FC<CartProps> = () => {
                                 <h4>        Продолжить покупки</h4>
                             </Flex>
                             <Button onClick={() => navigate('/orders')} type='primary' icon={<UpCircleOutlined />}>
-                                checkout
+                                Оформить
                             </Button>
                         </Flex>
 
