@@ -28,7 +28,7 @@ const ProductTableCard: React.FC<CardType> = ({ image, title, id, price, desprit
             product: +id
         }
         dispatch(addTableOrderItem({ data: data })).then(() => {
-            message.success('товар успешно добавлен в корзину стола')
+            message.success('Товар успешно добвлен')
         })
     }
     return (

@@ -26,7 +26,7 @@ const Productinfo: FC = () => {
             product: Number(id)
         }
         dispatch(addCartItem({ data: dataa }))
-            .then(() => message.success('товар успешно удален из корзины'))
+            .then(() => message.success('Товар успешно добвлен'))
             .then(() => dispatch(fetchProductByID({ id: Number(id) })))
 
         setIsDisabled(true)

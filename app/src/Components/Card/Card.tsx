@@ -26,7 +26,7 @@ const ProduckCard: React.FC<CardType> = ({ image, title, id, price, desprition, 
             cart: Number(localStorage.getItem('cart_id')) as any,
             product: +id
         }
-        dispatch(addCartItem({ data: data })).then(() => message.success('товар успешно добвлен '))
+        dispatch(addCartItem({ data: data })).then(() => message.success('Товар успешно добвлен '))
     }
     return (
         <div className={classes.card}>
