@@ -80,7 +80,7 @@ const CartTable: React.FC = () => {
             title: 'Цена',
             dataIndex: 'price',
             key: 'price',
-            render: (text, record) => `$${record.product.price}`,
+            render: (text, record) => `${record.product.price}`,
         },
         {
             title: 'Итого',
