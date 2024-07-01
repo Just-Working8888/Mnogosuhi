@@ -33,14 +33,14 @@ const SwiperItem: React.FC<CardType> = ({ image, title, id, price, desprition, r
                 <div className={classes.card_block_image}>
                     <Image width={"100%"} style={{ objectFit: "cover" }} height={270} src={image} />
                 </div>
-                <div className={classes.card_block_title}>
+                <div  onClick={() => navigate(`/food/${id}`)} className={classes.card_block_title}>
                     <h1>{title}</h1>
                     <div className={classes.card_block_title_price}>
                         <span></span>{price}
                     </div>
                 </div>
             </div>
-            <p>
+            <p  onClick={() => navigate(`/food/${id}`)}>
                 {desprition}
             </p>
             <br />
