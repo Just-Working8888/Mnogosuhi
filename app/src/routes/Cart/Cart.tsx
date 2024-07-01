@@ -27,7 +27,7 @@ const Cart: React.FC<CartProps> = () => {
     }, [])
     return (
         <>
-            <BreadCrumps title='Your order..' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'cart', href: '/cart' }]} />
+            <BreadCrumps title='Корзина' hrefs={[{ label: 'Home', href: '/' }, { label: 'Shop', href: '/shop' }, { label: 'cart', href: '/cart' }]} />
             <div className={classes.main}>
                 <div className={classes.main_desk}>
                     <CartTable />
