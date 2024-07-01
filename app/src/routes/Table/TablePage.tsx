@@ -48,7 +48,7 @@ const TablePage: FC = () => {
 
     return (
         <>
-            <BreadCrumps title={`Mnogosushi стол ${table.title}.`} hrefs={[{ label: 'Home', href: '/' }, { label: 'Стол', href: `/table/${id}` },]} />
+            <BreadCrumps title={`Mnogosushi стол ${table.title}.`} hrefs={[{ label: 'Главная', href: '/' }, { label: ' Стол ', href: `/table/${id}` },{ label: `${id}`, href: `/table/${id}` }]} />
             <div className={classes.main}>
                 <br />
                 <Flex gap={15} wrap='wrap'>

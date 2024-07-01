@@ -261,7 +261,7 @@ const HeaderComponent: React.FC = () => {
                 </div>
             </Drawer>
             <Drawer
-                title={`Table`}
+                title={`Стол`}
                 placement="right"
                 onClose={() => setOpen3(false)}
                 size={'large'}
@@ -271,18 +271,18 @@ const HeaderComponent: React.FC = () => {
                         <Button onClick={() => {
                             setOpen(false)
                             navigate(`/tablebiling/${id}`)
-                        }} >Checkout</Button>
+                        }} >Оформить</Button>
                     </Flex>
                 }
                 extra={
                     <Space>
-                        <Button onClick={() => setOpen3(false)}>Cancel</Button>
+                        <Button onClick={() => setOpen3(false)}>Назад</Button>
                     </Space>
                 }
             >
 
                 <div className={classes.header_cartItems}>
-                    <h3>your order</h3>
+                    <h3>Ваш стол</h3>
                     {
                         tableCart?.items?.map((item: any) => <SmailCartItem title={item.product.title} image={item?.product.iiko_image} price={item?.product.price} />)
                     }
